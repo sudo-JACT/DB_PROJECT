@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  web:
+  
+    image: php:8.2-apache
+    
+    container_name: apache
+    
+    ports:
+      - "8080:80"
+    
+    volumes:
+      - /home/imdonkey/Projects/php:/var/www/html
+    
+    command: sh -c "docker-php-ext-install mysqli && apache2-foreground"
+  
+    environment:
+      - APACHE_RUN_USER=www-data
+      - APACHE_RUN_GROUP=www-data
+
+    networks:
+       - dbs
+
+
+networks:
+  dbs:
+    external: true
+
