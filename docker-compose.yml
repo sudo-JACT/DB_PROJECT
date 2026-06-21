@@ -4,7 +4,7 @@ services:
 
   dbms:
     
-    image: maridb:latest
+    image: mariadb:latest
 
     container_name: mariadb 
     
