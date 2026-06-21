@@ -1,6 +1,30 @@
 version: '3.8'
 
 services:
+
+  dbms:
+    
+    image: maridb:latest
+
+    container_name: mariadb 
+    
+    restart: 'always'
+
+    ports:
+      - "3306:3306"
+    
+    volumes:
+      - "/var/lib/mysql/data:${MARIADB_DATA_DIR}"
+      - "/var/lib/mysql/logs:${MARIADB_LOG_DIR}"
+      - /var/docker/mariadb/conf:/etc/mysql
+    
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+
+
   web:
   
     image: php:8.2-apache
@@ -19,11 +43,5 @@ services:
       - APACHE_RUN_USER=www-data
       - APACHE_RUN_GROUP=www-data
 
-    networks:
-       - dbs
-
-
-networks:
-  dbs:
-    external: true
-
+    depends_on:
+      - dbms
