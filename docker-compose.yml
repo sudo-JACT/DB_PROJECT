@@ -32,7 +32,7 @@ services:
     container_name: apache
     
     ports:
-      - "8080:80"
+      - "8888:80"
     
     volumes:
       - /home/imdonkey/Projects/php:/var/www/html
@@ -45,3 +45,19 @@ services:
 
     depends_on:
       - dbms
+
+
+  web_gui:
+
+    image: adminer:latest
+    
+    container_name: web_gui
+    
+    restart: 'always'
+
+    ports:
+      - 8080:8080
+
+    depends_on:
+      - dbms
+
