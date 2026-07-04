@@ -28,7 +28,7 @@ CREATE TABLE `album` (
   `publication_date` date DEFAULT NULL,
   `image_path` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +37,8 @@ CREATE TABLE `album` (
 
 LOCK TABLES `album` WRITE;
 /*!40000 ALTER TABLE `album` DISABLE KEYS */;
+INSERT INTO `album` VALUES
+(1,'From Mars to Sirius','2005-09-27','./imgs/albums/from_mars_to_sirius.jpg');
 /*!40000 ALTER TABLE `album` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -216,6 +218,32 @@ LOCK TABLES `song` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `soundlike`
+--
+
+DROP TABLE IF EXISTS `soundlike`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `soundlike` (
+  `album_id` int(11) DEFAULT NULL,
+  `genre_id` int(11) DEFAULT NULL,
+  KEY `album_id` (`album_id`),
+  KEY `genre_id` (`genre_id`),
+  CONSTRAINT `1` FOREIGN KEY (`album_id`) REFERENCES `album` (`id`),
+  CONSTRAINT `2` FOREIGN KEY (`genre_id`) REFERENCES `genre` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `soundlike`
+--
+
+LOCK TABLES `soundlike` WRITE;
+/*!40000 ALTER TABLE `soundlike` DISABLE KEYS */;
+/*!40000 ALTER TABLE `soundlike` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user`
 --
 
@@ -230,7 +258,7 @@ CREATE TABLE `user` (
   `bday` date NOT NULL,
   `image_path` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -239,6 +267,8 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES
+(1,'imdonkey','*91D9861DFC07DD967611B8C96953474EF270AD5E','lol@lmao.com','2005-05-14','./imgs/users/imdonkey.jpeg');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -251,4 +281,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-04 16:17:08
+-- Dump completed on 2026-07-04 17:11:17

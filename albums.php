@@ -3,7 +3,7 @@
     $username = "root";
     $password = "root";
     $dbname = "proddb";
-    
+
     $title = "DiscPeffo"; 
 
 ?>
@@ -22,21 +22,22 @@
         <script src="./js/script.js"></script>
         <title><?php echo $title ?></title>
 
+
     </head>
 
     <body>
-        
+
         <?php
 
             include_once("./template.php");
             navbar();
 
         ?>
-    
-        <div class="title">
-            <h1><?php echo $title ?></h1>
-        </div>
 
+
+        <div class="title">
+            <h1>ALBUMS</h1>
+        </div>
 
         <?php
 

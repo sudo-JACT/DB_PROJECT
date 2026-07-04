@@ -3,8 +3,10 @@
     $username = "root";
     $password = "root";
     $dbname = "proddb";
-    
+
     $title = "DiscPeffo"; 
+
+
 
 ?>
 
@@ -22,19 +24,21 @@
         <script src="./js/script.js"></script>
         <title><?php echo $title ?></title>
 
+
     </head>
 
     <body>
-        
+
         <?php
 
             include_once("./template.php");
             navbar();
 
         ?>
-    
+
+ 
         <div class="title">
-            <h1><?php echo $title ?></h1>
+            <h1>ARTISTS</h1>
         </div>
 
 
@@ -57,7 +61,7 @@
 
             try {
 
-                $sql = "SELECT a.name as name, a.image_path as image_path, b.name as bname FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id";
+                $sql = "SELECT name, image_path FROM band";
              
                 $result = $conn->query($sql);
                
@@ -71,8 +75,6 @@
                         echo "<img src='".$row['image_path']."' class='figure-img img-fluid rounded' alt=".$row['name'].">";
                         echo "<figcaption class='figure-caption text-center text-neon-w'>".$row['name']."</figcaption>";
                         echo "</figure>";
-                        echo "<br/>";
-                        echo "<text class='text-neon'>".$row['bname']."</text>";
                         echo "</div>";
                 
                     }

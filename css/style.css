@@ -1,14 +1,109 @@
-div {
+:root {
 
-    color: red;
-    background-color: black;
+    --bg-base: #050505;
+    --bg-surface: #121212;
+    --bg-surface-alt: #1c1c1c;
+
+    --text-primary: #f5f5f5;
+    --text-secondary: #888888;
+
+    --neon-yellow: #dfff00;
+    --neon-yellow-alt: #bfff00;
+    --neon-yellow-dim: rgba(223, 255, 0, 0.15);
+
+
+    --glow-text: 0 0 4px rgba(223, 255, 0, 0.8), 
+                0 0 12px rgba(223, 255, 0, 0.6), 
+                0 0 22px rgba(223, 255, 0, 0.4);
+
+    --glow-box: 0 0 10px rgba(223, 255, 0, 0.2), 
+                0 0 20px rgba(223, 255, 0, 0.1), 
+                inset 0 0 15px rgba(223, 255, 0, 0.05);
 
 }
 
-/*img {
+body {
 
-    width: 500px;
-    height: 500px;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: sans-serif;
+
+}
+
+.text-neon {
+
+    color: var(--neon-yellow);
+    text-shadow: var(--glow-text);
+
+}
+
+.text-neon-w {
+
+    color: var(--text-primary);
+    text-shadow: var(--glow-text);
+
+}
+
+
+.btn-neon {
+
+    background-color: transparent;
+    color: var(--neon-yellow);
+    border: 2px solid var(--neon-yellow);
+    padding: 10px 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: var(--glow-box);
+    transition: all 0.3s ease-in-out;
+
+}
+
+.btn-neon:hover {
+
+    background-color: var(--neon-yellow);
+    color: var(--bg-base);
+    box-shadow: 0 0 15px var(--neon-yellow), 0 0 30px var(--neon-yellow);
+    text-shadow: none;
+
+}
+
+.card-dark {
+
+    background-color: var(--bg-surface);
+    border: 1px solid var(--bg-surface-alt);
+    border-radius: 8px;
+    padding: 20px;
+
+}
+
+.border-neon {
+
+    border-color: var(--neon-yellow);
+
+}
+
+.album {
+
+    padding: 20px;
+    display: inline-block;
+    text-align: center;
+
+}
+
+.title {
+
+    text-align: center;
+    color: var(--neon-yellow);
+
+}
+
+
+
+img {
+
+    width: 250px;
+    height: 250px;
     object-fit: cover;
 
-}*/
+}
