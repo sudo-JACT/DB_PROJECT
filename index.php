@@ -1,11 +1,23 @@
-<?php 
+<?php
+    $servername = "mariadb";
+    $username = "root";
+    $password = "root";
+    $dbname = "proddb";
 
-    $title="TEST";
-    $string="Sono Mario Sturniolo mi piace la pasta";
 
-    $test = @mysqli_connect('test_373851', 'root', 'root', 'test_373851');
-
-    $lol = mysqli_query($test, "select nome from STUDENTE where matricola=221221");
+    try {
+ 
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+ 
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+ 
+        echo "Connected successfully";
+ 
+    } catch(PDOException $e) {
+ 
+        echo "Connection failed: " . $e->getMessage();
+ 
+    }
 ?>
 
 <!DOCTYPE html>
@@ -30,9 +42,7 @@
 
                 <?php 
                 
-                    echo $string;
                     echo " "; 
-                    echo strlen($string);
                 
                 ?>
 
@@ -42,7 +52,6 @@
 
         <a href="./test.php", target="_blank">ES 2b</a>
 
-        <?php echo $lol ?>
 
     </body>
 
