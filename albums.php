@@ -4,7 +4,7 @@
     $password = "root";
     $dbname = "proddb";
 
-    $title = "DiscPeffo"; 
+    $title = "DiscPeffog"; 
 
 ?>
 
