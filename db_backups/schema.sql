@@ -59,3 +59,10 @@ create table ispartof (
     FOREIGN KEY (album_id) REFERENCES album(id),
     FOREIGN KEY (song_id) REFERENCES song(id)
 );
+
+create table soundlike (
+    album_id int,
+    genre_id int,
+    FOREIGN key (album_id) REFERENCES album(id),
+    FOREIGN key (genre_id) REFERENCES genre(id)
+);
