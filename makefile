@@ -16,5 +16,10 @@ stop:
 
 restart:
 	make stop
-
+	sleep 5
 	make start
+
+
+restore:
+	rm ./db_backups/data-dump.sql
+	mv ./db_backups/data-dump.sql.old ./db_backups/data-dump.sql

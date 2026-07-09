@@ -38,10 +38,10 @@ CREATE TABLE `album` (
 LOCK TABLES `album` WRITE;
 /*!40000 ALTER TABLE `album` DISABLE KEYS */;
 INSERT INTO `album` VALUES
-(1,'From Mars to Sirius','2005-09-27','./imgs/albums/from_mars_to_sirius.jpg'),
-(2,'The Way of All Flesh','2008-10-13','./imgs/albums/the_way_of_all_flesh.jpg'),
-(3,'Lateralus','2001-05-15','./imgs/albums/lateralus.jpeg'),
-(4,'Meta','2016-10-28','./imgs/albums/meta.jpg');
+(1,'From Mars to Sirius','2005-09-27','../imgs/albums/from_mars_to_sirius.jpg'),
+(2,'The Way of All Flesh','2008-10-13','../imgs/albums/the_way_of_all_flesh.jpg'),
+(3,'Lateralus','2001-05-15','../imgs/albums/lateralus.jpeg'),
+(4,'Meta','2016-10-28','../imgs/albums/meta.jpg');
 /*!40000 ALTER TABLE `album` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,9 +93,9 @@ CREATE TABLE `band` (
 LOCK TABLES `band` WRITE;
 /*!40000 ALTER TABLE `band` DISABLE KEYS */;
 INSERT INTO `band` VALUES
-(1,'Gojira','1996-01-01','./imgs/bands/gojira.jpg'),
-(2,'TOOL','1990-01-01','./imgs/bands/tool.webp'),
-(3,'Car Bomb','2000-01-01','./imgs/bands/carbomb.jpg');
+(1,'Gojira','1996-01-01','../imgs/bands/gojira.jpg'),
+(2,'TOOL','1990-01-01','../imgs/bands/tool.webp'),
+(3,'Car Bomb','2000-01-01','../imgs/bands/carbomb.jpg');
 /*!40000 ALTER TABLE `band` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -269,8 +269,9 @@ CREATE TABLE `user` (
   `email` text NOT NULL,
   `bday` date NOT NULL,
   `image_path` text DEFAULT NULL,
+  `isadmin` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -280,7 +281,8 @@ CREATE TABLE `user` (
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` VALUES
-(1,'imdonkey','*91D9861DFC07DD967611B8C96953474EF270AD5E','lol@lmao.com','2005-05-14','./imgs/users/imdonkey.jpeg');
+(1,'imdonkey','*91D9861DFC07DD967611B8C96953474EF270AD5E','lol@lmao.com','2005-05-14','./imgs/users/imdonkey.jpeg',1),
+(2,'Bonz','*843A962C2755BDD6B4E4EBE0CD7CCF30B3381D23','idk@gmail.com','2000-01-01','./imgs/users/bonza.jpeg',1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -293,4 +295,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-04 19:08:23
+-- Dump completed on 2026-07-09 22:23:32

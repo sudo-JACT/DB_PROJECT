@@ -1,15 +1,3 @@
-<?php
-    $servername = "mariadb";
-    $username = "root";
-    $password = "root";
-    $dbname = "proddb";
-
-    $title = "DiscPeffog"; 
-
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,46 +5,33 @@
     <?php
 
        include_once("./template.php");
-       head();
+       head(false);
 
     ?>
-
 
     <body>
 
         <?php
 
-            include_once("./template.php");
-            navbar();
+            navbar(false);
 
         ?>
 
- 
-        <div class="title">
-            <h1>ARTISTS</h1>
-        </div>
 
+        <div class="title">
+            <h1>ALBUMS</h1>
+        </div>
 
         <?php
 
-            try {
-        
-                $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-        
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
-        
-            } catch(PDOException $e) {
-        
-                echo "Connection failed: " . $e->getMessage();
-        
-            }
+            $conn = connect_db();
+
 
             echo "<div class='card-dark'>";
 
             try {
 
-                $sql = "SELECT name, image_path FROM band";
+                $sql = "SELECT a.name as name, a.image_path as image_path, a.id as id, b.name as bname FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id";
              
                 $result = $conn->query($sql);
                
@@ -67,9 +42,11 @@
                         
                         echo "<div class='album'>"; 
                         echo "<figure class='figure border-noen'>";
-                        echo "<img src='".$row['image_path']."' class='figure-img img-fluid rounded' alt=".$row['name'].">";
+                        echo "<img src='".$row['image_path']."' class='figure-img img-fluid rounded' alt=".$row['name']."-".$row['id'].">";
                         echo "<figcaption class='figure-caption text-center text-neon-w'>".$row['name']."</figcaption>";
                         echo "</figure>";
+                        echo "<br/>";
+                        echo "<text class='text-neon'>".$row['bname']."</text>";
                         echo "</div>";
                 
                     }
