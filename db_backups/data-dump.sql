@@ -28,7 +28,7 @@ CREATE TABLE `album` (
   `publication_date` date DEFAULT NULL,
   `image_path` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,8 @@ INSERT INTO `album` VALUES
 (1,'From Mars to Sirius','2005-09-27','../imgs/albums/from_mars_to_sirius.jpg'),
 (2,'The Way of All Flesh','2008-10-13','../imgs/albums/the_way_of_all_flesh.jpg'),
 (3,'Lateralus','2001-05-15','../imgs/albums/lateralus.jpeg'),
-(4,'Meta','2016-10-28','../imgs/albums/meta.jpg');
+(4,'Meta','2016-10-28','../imgs/albums/meta.jpg'),
+(5,'Turbe Sarde','2023-12-15','../imgs/albums/turbe-sarde.webp');
 /*!40000 ALTER TABLE `album` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,7 +59,7 @@ CREATE TABLE `artist` (
   `bday` date DEFAULT NULL,
   `image_path` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,6 +68,8 @@ CREATE TABLE `artist` (
 
 LOCK TABLES `artist` WRITE;
 /*!40000 ALTER TABLE `artist` DISABLE KEYS */;
+INSERT INTO `artist` VALUES
+(1,'Dario Moccia','1990-08-29','../imgs/artists/dario-moccia.jpg_large');
 /*!40000 ALTER TABLE `artist` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,7 +86,7 @@ CREATE TABLE `band` (
   `creation_date` date NOT NULL,
   `image_path` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +98,8 @@ LOCK TABLES `band` WRITE;
 INSERT INTO `band` VALUES
 (1,'Gojira','1996-01-01','../imgs/bands/gojira.jpg'),
 (2,'TOOL','1990-01-01','../imgs/bands/tool.webp'),
-(3,'Car Bomb','2000-01-01','../imgs/bands/carbomb.jpg');
+(3,'Car Bomb','2000-01-01','../imgs/bands/carbomb.jpg'),
+(4,'Dario Moccia','1990-08-29','../imgs/artists/dario-moccia.jpeg');
 /*!40000 ALTER TABLE `band` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -201,7 +205,8 @@ INSERT INTO `published` VALUES
 (1,1),
 (1,2),
 (3,4),
-(2,3);
+(2,3),
+(4,5);
 /*!40000 ALTER TABLE `published` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -295,4 +300,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-09 22:24:25
+-- Dump completed on 2026-07-10 19:47:13

@@ -6,7 +6,7 @@
 
 function head($index) {
 
-    if (!isset($_SESSION['title'])) {
+    if (!session_checker()) {
 
         session_init();
 
@@ -101,7 +101,7 @@ function navbar($index) {
 
 function session_init() {
 
-    if(session_status() === PHP_SESSION_NONE) {
+    if(session_checker()) {
 
         session_start();
 
@@ -119,14 +119,14 @@ function session_init() {
 
 function session_checker(): bool {
 
-    if (isset($_SESSION['JWT'])) {
+    if (session_status() === PHP_SESSION_NONE) {
 
-        return true;
+        return false;
 
     }
 
     
-    return false;
+    return true;
 
 }
 

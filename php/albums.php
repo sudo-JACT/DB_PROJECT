@@ -4,8 +4,9 @@
 
     <?php
 
-       include_once("./template.php");
-       head(false);
+        include_once("./template.php");
+
+        head(false);
 
     ?>
 
@@ -40,9 +41,9 @@
                 
                     while($row = $result->fetch()) {
                         
-                        echo "<div class='album'>"; 
+                        echo "<div class='album foto'>"; 
                         echo "<figure class='figure border-noen'>";
-                        echo "<img src='".$row['image_path']."' class='figure-img img-fluid rounded' alt=".$row['name']."-".$row['id'].">";
+                        echo "<img src='".$row['image_path']."' class='figure-img img-fluid rounded foto' alt=".$row['name']."-".$row['id'].">";
                         echo "<figcaption class='figure-caption text-center text-neon-w'>".$row['name']."</figcaption>";
                         echo "</figure>";
                         echo "<br/>";

@@ -64,7 +64,7 @@
                 
                     while($row = $result->fetch()) {
                         
-                        echo "<div class='album'>"; 
+                        echo "<div class='album foto'>"; 
                         echo "<figure class='figure border-noen'>";
                         echo "<img src='".$row['image_path']."' class='figure-img img-fluid rounded' alt=".$row['name'].">";
                         echo "<figcaption class='figure-caption text-center text-neon-w'>".$row['name']."</figcaption>";
