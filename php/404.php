@@ -1,9 +1,15 @@
+<?php
+
+    include_once("./template.php");
+    session_checker();
+?>
+
+
 <html lang="en">
 
     <?php
 
-       include_once("./template.php");
-       head();
+       head(false);
 
     ?>
 
@@ -12,8 +18,7 @@
 
         <?php
 
-            include_once("./template.php");
-            navbar();
+            navbar(false);
 
         ?>
 

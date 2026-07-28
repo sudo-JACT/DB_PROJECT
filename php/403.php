@@ -2,19 +2,10 @@
 
     include_once("./template.php");
     session_checker();
-
-    if (!isadmin()) {
-
-        header('Location: /php/403.php'); 
-
-    }
-
 ?>
 
 
-<!DOCTYPE html>
 <html lang="en">
-
 
     <?php
 
@@ -22,7 +13,7 @@
 
     ?>
 
-
+    
     <body>
 
         <?php
@@ -31,22 +22,21 @@
 
         ?>
 
+
+
         <?php
-            
-            echo "LOL";
+
+            http_response_code(403);
+
+            echo "<div class='title'>";
+            echo "<h1>403 ERROR</h1>";
+            echo "</div>";
+
 
         ?>
- 
-
 
 
     </body>
-
-    <?php
-
-        footer();
-
-    ?>
 
 </html>
 
