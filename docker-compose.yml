@@ -33,7 +33,7 @@ services:
       - "8888:80"
     
     volumes:
-      - /home/imdonkey/Projects/db_project/:/var/www/html
+      - ${VOLUME}:/var/www/html
     
     command: sh -c "docker-php-ext-install mysqli pdo pdo_mysql && apache2-foreground"
   
