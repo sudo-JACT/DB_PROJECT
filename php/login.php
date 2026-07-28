@@ -3,9 +3,14 @@
     include_once("./template.php");
 
 
-    if (!session_checker()) {
+    if (session_checker()) {
 
-        session_init();
+        header('Location: '.'/'); 
+
+        //manda alla home 
+
+
+    } else {
 
         head(false);
 
@@ -14,6 +19,8 @@
 
 
         if (cookie_checker()) {
+
+            echo $_SESSION['id'];
 
             echo "<form class='mb-3 row' action='./access.php' method='post'>
     
@@ -61,11 +68,7 @@
 
         }
 
-    } else {
 
-        header('Location: '.'/'); 
-
-        //manda alla home 
 
     }
     

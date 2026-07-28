@@ -2,11 +2,7 @@
 
     include_once("./php/template.php");
 
-    if (!session_checker()) {
-
-        session_init();
-
-    }
+    session_checker()
 
 ?>
 

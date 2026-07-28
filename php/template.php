@@ -6,11 +6,7 @@
 
 function head($index) {
 
-    if (!session_checker()) {
-
-        session_init();
-
-    }
+    session_checker();
 
     if ($index) {
     
@@ -54,9 +50,13 @@ function head($index) {
 
 function navbar($index) {
 
+    echo "<ul class='nav justify-content-end'>";
+
+    $s = session_checker();
+    $ad = isadmin();
+
     if ($index) {
 
-        echo "<ul class='nav justify-content-end'>";
     
         echo "<li class='nav-item'>";
         echo "<a class='nav-link active text-neon-w' aria-current='page' href='/'>HOME</a>";
@@ -70,11 +70,38 @@ function navbar($index) {
         echo "<a class='nav-link text-neon-w' href='./php/artists.php'>ARTISTS</a>";
         echo "</li>";
 
-        echo "</ul>";
+        if (!$s) {
+
+            echo "<li class='nav-item'>";
+            echo "<a class='nav-link text-neon-w' href='./php/login.php'>LOGIN</a>";
+            echo "</li>";
+
+        }else {
+ 
+            echo "<li class='nav-item'>";
+            echo "<a class='nav-link text-neon-w' href='./lol.php'>CARELLO</a>";
+            echo "</li>";
+
+
+            echo "<li class='nav-item'>";
+            echo "<a class='nav-link text-neon-w' href='./php/logout.php'>LOGOUT</a>";
+            echo "</li>";
+
+        }
+
+        if ($ad) {
+
+            echo "<li class='nav-item'>";
+            echo "<a class='nav-link text-neon-w' href='./php/admin_panel.php'>PANEL</a>";
+            echo "</li>";
+
+        }
+
+
+
 
     } else {
 
-        echo "<ul class='nav justify-content-end'>";
     
         echo "<li class='nav-item'>";
         echo "<a class='nav-link active text-neon-w' aria-current='page' href='/'>HOME</a>";
@@ -88,45 +115,80 @@ function navbar($index) {
         echo "<a class='nav-link text-neon-w' href='./artists.php'>ARTISTS</a>";
         echo "</li>";
 
-        echo "</ul>";
+        if (!$s) {
+
+            echo "<li class='nav-item'>";
+            echo "<a class='nav-link text-neon-w' href='./login.php'>LOGIN</a>";
+            echo "</li>";
+
+        }else {
+ 
+            echo "<li class='nav-item'>";
+            echo "<a class='nav-link text-neon-w' href='./lol.php'>CARELLO</a>";
+            echo "</li>";
+
+
+            echo "<li class='nav-item'>";
+            echo "<a class='nav-link text-neon-w' href='./logout.php'>LOGOUT</a>";
+            echo "</li>";
+
+
+        }
+
+        if ($ad) {
+
+            echo "<li class='nav-item'>";
+            echo "<a class='nav-link text-neon-w' href='./admin_panel.php'>PANEL</a>";
+            echo "</li>";
+
+        }
+
+
+
 
 
     }
+
+
+    echo "</ul>";
+
 
 }
 
 
 
 
+function isadmin(): bool {
 
-function session_init() {
+    if (isset($_SESSION['role'])) {
 
-    if(session_checker()) {
+        if ($_SESSION['role'] == 1) {
 
-        session_start();
+            return true;
+
+        }
 
     }
 
-    $_SESSION['servername'] = "mariadb";
-    $_SESSION['username'] = "root";
-    $_SESSION['password'] = "root";
-    $_SESSION['dbname'] = "proddb";
-    $_SESSION['title'] = "DiscPeffog"; 
-
+    return false;
 }
-
-
 
 function session_checker(): bool {
 
     if (session_status() === PHP_SESSION_NONE) {
 
-        return false;
+        session_start();
+
+
+        $_SESSION['servername'] = "mariadb";
+        $_SESSION['username'] = "root";
+        $_SESSION['password'] = "root";
+        $_SESSION['dbname'] = "proddb";
+        $_SESSION['title'] = "DiscPeffog"; 
 
     }
 
-    
-    return true;
+    return isset($_SESSION['id']);
 
 }
 
@@ -190,15 +252,37 @@ function session_setter($user) {
 }
 
 
+function logout() {
+
+    $_SESSION = [];
+
+    if (ini_get("session.use_cookies")) {
+        $params = session_get_cookie_params();
+        setcookie(
+            session_name(),
+            '',
+            time() - 42000,
+            $params["path"],
+            $params["domain"],
+            $params["secure"],
+            $params["httponly"]
+        );
+    }
+
+
+
+    if (isset($_COOKIE['JWT'])) {
+        setcookie('JWT', '', time() - 42000, "/");
+        unset($_COOKIE['JWT']);
+    }
+
+}
+
 
 
 function connect_db(): PDO {
 
-    if (!isset($_SESSION['servername'])) {
-
-        session_init();
-
-    }
+    session_checker();
 
     try {
 
@@ -281,17 +365,4 @@ function decode_jwt($key, $token): ?array {
     return ["head"=>$head, "payload"=>$payload];
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>

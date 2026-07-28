@@ -1,10 +1,17 @@
+<?php
+
+    include_once("./template.php");
+    session_checker();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 
     <?php
 
-        include_once("./template.php");
 
         head(false);
 

@@ -1,13 +1,11 @@
 <?php
-    $servername = "mariadb";
-    $username = "root";
-    $password = "root";
-    $dbname = "proddb";
 
-
-
+    include_once("./template.php");
+    session_checker();
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +13,6 @@
 
     <?php
 
-       include_once("./template.php");
        head(false);
 
     ?>
@@ -25,7 +22,6 @@
 
         <?php
 
-            include_once("./template.php");
             navbar(false);
 
         ?>
@@ -38,18 +34,8 @@
 
         <?php
 
-            try {
-        
-                $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-        
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
-        
-            } catch(PDOException $e) {
-        
-                echo "Connection failed: " . $e->getMessage();
-        
-            }
+            $conn = connect_db();
+
 
             echo "<div class='card-dark'>";
 
