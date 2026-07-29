@@ -48,7 +48,8 @@ function head($index) {
 
 function navbar($index) {
 
-    echo "<ul class='nav justify-content-end'>";
+    // center per centrare la barra di navigazione
+    echo "<ul class='nav justify-content-center'>";
 
     $s = session_checker();
     $ad = isadmin();
@@ -75,9 +76,10 @@ function navbar($index) {
             echo "</li>";
 
         }else {
- 
+
+            // carrello
             echo "<li class='nav-item'>";
-            echo "<a class='nav-link text-neon-w' href='./lol.php'>CARELLO</a>";
+            echo "<a class='nav-link text-neon-w' href='./lol.php'>CART</a>";
             echo "</li>";
 
 
@@ -113,6 +115,7 @@ function navbar($index) {
         echo "<a class='nav-link text-neon-w' href='./artists.php'>ARTISTS</a>";
         echo "</li>";
 
+        // login-logout panel
         if (!$s) {
 
             echo "<li class='nav-item'>";
@@ -133,6 +136,7 @@ function navbar($index) {
 
         }
 
+        // admin panel
         if ($ad) {
 
             echo "<li class='nav-item'>";
