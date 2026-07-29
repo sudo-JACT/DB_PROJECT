@@ -4,14 +4,16 @@ create table user (
     passwd text not null,
     email text not null,
     bday date not null,
-    image_path text
+    image_path text,
+    isadmin bool
 );
 
 create table band (
     id int auto_increment primary key,
     name text not null,
     creation_date date not null,
-    image_path text
+    image_path text,
+    descr text
 );
 
 create table genre (
@@ -23,27 +25,33 @@ create table artist (
     id int auto_increment primary key,
     name text not null,
     bday date,
-    image_path text
+    image_path text,
+    bio text
 );
 
 create table album (
     id int auto_increment primary key,
     name text not null,
     publication_date date,
-    image_path text
+    image_path text,
+    descr text,
+    linky text
 );
 
 create table song (
     id int auto_increment primary key,
     name text not null,
-    duration time not null
+    duration time not null,
+    descr text,
+    linky text
 );
 
 create table members (
     band_id int,
     artist_id int,
     FOREIGN KEY (band_id) REFERENCES band(id),
-    FOREIGN KEY (artist_id) REFERENCES artist(id)
+    FOREIGN KEY (artist_id) REFERENCES artist(id),
+    bio text
 );
 
 create table published (
@@ -56,6 +64,7 @@ create table published (
 create table ispartof (
     album_id int,
     song_id int,
+    num int not null CHECK (num > 0),
     FOREIGN KEY (album_id) REFERENCES album(id),
     FOREIGN KEY (song_id) REFERENCES song(id)
 );
@@ -65,4 +74,13 @@ create table soundlike (
     genre_id int,
     FOREIGN key (album_id) REFERENCES album(id),
     FOREIGN key (genre_id) REFERENCES genre(id)
+);
+
+create table sale (
+    id int auto_increment primary key,
+    user_id int,
+    album_id int,
+    price float,
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (album_id) REFERENCES album(id)
 );
