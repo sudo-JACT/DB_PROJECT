@@ -1,18 +1,19 @@
 :root {
 
     /* colore base sfondo totale */
-    --bg-base: #c02d2d;
+    --bg-base: #3b4d3e;
 
     /* colore div centrale con album */
-    --bg-surface: #22ca60;
+    --bg-surface: #fdfdfd;
 
-    /* colore posizionamento mouse nav*/
-    --bg-surface-alt: #31c61a;
+    /* colore margine del div centrale*/
+    --bg-surface-alt: #000000;
 
-    --text-primary: #d5c919;
-    --text-secondary: #c02623;
+    /* testo navbar + titoli album e band */
+    --text-primary: #fdfdfd;
+    --text-secondary: #fdfdfd;
 
-    --neon-yellow: #f9f9f9;
+    --neon-yellow: #1518dd;
     --neon-yellow-alt: #f9f9f9;
     --neon-yellow-dim: rgb(242, 242, 241);
 
@@ -27,7 +28,7 @@
 
 }
 
-/* */
+/* sfondo profondo */
 body {
 
     background-color: var(--bg-base);
@@ -36,6 +37,7 @@ body {
 
 }
 
+/* testo nome pagina corrente*/
 .text-neon {
 
     color: var(--neon-yellow);
@@ -43,6 +45,7 @@ body {
 
 }
 
+/* nomi band/ titoli*/
 .text-neon-w {
 
     color: var(--text-primary);
@@ -65,6 +68,7 @@ body {
 
 }
 
+/* bottone login passata cursore */
 .btn-neon:hover {
 
     background-color: var(--neon-yellow);
@@ -74,11 +78,12 @@ body {
 
 }
 
+/* caratteristiche div centrale*/
 .card-dark {
 
     background-color: var(--bg-surface);
-    border: 1px solid var(--bg-surface-alt);
-    border-radius: 8px;
+    /* border: 1px solid var(--bg-surface-alt); */
+    border-radius: 0px;
     padding: 20px;
 
 }
