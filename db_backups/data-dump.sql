@@ -30,7 +30,7 @@ CREATE TABLE `album` (
   `descr` text DEFAULT NULL,
   `linky` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,15 +45,7 @@ INSERT INTO `album` VALUES
 (3,'Lateralus','2001-05-15','../imgs/albums/lateralus.jpeg',NULL,NULL),
 (4,'Meta','2016-10-28','../imgs/albums/meta.jpg',NULL,NULL),
 (5,'Turbe Sarde','2023-12-15','../imgs/albums/turbe-sarde.webp',NULL,NULL),
-(6,'Maps of Non-Existent Places','2012-06-08','../imgs/albums/non-existent.jpeg',NULL,NULL),
-(7,'Mesmer','2017-03-24','../imgs/albums/Mesmer.jpg',NULL,NULL),
-(8,'Count Your Blessings Repented','2026-07-10','../imgs/albums/Count_Your_Blessings_Repented.jpg',NULL,NULL),
-(9,'Exhibition Of Prowess','2024-09-20','../imgs/albums/Exhibition_Of_Prowess.jpg',NULL,NULL),
-(10,'Fatalism','2023-09-01','../imgs/albums/Fatalism.jpg',NULL,NULL),
-(11,'Hard Feelings','2018-03-23','	../imgs/albums/Hard_Feelings.webp',NULL,NULL),
-(12,'Destrier','2015-08-07','../imgs/albums/Destrier.jpg',NULL,NULL),
-(13,'The Darkest Place I\'ve Ever Been','2025-04-25','../imgs/albums/The_darkest_Place_Ive_Ever_Been.jpg',NULL,NULL),
-(14,'Songs for the Deaf','2002-08-27','../imgs/albums/song_for_the_deaf.jpeg','Hell Yeah',NULL);
+(6,'Maps of Non-Existent Places','2012-06-08','../imgs/albums/non-existent.jpeg',NULL,NULL);
 /*!40000 ALTER TABLE `album` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -99,7 +91,7 @@ CREATE TABLE `band` (
   `image_path` text DEFAULT NULL,
   `descr` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -113,15 +105,7 @@ INSERT INTO `band` VALUES
 (2,'TOOL','1990-01-01','../imgs/bands/tool.webp',NULL),
 (3,'Car Bomb','2000-01-01','../imgs/bands/carbomb.jpg',NULL),
 (4,'Dario Moccia','1990-08-29','../imgs/artists/dario-moccia.jpeg',NULL),
-(5,'Thank You Scientist','2001-01-01','../imgs/bands/thank_you_scientist.jpg','Just a bunch of guys'),
-(6,'Northlane','2009-01-01','../imgs/bands/Northlane.jpg',NULL),
-(7,'Agent Fresco','2008-01-01','../imgs/bands/Agent_Fresco.jpg',NULL),
-(8,'Blessthefall','2002-01-01','../imgs/bands/Blessthefall.jpg',NULL),
-(9,'Bring Me The Horizon','2004-01-01','../imgs/bands/Bring_Me_The_Horizon.jpg',NULL),
-(10,'Kublai Khan TX','2009-01-01','../imgs/bands/Kublai_Khan TX.webp',NULL),
-(11,'Landmvrks','2014-01-01','../imgs/bands/Landmvrks.jpg',NULL),
-(12,'Polaris','2012-01-01','../imgs/bands/Polaris.jpg',NULL),
-(13,'Queens of the Stone Age','1996-01-01','../imgs/bands/queens.jpeg','A bunch of guys');
+(5,'Thank You Scientist','2001-01-01','../imgs/bands/thank_you_scientist.jpg',NULL);
 /*!40000 ALTER TABLE `band` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,8 +162,6 @@ CREATE TABLE `ispartof` (
 
 LOCK TABLES `ispartof` WRITE;
 /*!40000 ALTER TABLE `ispartof` DISABLE KEYS */;
-INSERT INTO `ispartof` VALUES
-(2,1,8);
 /*!40000 ALTER TABLE `ispartof` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -238,15 +220,7 @@ INSERT INTO `published` VALUES
 (3,4),
 (2,3),
 (4,5),
-(5,6),
-(6,7),
-(9,8),
-(10,9),
-(12,10),
-(8,11),
-(7,12),
-(11,13),
-(13,14);
+(5,6);
 /*!40000 ALTER TABLE `published` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -293,7 +267,7 @@ CREATE TABLE `song` (
   `descr` text DEFAULT NULL,
   `linky` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -302,8 +276,6 @@ CREATE TABLE `song` (
 
 LOCK TABLES `song` WRITE;
 /*!40000 ALTER TABLE `song` DISABLE KEYS */;
-INSERT INTO `song` VALUES
-(1,'The Art of Dying','00:00:10','Peak','https://youtu.be/iJqVjglvnoc?si=2Ln42_SN5VbKKol8');
 /*!40000 ALTER TABLE `song` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -378,4 +350,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-30  0:39:40
+-- Dump completed on 2026-07-29  8:43:42
