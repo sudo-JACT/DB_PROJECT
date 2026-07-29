@@ -27,6 +27,8 @@ CREATE TABLE `album` (
   `name` text NOT NULL,
   `publication_date` date DEFAULT NULL,
   `image_path` text DEFAULT NULL,
+  `descr` text DEFAULT NULL,
+  `linky` text DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -38,12 +40,12 @@ CREATE TABLE `album` (
 LOCK TABLES `album` WRITE;
 /*!40000 ALTER TABLE `album` DISABLE KEYS */;
 INSERT INTO `album` VALUES
-(1,'From Mars to Sirius','2005-09-27','../imgs/albums/from_mars_to_sirius.jpg'),
-(2,'The Way of All Flesh','2008-10-13','../imgs/albums/the_way_of_all_flesh.jpg'),
-(3,'Lateralus','2001-05-15','../imgs/albums/lateralus.jpeg'),
-(4,'Meta','2016-10-28','../imgs/albums/meta.jpg'),
-(5,'Turbe Sarde','2023-12-15','../imgs/albums/turbe-sarde.webp'),
-(6,'Maps of Non-Existent Places','2012-06-08','../imgs/albums/non-existent.jpeg');
+(1,'From Mars to Sirius','2005-09-27','../imgs/albums/from_mars_to_sirius.jpg',NULL,NULL),
+(2,'The Way of All Flesh','2008-10-13','../imgs/albums/the_way_of_all_flesh.jpg',NULL,NULL),
+(3,'Lateralus','2001-05-15','../imgs/albums/lateralus.jpeg',NULL,NULL),
+(4,'Meta','2016-10-28','../imgs/albums/meta.jpg',NULL,NULL),
+(5,'Turbe Sarde','2023-12-15','../imgs/albums/turbe-sarde.webp',NULL,NULL),
+(6,'Maps of Non-Existent Places','2012-06-08','../imgs/albums/non-existent.jpeg',NULL,NULL);
 /*!40000 ALTER TABLE `album` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,6 +61,7 @@ CREATE TABLE `artist` (
   `name` text NOT NULL,
   `bday` date DEFAULT NULL,
   `image_path` text DEFAULT NULL,
+  `bio` text DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -70,7 +73,7 @@ CREATE TABLE `artist` (
 LOCK TABLES `artist` WRITE;
 /*!40000 ALTER TABLE `artist` DISABLE KEYS */;
 INSERT INTO `artist` VALUES
-(1,'Dario Moccia','1990-08-29','../imgs/artists/dario-moccia.jpg_large');
+(1,'Dario Moccia','1990-08-29','../imgs/artists/dario-moccia.jpg_large',NULL);
 /*!40000 ALTER TABLE `artist` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,6 +89,7 @@ CREATE TABLE `band` (
   `name` text NOT NULL,
   `creation_date` date NOT NULL,
   `image_path` text DEFAULT NULL,
+  `descr` text DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -97,11 +101,11 @@ CREATE TABLE `band` (
 LOCK TABLES `band` WRITE;
 /*!40000 ALTER TABLE `band` DISABLE KEYS */;
 INSERT INTO `band` VALUES
-(1,'Gojira','1996-01-01','../imgs/bands/gojira.jpg'),
-(2,'TOOL','1990-01-01','../imgs/bands/tool.webp'),
-(3,'Car Bomb','2000-01-01','../imgs/bands/carbomb.jpg'),
-(4,'Dario Moccia','1990-08-29','../imgs/artists/dario-moccia.jpeg'),
-(5,'Thank You Scientist','2001-01-01','../imgs/bands/thank_you_scientist.jpg');
+(1,'Gojira','1996-01-01','../imgs/bands/gojira.jpg',NULL),
+(2,'TOOL','1990-01-01','../imgs/bands/tool.webp',NULL),
+(3,'Car Bomb','2000-01-01','../imgs/bands/carbomb.jpg',NULL),
+(4,'Dario Moccia','1990-08-29','../imgs/artists/dario-moccia.jpeg',NULL),
+(5,'Thank You Scientist','2001-01-01','../imgs/bands/thank_you_scientist.jpg',NULL);
 /*!40000 ALTER TABLE `band` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,6 +148,7 @@ DROP TABLE IF EXISTS `ispartof`;
 CREATE TABLE `ispartof` (
   `album_id` int(11) DEFAULT NULL,
   `song_id` int(11) DEFAULT NULL,
+  `num` int(11) NOT NULL CHECK (`num` > 0),
   KEY `album_id` (`album_id`),
   KEY `song_id` (`song_id`),
   CONSTRAINT `1` FOREIGN KEY (`album_id`) REFERENCES `album` (`id`),
@@ -220,6 +225,35 @@ INSERT INTO `published` VALUES
 UNLOCK TABLES;
 
 --
+-- Table structure for table `sale`
+--
+
+DROP TABLE IF EXISTS `sale`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sale` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `album_id` int(11) DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `album_id` (`album_id`),
+  CONSTRAINT `1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  CONSTRAINT `2` FOREIGN KEY (`album_id`) REFERENCES `album` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sale`
+--
+
+LOCK TABLES `sale` WRITE;
+/*!40000 ALTER TABLE `sale` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sale` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `song`
 --
 
@@ -230,6 +264,8 @@ CREATE TABLE `song` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
   `duration` time NOT NULL,
+  `descr` text DEFAULT NULL,
+  `linky` text DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -314,4 +350,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-28 21:35:22
+-- Dump completed on 2026-07-29  8:43:42

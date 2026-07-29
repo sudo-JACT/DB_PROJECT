@@ -26,8 +26,6 @@ function head($index) {
 
     } else {
 
-        $title = "DiscPeffog"; 
-
 
         echo "<head>";
 
@@ -184,7 +182,7 @@ function session_checker(): bool {
         $_SESSION['username'] = "root";
         $_SESSION['password'] = "root";
         $_SESSION['dbname'] = "proddb";
-        $_SESSION['title'] = "DiscPeffog"; 
+        $_SESSION['title'] = "bibi"; 
 
     }
 
