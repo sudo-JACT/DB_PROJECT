@@ -26,8 +26,6 @@ function head($index) {
 
     } else {
 
-        $title = "DiscPeffog"; 
-
 
         echo "<head>";
 
@@ -79,7 +77,7 @@ function navbar($index) {
         }else {
  
             echo "<li class='nav-item'>";
-            echo "<a class='nav-link text-neon-w' href='./lol.php'>CARELLO</a>";
+            echo "<a class='nav-link text-neon-w' href='./lol.php'>CART</a>";
             echo "</li>";
 
 
@@ -124,7 +122,7 @@ function navbar($index) {
         }else {
  
             echo "<li class='nav-item'>";
-            echo "<a class='nav-link text-neon-w' href='./lol.php'>CARELLO</a>";
+            echo "<a class='nav-link text-neon-w' href='./lol.php'>CART</a>";
             echo "</li>";
 
 
