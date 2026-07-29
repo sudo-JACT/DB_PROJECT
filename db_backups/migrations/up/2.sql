@@ -7,6 +7,12 @@ create table sale (
     FOREIGN KEY (album_id) REFERENCES album(id)
 );
 
+create table cart (
+    user_id int,
+    album_id int,
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (album_id) REFERENCES album(id)
+);
 
 alter table band
     add column descr text;
@@ -19,6 +25,9 @@ alter table album
 
 alter table album
     add column linky text;
+
+alter table album
+    add column price float;
 
 alter table song
     add column descr text;
