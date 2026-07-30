@@ -46,113 +46,68 @@ function head($index) {
 
 }
 
-function navbar($index) {
-
-    // center per centrare la barra di navigazione
-    echo "<ul class='nav justify-content-center'>";
+function navbar() {
 
     $s = session_checker();
     $ad = isadmin();
 
-    if ($index) {
 
+    echo "<nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
+  <div class='container-fluid'>
     
-        echo "<li class='nav-item'>";
-        echo "<a class='nav-link active text-neon-w' aria-current='page' href='/'>HOME</a>";
-        echo "</li>";
-
-        echo "<li class='nav-item'>";
-        echo "<a class='nav-link text-neon-w' href='./php/albums.php'>ALBUMS</a>";
-        echo "</li>";
-
-        echo "<li class='nav-item'>";
-        echo "<a class='nav-link text-neon-w' href='./php/artists.php'>ARTISTS</a>";
-        echo "</li>";
-
-        if (!$s) {
-
-            echo "<li class='nav-item'>";
-            echo "<a class='nav-link text-neon-w' href='./php/login.php'>LOGIN</a>";
-            echo "</li>";
-
-        }else {
-
-            // carrello
-            echo "<li class='nav-item'>";
-            echo "<a class='nav-link text-neon-w' href='./lol.php'>CART</a>";
-            echo "</li>";
-
-
-            echo "<li class='nav-item'>";
-            echo "<a class='nav-link text-neon-w' href='./php/logout.php'>LOGOUT</a>";
-            echo "</li>";
-
-        }
-
-        if ($ad) {
-
-            echo "<li class='nav-item'>";
-            echo "<a class='nav-link text-neon-w' href='./php/admin_panel.php'>PANEL</a>";
-            echo "</li>";
-
-        }
-
-
-
-
-    } else {
-
+    <a class='navbar-brand ' href='/'>LOGO</a>
     
-        echo "<li class='nav-item'>";
-        echo "<a class='nav-link active text-neon-w' aria-current='page' href='/'>HOME</a>";
-        echo "</li>";
 
-        echo "<li class='nav-item'>";
-        echo "<a class='nav-link text-neon-w' href='./albums.php'>ALBUMS</a>";
-        echo "</li>";
+    <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
+      <span class='navbar-toggler-icon'></span>
+    </button>
+    
+    <div class='collapse navbar-collapse' id='navbarNav'>
+      
+     
+      <ul class='navbar-nav ms-auto'>
+        <li class='nav-item'>
+          <a class='nav-link' href='/php/albums.php'>ALBUMS</a>
+        </li>
+        <li class='nav-item'>
+          <a class='nav-link' href='/php/artists.php'>BANDS</a>
+        </li>
+        <li class='nav-item'>
+          <a class='nav-link' href='/php/cart.php'>CART</a>
+        </li>
+      </ul>
+    ";
 
-        echo "<li class='nav-item'>";
-        echo "<a class='nav-link text-neon-w' href='./artists.php'>ARTISTS</a>";
-        echo "</li>";
+    if ($ad) {
 
-        // login-logout panel
-        if (!$s) {
-
-            echo "<li class='nav-item'>";
-            echo "<a class='nav-link text-neon-w' href='./login.php'>LOGIN</a>";
-            echo "</li>";
-
-        }else {
- 
-            echo "<li class='nav-item'>";
-            echo "<a class='nav-link text-neon-w' href='./lol.php'>CART</a>";
-            echo "</li>";
-
-
-            echo "<li class='nav-item'>";
-            echo "<a class='nav-link text-neon-w' href='./logout.php'>LOGOUT</a>";
-            echo "</li>";
-
-
-        }
-
-        // admin panel
-        if ($ad) {
-
-            echo "<li class='nav-item'>";
-            echo "<a class='nav-link text-neon-w' href='./admin_panel.php'>PANEL</a>";
-            echo "</li>";
-
-        }
+        echo "<ul class='navbar-nav'>
+        <li class='nav-item'>
+          <a class='nav-link' href='/php/admin_panel.php'>PANEL</a>
+        </li>";
+    }
 
 
+    if (!$s) {
 
+        echo "<ul class='navbar-nav'>
+        <li class='nav-item'>
+          <a class='nav-link' href='/php/login.php'>LOGIN</a>
+        </li>";
 
+    }else {
+
+        echo "<ul class='navbar-nav'>
+        <li class='nav-item'>
+          <a class='nav-link' href='/php/logout.php'>LOGOUT</a>
+        </li>";
 
     }
 
 
-    echo "</ul>";
+    echo "</ul>
+    </div>
+    </div>
+    </nav>";
 
 
 }
