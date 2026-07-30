@@ -35,7 +35,7 @@
             $conn = connect_db();
 
 
-            echo "<div class='card-dark'>";
+            echo "<div class='card-dark album-container'>";
 
             try {
 
@@ -47,15 +47,24 @@
 
                 
                     while($row = $result->fetch()) {
-                        
-                        echo "<div class='album foto'>"; 
-                        echo "<figure class='figure border-noen'>";
-                        echo "<img src='".$row['image_path']."' class='figure-img img-fluid rounded foto' alt=".$row['name']."-".$row['id'].">";
-                        echo "<figcaption class='figure-caption text-center text-neon-w'>".$row['name']."</figcaption>";
+                    
+                        echo "<div class='card card-dark' style='width: 18rem;'>
+                                <img src='".$row['image_path']."' class='card-img-top' alt='".$row['name']."-".$row['id']."'>
+                                <div class='card-body'>
+                                    <p class='card-text text-neon-w'>".$row['bname']."</p>
+                                    <p class='card-text text-neon'>".$row['name']."</p>
+                                </div>
+                            </div>";
+
+                        // si riferisce al div dell'immagine nella pagina album
+                        /*echo "<div class='album foto'>"; 
+                        echo "<figure class='figure border-neon'>";
+                        echo "<img src=' class='figure-img img-fluid rounded foto' alt=""-"">";
+                        echo "<figcaption class='figure-caption text-center text-neon-w'>""</figcaption>";
                         echo "</figure>";
                         echo "<br/>";
-                        echo "<text class='text-neon'>".$row['bname']."</text>";
-                        echo "</div>";
+                        echo "<p class='text-neon'>".$row['name']."</p>";
+                        echo "</div>";*/
                 
                     }
                 
