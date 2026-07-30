@@ -51,10 +51,10 @@
                         echo "<div class='album foto'>"; 
                         echo "<figure class='figure border-noen'>";
                         echo "<img src='".$row['image_path']."' class='figure-img img-fluid rounded foto' alt=".$row['name']."-".$row['id'].">";
-                        echo "<figcaption class='figure-caption text-center text-neon-w'>".$row['name']."</figcaption>";
+                        echo "<figcaption class='figure-caption text-center text-neon-w'>".$row['bname']."</figcaption>";
                         echo "</figure>";
                         echo "<br/>";
-                        echo "<text class='text-neon'>".$row['bname']."</text>";
+                        echo "<text class='text-neon'>".$row['name']."</text>";
                         echo "</div>";
                 
                     }
