@@ -21,7 +21,7 @@
 
         <?php
 
-            navbar(false);
+            navbar();
 
         ?>
 

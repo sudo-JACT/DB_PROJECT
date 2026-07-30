@@ -15,6 +15,7 @@
     /* --- Colori Atmosferici (Ruggine, Olio, Usura Grimdark) --- */
     --iw-rust:            #7B3F00; /* Un marrone rossastro profondo, per i dettagli arrugginiti */
     --iw-oil:             #141414; /* Un nero lucido e oleoso, per i giunti e i motori */
+    --iw-void-black:      #121212;
 
 
     /* --- Assegnazione Semantica --- */
@@ -38,7 +39,7 @@
 /* */
 body {
 
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
     color: var(--text-primary);
     font-family: sans-serif;
 
@@ -62,6 +63,20 @@ body {
 
 }
 
+
+.navbar {
+
+    color: var(--text-gold) !important;
+    background-color: var(--iw-oil) !important;
+
+    border-bottom: 3px solid var(--iw-hazard-yellow) !important;
+}
+
+.m-r {
+    
+    margin-right: 20px;
+
+}
 
 .btn-neon {
 
@@ -88,7 +103,7 @@ body {
 
 .card-dark {
 
-    background-color: var(--bg-primary);
+    background-color: var(--bg-secondary);
     border: 1px solid var(--bg-secondary-alt);
     border-radius: 8px;
     padding: 20px;

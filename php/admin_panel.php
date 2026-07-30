@@ -142,7 +142,7 @@
 
         <?php
 
-            navbar(false);
+            navbar();
 
         ?>
 
