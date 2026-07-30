@@ -55,7 +55,9 @@ function navbar() {
     echo "<nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
   <div class='container-fluid'>
     
-    <a class='navbar-brand ' href='/'>LOGO</a>
+    <a class='navbar-brand ' href='/'>
+        <img src='/imgs/logo/Smugglers Logo.png' alt='Logo' width='100'>
+    </a>
     
 
     <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
