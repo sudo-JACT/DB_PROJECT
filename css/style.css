@@ -36,7 +36,7 @@
     --accent-color:       var(--iw-brass);
 }
 
-/* */
+/* sfondo profondo */
 body {
 
     background-color: var(--bg-primary);
@@ -45,9 +45,11 @@ body {
 
 }
 
+
 .ll {
     padding-top: 20px;
 }
+
 
 .text-neon {
 
@@ -56,6 +58,7 @@ body {
 
 }
 
+/* nomi band/ titoli*/
 .text-neon-w {
 
     color: var(--text-secondary);
@@ -92,6 +95,7 @@ body {
 
 }
 
+/* bottone login passata cursore */
 .btn-neon:hover {
 
     background-color: var(--text-inverted);
@@ -101,6 +105,7 @@ body {
 
 }
 
+/* caratteristiche div centrale*/
 .card-dark {
 
     background-color: var(--bg-secondary);
