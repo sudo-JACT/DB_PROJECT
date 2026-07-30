@@ -40,7 +40,7 @@
 body {
 
     background-color: var(--bg-primary);
-    color: var(--text-primary);
+    color: #000000;
     font-family: sans-serif;
 
 }
@@ -50,29 +50,70 @@ body {
     padding-top: 20px;
 }
 
-
+/* nome album */
 .text-neon {
 
-    color: var(--text-primary);
+    color: #efefef;
     text-shadow: var(--text-inverted);
+    font-family: Courier, monospace;
+    font-weight: 100;
+    font-size: 24px;
+    font-style: normal;
+    letter-spacing: 0px;
+    line-height: 1.2;
+    
+    width: 260px;
+    margin: 10px auto 0;
+
+    text-align: center;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 
 }
 
 /* nomi band/ titoli*/
 .text-neon-w {
 
-    color: var(--text-secondary);
+    color: #efefef;
     text-shadow: var(--text-inverted);
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 16px;
+    font-weight: 900;
+    font-style: normal;
+    letter-spacing: 0px;
+    line-height: 1.5;
 
 }
 
+/* colori parole nella navbar (link)*/
+.nav-link{
+
+    color: #000000 !important;
+}
+
+/* colore icona sito*/
+.navbar-brand{
+
+    color: #000000 !important;
+}
 
 .navbar {
 
     color: var(--text-gold) !important;
-    background-color: var(--iw-oil) !important;
+    background-color: #FFFFFF !important;
 
     border-bottom: 3px solid var(--iw-hazard-yellow) !important;
+}
+
+/* gestione allineamento card nella pagina album */
+.album-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-radius: 0px;
+
 }
 
 .m-r {
@@ -110,8 +151,26 @@ body {
 
     background-color: var(--bg-secondary);
     border: 1px solid var(--bg-secondary-alt);
-    border-radius: 8px;
-    padding: 20px;
+    border-radius: 0px;
+
+}
+
+.card {
+
+    display: inline-block !important;
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: transparent;
+    margin: 20px;
+    height: 380px;
+
+}
+
+/* gestione immagini singole album ovunque*/
+.card-img-top {
+
+    border-radius: 0px !important;
 
 }
 
@@ -147,17 +206,32 @@ body {
 }
 
 
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
 
+
+.navbar-toggler {
+
+    /*color: #000000 !important;*/
+    background-color: #FFFFFF !important;
+    border-color: #000000 !important;
+
+}
+
+.navbar-toggler-icon {
+
+    background-color: #FFFFFF !important;
+    border-color: #000000 !important;
+
+}
 
 @media (max-width: 768px) {
 
-    :root {
-
-      --glow-text: 0 0 2px rgba(223, 255, 0, 0.8), 
-                 0 0 8px rgba(223, 255, 0, 0.6);
-
-        --glow-box: 0 0 5px rgba(223, 255, 0, 0.2), 
-                0 0 10px rgba(223, 255, 0, 0.1);
+    /* dimensione font titoli album in album*/
+    .text-neon {
+        
+        margin: 5px auto 0;
     }
 
     .btn-neon {
@@ -167,9 +241,9 @@ body {
 
     }
 
-    .card-dark {
+    .card {
 
-        padding: 15px;
+        margin: 15px !important;
 
     }
 }

@@ -19,7 +19,7 @@
         
         <?php
 
-            navbar();
+            navbar(true);
 
         ?>
     
@@ -30,7 +30,7 @@
 
         <?php
 
-            echo "<div class='card-dark'>";
+            echo "<div class='card-dark album-container'>";
 
             $conn = connect_db();
 
@@ -53,15 +53,13 @@
                     
                         while($row = $result->fetch()) {
                             
-                            echo "<div class='album foto'>"; 
-                            echo "<figure class='figure border-noen'>";
-                            echo "<img src='".$row['image_path']."' class='figure-img img-fluid rounded' alt=".$row['name'].">";
-                            echo "<figcaption class='figure-caption text-center text-neon-w'>".$row['bname']."</figcaption>";
-                            echo "</figure>";
-                            echo "<br/>";
-                            echo "<text class='text-neon'>".$row['name']."</text>";
-                            echo "</div>";
-                    
+                        echo "<div class='card card-dark' style='width: 18rem;'>
+                                <img src='".$row['image_path']."' class='card-img-top' alt='".$row['name']."'>
+                                <div class='card-body'>
+                                    <p class='card-text text-neon-w'>".$row['bname']."</p>
+                                    <p class='card-text text-neon'>".$row['name']."</p>
+                                </div>
+                            </div>";
                         }
                     
                         unset($result);
