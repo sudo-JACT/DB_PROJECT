@@ -30,7 +30,7 @@ CREATE TABLE `album` (
   `descr` text DEFAULT NULL,
   `linky` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -52,7 +52,8 @@ INSERT INTO `album` VALUES
 (10,'Fatalism','2023-09-01','../imgs/albums/Fatalism.jpg','Fatalism is the third studio album by Australian metalcore band Polaris. The band produced and recorded the album in Melbourne in 2022 with Lance Prenc engineering and Alpha Wolf guitarist Scottie Simpson on vocal recording duties. The album was released on 1 September 2023 under Resist Records and SharpTone Records. It is the band\'s final album with lead guitarist Ryan Siew, after his death on 19 June 2023, with his recordings completed beforehand and released posthumously','https://youtu.be/ZGQAMsGncGQ?si=KYWVME0j7TAENILq'),
 (11,'Hard Feelings','2018-03-23','../imgs/albums/Hard_Feelings.webp','Hard Feelings is the sixth studio album by the American metalcore band Blessthefall. The album was released on March 23, 2018, through Rise Records. It was produced by Tyler Smyth and the band themselves. It is their first album to be released after the band signed to Rise Records in 2018. It is also the last album to feature the band\'s founding drummer Matt Traynor before he left the band in August 2018','https://youtu.be/IgTi5u1HxUI?si=vlcKsptfg_x69mox'),
 (12,'Destrier','2015-08-07','../imgs/albums/Destrier.jpg','Destrier is the second album by rock band Agent Fresco','https://youtu.be/7WFxRmZoRN8?si=rBVkNGOXPa4PoPfJ'),
-(13,'The Darkest Place I\'ve Ever Been','2025-04-25','../imgs/albums/The_darkest_Place_Ive_Ever_Been.jpg','The Darkest Place I\'ve Ever Been is a metalcore and concept album released by the French band Landmvrks on April 25, 2025, via Arising Empire','https://youtu.be/xqB-elk9lZU?si=fcSyRyGON4vJ53mS');
+(13,'The Darkest Place I\'ve Ever Been','2025-04-25','../imgs/albums/The_darkest_Place_Ive_Ever_Been.jpg','The Darkest Place I\'ve Ever Been is a metalcore and concept album released by the French band Landmvrks on April 25, 2025, via Arising Empire','https://youtu.be/xqB-elk9lZU?si=fcSyRyGON4vJ53mS'),
+(14,'Songs for the Deaf','1996-02-07','../imgs/albums/song_for_the_deaf.jpeg','Songs for the Deaf è l`album che diede piena visibilità ai Queens of the Stone Age','');
 /*!40000 ALTER TABLE `album` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -70,7 +71,7 @@ CREATE TABLE `artist` (
   `image_path` text DEFAULT NULL,
   `bio` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -80,7 +81,9 @@ CREATE TABLE `artist` (
 LOCK TABLES `artist` WRITE;
 /*!40000 ALTER TABLE `artist` DISABLE KEYS */;
 INSERT INTO `artist` VALUES
-(1,'Dario Moccia','1990-08-29','../imgs/artists/dario-moccia.jpg_large',NULL);
+(1,'Dario Moccia','1990-08-29','../imgs/artists/dario-moccia.jpg_large',NULL),
+(2,'Mario Duplantier','1981-06-19','../imgs/artists/image_2026-07-30_122444506.png','Mario'),
+(3,'Joe Duplantier','1976-10-19','../imgs/artists/image_2026-07-30_122958570.png','Joe');
 /*!40000 ALTER TABLE `artist` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,7 +101,7 @@ CREATE TABLE `band` (
   `image_path` text DEFAULT NULL,
   `descr` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,7 +122,8 @@ INSERT INTO `band` VALUES
 (9,'Bring Me The Horizon','2004-01-01','../imgs/bands/Bring_Me_The_Horizon.jpg','Bring Me the Horizon are a British rock band formed in 2004 in Sheffield, England. The group currently consists of lead vocalist Oli Sykes, drummer Matt Nicholls, guitarist Lee Malia and bassist Matt Kean. They are signed to RCA Records globally and Columbia Records exclusively in the United States.'),
 (10,'Kublai Khan TX','2009-01-01','../imgs/bands/Kublai_Khan TX.webp','Kublai Khan is an American metalcore band from Sherman, Texas. The group formed in the summer of 2009, and they have released five albums and two EPs.'),
 (11,'Landmvrks','2014-01-01','../imgs/bands/Landmvrks.jpg','Landmvrks (pronounced and originally spelt \'Landmarks\', now stylised in all caps, LANDMVRKS) is a French metalcore band from Marseille, formed in 2014. The band has since released four studio albums and is signed to Arising Empire.'),
-(12,'Polaris','2012-01-01','../imgs/bands/Polaris.jpg','Polaris are an Australian metalcore band from Sydney. The band consists of vocalist Jamie Hails, guitarist Rick Schneider, bassist/vocalist Jake Steinhauser and drummer Daniel Furnari.');
+(12,'Polaris','2012-01-01','../imgs/bands/Polaris.jpg','Polaris are an Australian metalcore band from Sydney. The band consists of vocalist Jamie Hails, guitarist Rick Schneider, bassist/vocalist Jake Steinhauser and drummer Daniel Furnari.'),
+(13,'Queens of the Stone Age','1996-01-01','../imgs/bands/queens.jpeg','Dopo lo scioglimento dei Kyuss');
 /*!40000 ALTER TABLE `band` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -204,6 +208,10 @@ CREATE TABLE `members` (
 
 LOCK TABLES `members` WRITE;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
+INSERT INTO `members` VALUES
+(4,1),
+(1,2),
+(1,3);
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -243,7 +251,8 @@ INSERT INTO `published` VALUES
 (12,10),
 (8,11),
 (7,12),
-(11,13);
+(11,13),
+(13,14);
 /*!40000 ALTER TABLE `published` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -375,4 +384,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-30  1:20:30
+-- Dump completed on 2026-07-30 16:17:07

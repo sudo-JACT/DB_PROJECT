@@ -56,15 +56,6 @@
                                 </div>
                             </div>";
 
-                        // si riferisce al div dell'immagine nella pagina album
-                        /*echo "<div class='album foto'>"; 
-                        echo "<figure class='figure border-neon'>";
-                        echo "<img src=' class='figure-img img-fluid rounded foto' alt=""-"">";
-                        echo "<figcaption class='figure-caption text-center text-neon-w'>""</figcaption>";
-                        echo "</figure>";
-                        echo "<br/>";
-                        echo "<p class='text-neon'>".$row['name']."</p>";
-                        echo "</div>";*/
                 
                     }
                 
