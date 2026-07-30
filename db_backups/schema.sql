@@ -84,3 +84,11 @@ create table sale (
     FOREIGN KEY (user_id) REFERENCES user(id),
     FOREIGN KEY (album_id) REFERENCES album(id)
 );
+
+create table cart (
+    user_id int,
+    album_id int,
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (album_id) REFERENCES album(id)
+);
+

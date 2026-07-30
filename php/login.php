@@ -14,6 +14,8 @@
 
         head(false);
 
+        navbar();
+
         echo "<div class='card-dark'>";
 
 
