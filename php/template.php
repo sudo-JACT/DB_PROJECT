@@ -136,12 +136,11 @@ function session_checker(): bool {
 
         session_start();
 
-
         $_SESSION['servername'] = "mariadb";
         $_SESSION['username'] = "root";
         $_SESSION['password'] = "root";
         $_SESSION['dbname'] = "proddb";
-        $_SESSION['title'] = "bibi"; 
+        $_SESSION['title'] = "LANDING PAGE"; 
 
     }
 

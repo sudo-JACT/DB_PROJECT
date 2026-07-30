@@ -28,7 +28,7 @@
 
  
         <div class="title">
-            <h1>ARTISTS</h1>
+            <h1>BAND</h1>
         </div>
 
 
@@ -37,7 +37,7 @@
             $conn = connect_db();
 
 
-            echo "<div class='card-dark'>";
+            echo "<div class='card-dark album-container'>";
 
             try {
 
