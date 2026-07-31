@@ -56,6 +56,11 @@
                     $filename = "../imgs/artists/" . $name;
                     break;
 
+                case 'user':
+
+                    $filename = "../imgs/users/" . $name;
+                    break;
+
 
             }
 
@@ -151,8 +156,49 @@
 
                     break;
 
+                case "user":
 
-                
+                    if (!file_exists($filename) && getimagesize($_FILES['imga']['tmp_name']) && $_FILES['imga']['size'] <= 2000000 && !($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg' && $ext != 'webp')) {
+
+                        if(!move_uploaded_file($_FILES['imga']['tmp_name'], $filename)) {
+
+                            $err = "Impossibile caricare l'imagine";
+
+                        }else {
+
+                            $conn = connect_db();
+
+                            if ($_POST['isadmin'] !== '1') {
+
+                                $_POST['isadmin'] = 0;
+
+                            } else {
+
+                                $_POST['isadmin'] = (bool)$_POST['isadmin'];
+
+                            }
+
+                            $sql = "INSERT INTO user (username, passwd, email, bday, image_path, isadmin) VALUES ('".$_POST['name']."', PASSWORD('".$_POST['passwd']."'), '".$_POST['em']."', '".$_POST['bday']."' ,'".$filename."' ,'".$_POST['isadmin']."')";
+                            $conn->query($sql);
+
+                        }
+
+                    }
+
+
+                    break;
+
+
+                case 'genre':
+
+
+                    $conn = connect_db();
+
+                    $sql = "INSERT INTO genre (name) VALUES ('".$_POST['name']."')";
+                    $conn->query($sql);
+
+                    break;
+
                 default:
                     # code...
                     break;
@@ -397,7 +443,7 @@
             <form method="POST" class="mb-3" enctype="multipart/form-data">
 
                 <div class='mb-3 card-dark'>
-                    <label for='Name' class='form-label text-neon ll'>Username</label>
+                    <label for='name' class='form-label text-neon ll'>Username</label>
                     <input type='text' class='form-control' name='name' value='name'>
 
                     <label for='passwd' class='form-label text-neon ll'>Password</label>
@@ -417,7 +463,7 @@
                     <input type='checkbox' class='form-control' name='isadmin' value="1">
 
 
-                    <input type='hidden' name='flag' value='artist'>
+                    <input type='hidden' name='flag' value='user'>
 
                 </div>
                 
@@ -428,6 +474,26 @@
 
         <?php endif; ?>
 
+
+
+        <?php if ($selected === 6) :?>
+
+            <form method="POST" class="mb-3" enctype="multipart/form-data">
+
+                <div class='mb-3 card-dark'>
+                    <label for='name' class='form-label text-neon ll'>Username</label>
+                    <input type='text' class='form-control' name='name' value='name'>
+
+                    <input type='hidden' name='flag' value='genre'>
+
+                </div>
+                
+
+
+                <button type='submit' class='btn btn-neon mb-3'>Esegui</button>
+            </form>
+
+        <?php endif; ?>
 
 
         <br/>
