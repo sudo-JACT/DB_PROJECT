@@ -226,6 +226,17 @@ body {
 
 }
 
+
+
+.prodimg img {
+
+    width: 720px;
+    height: 720px;
+    object-fit: cover;
+
+}
+
+
 @media (max-width: 768px) {
 
     /* dimensione font titoli album in album*/

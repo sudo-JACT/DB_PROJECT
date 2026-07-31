@@ -29,6 +29,7 @@ CREATE TABLE `album` (
   `image_path` text DEFAULT NULL,
   `descr` text DEFAULT NULL,
   `linky` text DEFAULT NULL,
+  `price` float DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -40,20 +41,20 @@ CREATE TABLE `album` (
 LOCK TABLES `album` WRITE;
 /*!40000 ALTER TABLE `album` DISABLE KEYS */;
 INSERT INTO `album` VALUES
-(1,'From Mars to Sirius','2005-09-27','../imgs/albums/from_mars_to_sirius.jpg','From Mars to Sirius is the third studio album by French heavy metal band Gojira. It is a concept album addressing environmental issues and the rebirth of a dead planet through a space travel storyline, with the underlying theme of a transition from war to peace. From Mars to Sirius was released in 2005 to critical acclaim. It has since been ranked amongst the Rolling Stone\'s 100 Greatest Metal Albums of All Time.','https://youtu.be/z70ch7cE8ak?si=j9UGRA1hsdV4v1ue'),
-(2,'The Way of All Flesh','2008-10-13','../imgs/albums/the_way_of_all_flesh.jpg','\'The Way of All Flesh\' is the fourth studio album by the French band Gojira, released on October 13, 2008, in Europe by Listenable Records and the following day in North America by Prosthetic Records','https://youtu.be/Kf4eR4FVKzE?si=haCxLAXFWctaLWu_'),
-(3,'Lateralus','2001-05-15','../imgs/albums/lateralus.jpeg','Lateralus is the third studio album by the American band Tool, released on May 15, 2001, by Volcano II. In January 2001, the band announced that the album’s title was to be Systema Encéphale, but the following month they revealed that the actual title was Lateralus, contradicting what the media had already reported as the title of the new album.','https://youtu.be/3BXyEUOuNds?si=U1iaMrrrc5X7DZXT'),
-(4,'Meta','2016-10-28','../imgs/albums/meta.jpg','Meta is the third album by the American band Car Bomb. The album was produced by Gojira\'s Joseph Duplantier and guitarist Greg Kubacki and released independently on digital and CD formats on 28 October 2016','https://youtu.be/bUVcnsiRQ4M?si=R2i3CJeie4-CNYRi'),
-(5,'Turbe Sarde','2023-12-15','../imgs/albums/turbe-sarde.webp','\'Turbe Sarde\' is a song released in 2023, written primarily by Venz (Vincenzo Vespertilli) and Dario Moccia, produced in collaboration with Mr. Distruzione Musica and featuring Mike Lennon','https://youtu.be/omnjIOuBEoY?si=DXwoqR3LDZsQTJKS'),
-(6,'Maps of Non-Existent Places','2012-06-08','../imgs/albums/non-existent.jpeg','Maps of Non-Existent Places is the debut full-length album by progressive rock band Thank You Scientist. This is the only album to feature Greg Colacino on bass and Russ Lynch on violin, viola and mandolin.','https://youtu.be/IEYP_ExqR48?si=KjoKS_bgguLyujpH'),
-(7,'Mesmer','2017-03-24','../imgs/albums/Mesmer.jpg','Mesmer is the fourth studio album by Australian heavy metal band Northlane. It was released on 24 March 2017 through UNFD, with no announcement prior to the release. It was produced by David Bendeth and recorded at The Barber Shop Studio in Hopatcong. It follows the group\'s slight departure from their metalcore roots and towards a more alternative and experimental sound, as established on their previous release, Node. It peaked at No. 3 on the ARIA Albums Chart. It is the last Northlane album to feature their founding bassist Alex Milovic as a member of the band.','https://youtu.be/anQ836BXbYw?si=1xKLYc0I2PsP7SGO'),
-(8,'Count Your Blessings Repented','2026-07-10','../imgs/albums/Count_Your_Blessings_Repented.jpg','Count Your Blessings | Repented is a fully re-recorded, 20th-anniversary studio edition of the British rock band Bring Me The Horizon\'s debut album, Count Your Blessings. Originally released in 2006 during the band\'s early deathcore phase, the album was re-envisioned, modernized, and released on July 10, 2026, through Sony/RCA','https://youtu.be/yPFZu_-PbyM?si=4KjwMASJ9eiHNZXT'),
-(9,'Exhibition Of Prowess','2024-09-20','../imgs/albums/Exhibition_Of_Prowess.jpg','Exhibition of Prowess is the fifth studio album by the American metalcore band Kublai Khan TX, released on September 20, 2024, through Rise Records','https://youtu.be/91sH04HAlDE?si=5t99Tu_YpxbFk51N'),
-(10,'Fatalism','2023-09-01','../imgs/albums/Fatalism.jpg','Fatalism is the third studio album by Australian metalcore band Polaris. The band produced and recorded the album in Melbourne in 2022 with Lance Prenc engineering and Alpha Wolf guitarist Scottie Simpson on vocal recording duties. The album was released on 1 September 2023 under Resist Records and SharpTone Records. It is the band\'s final album with lead guitarist Ryan Siew, after his death on 19 June 2023, with his recordings completed beforehand and released posthumously','https://youtu.be/ZGQAMsGncGQ?si=KYWVME0j7TAENILq'),
-(11,'Hard Feelings','2018-03-23','../imgs/albums/Hard_Feelings.webp','Hard Feelings is the sixth studio album by the American metalcore band Blessthefall. The album was released on March 23, 2018, through Rise Records. It was produced by Tyler Smyth and the band themselves. It is their first album to be released after the band signed to Rise Records in 2018. It is also the last album to feature the band\'s founding drummer Matt Traynor before he left the band in August 2018','https://youtu.be/IgTi5u1HxUI?si=vlcKsptfg_x69mox'),
-(12,'Destrier','2015-08-07','../imgs/albums/Destrier.jpg','Destrier is the second album by rock band Agent Fresco','https://youtu.be/7WFxRmZoRN8?si=rBVkNGOXPa4PoPfJ'),
-(13,'The Darkest Place I\'ve Ever Been','2025-04-25','../imgs/albums/The_darkest_Place_Ive_Ever_Been.jpg','The Darkest Place I\'ve Ever Been is a metalcore and concept album released by the French band Landmvrks on April 25, 2025, via Arising Empire','https://youtu.be/xqB-elk9lZU?si=fcSyRyGON4vJ53mS'),
-(14,'Songs for the Deaf','1996-02-07','../imgs/albums/song_for_the_deaf.jpeg','Songs for the Deaf è l`album che diede piena visibilità ai Queens of the Stone Age','');
+(1,'From Mars to Sirius','2005-09-27','../imgs/albums/from_mars_to_sirius.jpg','From Mars to Sirius is the third studio album by French heavy metal band Gojira. It is a concept album addressing environmental issues and the rebirth of a dead planet through a space travel storyline, with the underlying theme of a transition from war to peace. From Mars to Sirius was released in 2005 to critical acclaim. It has since been ranked amongst the Rolling Stone\'s 100 Greatest Metal Albums of All Time.','https://youtu.be/z70ch7cE8ak?si=j9UGRA1hsdV4v1ue',25.32),
+(2,'The Way of All Flesh','2008-10-13','../imgs/albums/the_way_of_all_flesh.jpg','\'The Way of All Flesh\' is the fourth studio album by the French band Gojira, released on October 13, 2008, in Europe by Listenable Records and the following day in North America by Prosthetic Records','https://youtu.be/Kf4eR4FVKzE?si=haCxLAXFWctaLWu_',22.99),
+(3,'Lateralus','2001-05-15','../imgs/albums/lateralus.jpeg','Lateralus is the third studio album by the American band Tool, released on May 15, 2001, by Volcano II. In January 2001, the band announced that the album’s title was to be Systema Encéphale, but the following month they revealed that the actual title was Lateralus, contradicting what the media had already reported as the title of the new album.','https://youtu.be/3BXyEUOuNds?si=U1iaMrrrc5X7DZXT',NULL),
+(4,'Meta','2016-10-28','../imgs/albums/meta.jpg','Meta is the third album by the American band Car Bomb. The album was produced by Gojira\'s Joseph Duplantier and guitarist Greg Kubacki and released independently on digital and CD formats on 28 October 2016','https://youtu.be/bUVcnsiRQ4M?si=R2i3CJeie4-CNYRi',NULL),
+(5,'Turbe Sarde','2023-12-15','../imgs/albums/turbe-sarde.webp','\'Turbe Sarde\' is a song released in 2023, written primarily by Venz (Vincenzo Vespertilli) and Dario Moccia, produced in collaboration with Mr. Distruzione Musica and featuring Mike Lennon','https://youtu.be/omnjIOuBEoY?si=DXwoqR3LDZsQTJKS',NULL),
+(6,'Maps of Non-Existent Places','2012-06-08','../imgs/albums/non-existent.jpeg','Maps of Non-Existent Places is the debut full-length album by progressive rock band Thank You Scientist. This is the only album to feature Greg Colacino on bass and Russ Lynch on violin, viola and mandolin.','https://youtu.be/IEYP_ExqR48?si=KjoKS_bgguLyujpH',NULL),
+(7,'Mesmer','2017-03-24','../imgs/albums/Mesmer.jpg','Mesmer is the fourth studio album by Australian heavy metal band Northlane. It was released on 24 March 2017 through UNFD, with no announcement prior to the release. It was produced by David Bendeth and recorded at The Barber Shop Studio in Hopatcong. It follows the group\'s slight departure from their metalcore roots and towards a more alternative and experimental sound, as established on their previous release, Node. It peaked at No. 3 on the ARIA Albums Chart. It is the last Northlane album to feature their founding bassist Alex Milovic as a member of the band.','https://youtu.be/anQ836BXbYw?si=1xKLYc0I2PsP7SGO',NULL),
+(8,'Count Your Blessings Repented','2026-07-10','../imgs/albums/Count_Your_Blessings_Repented.jpg','Count Your Blessings | Repented is a fully re-recorded, 20th-anniversary studio edition of the British rock band Bring Me The Horizon\'s debut album, Count Your Blessings. Originally released in 2006 during the band\'s early deathcore phase, the album was re-envisioned, modernized, and released on July 10, 2026, through Sony/RCA','https://youtu.be/yPFZu_-PbyM?si=4KjwMASJ9eiHNZXT',NULL),
+(9,'Exhibition Of Prowess','2024-09-20','../imgs/albums/Exhibition_Of_Prowess.jpg','Exhibition of Prowess is the fifth studio album by the American metalcore band Kublai Khan TX, released on September 20, 2024, through Rise Records','https://youtu.be/91sH04HAlDE?si=5t99Tu_YpxbFk51N',NULL),
+(10,'Fatalism','2023-09-01','../imgs/albums/Fatalism.jpg','Fatalism is the third studio album by Australian metalcore band Polaris. The band produced and recorded the album in Melbourne in 2022 with Lance Prenc engineering and Alpha Wolf guitarist Scottie Simpson on vocal recording duties. The album was released on 1 September 2023 under Resist Records and SharpTone Records. It is the band\'s final album with lead guitarist Ryan Siew, after his death on 19 June 2023, with his recordings completed beforehand and released posthumously','https://youtu.be/ZGQAMsGncGQ?si=KYWVME0j7TAENILq',NULL),
+(11,'Hard Feelings','2018-03-23','../imgs/albums/Hard_Feelings.webp','Hard Feelings is the sixth studio album by the American metalcore band Blessthefall. The album was released on March 23, 2018, through Rise Records. It was produced by Tyler Smyth and the band themselves. It is their first album to be released after the band signed to Rise Records in 2018. It is also the last album to feature the band\'s founding drummer Matt Traynor before he left the band in August 2018','https://youtu.be/IgTi5u1HxUI?si=vlcKsptfg_x69mox',NULL),
+(12,'Destrier','2015-08-07','../imgs/albums/Destrier.jpg','Destrier is the second album by rock band Agent Fresco','https://youtu.be/7WFxRmZoRN8?si=rBVkNGOXPa4PoPfJ',NULL),
+(13,'The Darkest Place I\'ve Ever Been','2025-04-25','../imgs/albums/The_darkest_Place_Ive_Ever_Been.jpg','The Darkest Place I\'ve Ever Been is a metalcore and concept album released by the French band Landmvrks on April 25, 2025, via Arising Empire','https://youtu.be/xqB-elk9lZU?si=fcSyRyGON4vJ53mS',NULL),
+(14,'Songs for the Deaf','1996-02-07','../imgs/albums/song_for_the_deaf.jpeg','Songs for the Deaf is the third studio album by the American rock band Queens of the Stone Age, released on August 27, 2002, by Interscope Records. It features many guest musicians, and was the last Queens of the Stone Age album to feature Nick Oliveri on bass. It was also the first Queens of the Stone Age album to feature Dave Grohl on drums, with the second being …Like Clockwork in 2013, where he would feature on half of the track list. Songs for the Deaf is a loose concept album, taking the listener on a drive through the California desert from Los Angeles to Joshua Tree, tuning into radio stations from towns along the way such as Banning and Chino Hills.','https://www.youtube.com/watch?v=uo3l2vDZTjc',23.99);
 /*!40000 ALTER TABLE `album` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -71,7 +72,7 @@ CREATE TABLE `artist` (
   `image_path` text DEFAULT NULL,
   `bio` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -83,7 +84,8 @@ LOCK TABLES `artist` WRITE;
 INSERT INTO `artist` VALUES
 (1,'Dario Moccia','1990-08-29','../imgs/artists/dario-moccia.jpg_large',NULL),
 (2,'Mario Duplantier','1981-06-19','../imgs/artists/image_2026-07-30_122444506.png','Mario'),
-(3,'Joe Duplantier','1976-10-19','../imgs/artists/image_2026-07-30_122958570.png','Joe');
+(3,'Joe Duplantier','1976-10-19','../imgs/artists/image_2026-07-30_122958570.png','Joe'),
+(4,'idk2','2026-07-30','../imgs/artists/IMG_2441.PNG','');
 /*!40000 ALTER TABLE `artist` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,7 +140,7 @@ CREATE TABLE `genre` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -181,7 +183,17 @@ CREATE TABLE `ispartof` (
 LOCK TABLES `ispartof` WRITE;
 /*!40000 ALTER TABLE `ispartof` DISABLE KEYS */;
 INSERT INTO `ispartof` VALUES
-(2,1,8);
+(2,1,8),
+(2,2,1),
+(2,3,2),
+(2,4,3),
+(2,5,4),
+(2,6,5),
+(2,7,6),
+(2,8,7),
+(2,9,10),
+(2,10,11),
+(2,11,12);
 /*!40000 ALTER TABLE `ispartof` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -211,7 +223,8 @@ LOCK TABLES `members` WRITE;
 INSERT INTO `members` VALUES
 (4,1),
 (1,2),
-(1,3);
+(1,3),
+(NULL,4);
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -267,7 +280,7 @@ CREATE TABLE `sale` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
   `album_id` int(11) DEFAULT NULL,
-  `price` float DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL CHECK (`quantity` > 0),
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `album_id` (`album_id`),
@@ -299,7 +312,7 @@ CREATE TABLE `song` (
   `descr` text DEFAULT NULL,
   `linky` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -309,7 +322,17 @@ CREATE TABLE `song` (
 LOCK TABLES `song` WRITE;
 /*!40000 ALTER TABLE `song` DISABLE KEYS */;
 INSERT INTO `song` VALUES
-(1,'The Art of Dying','00:00:10','Peak','https://youtu.be/iJqVjglvnoc?si=2Ln42_SN5VbKKol8');
+(1,'The Art of Dying','00:00:10','Peak','https://youtu.be/iJqVjglvnoc?si=2Ln42_SN5VbKKol8'),
+(2,'Oroborus','00:00:05','Serpent of light, movement of the soul\r\nCrawling stately along the spine\r\nMighty phoenix from the ashes arises\r\nFirebird cycle','https://youtu.be/BfDaJREgrw0?si=_H37MrLlxKkEyNal'),
+(3,'Toxic Garbage Island','00:00:04','Mysterious form, soul in the dark\r\nUnder this heavy sealing concrete waves\r\nFollowed by servants, funeral cortège','https://youtu.be/68G3Yfb6PSE?si=b2o18BCWkRlag6nx'),
+(4,'A Sight to Behold','00:00:05','Reflecting ourselves in the blood of all the beings we slay\r\nMisunderstand each other, out of control we remain\r\nThere is a mystery, we\'re facing a sight to behold','https://youtu.be/hIPDOOLBSpc?si=BE3cEydbV5frUnxS'),
+(5,'Yama\'s Messengers','00:00:04','I\'m scared to death when I see them arrive\r\nInfected eyes, red, staring at me\r\nThe time has come for retribution','https://youtu.be/zzDq3SiO1qY?si=DplRt-xRA5mzPg5g'),
+(6,'The Silver Cord','00:00:02','In metaphysical studies and literature, the silver cord, also known as the sutratma or life thread of the antahkarana, refers to a life-giving linkage from the higher self (atma) down to the physical body. It also refers to an extended synthesis of this thread and a second (the consciousness thread, passing from the soul to the physical body) that connects the physical body to the etheric body, onwards to the astral body and finally to the mental body.','https://youtu.be/Wr8vC1FzcLk?si=owu7FEHDdz0hAk2T'),
+(7,'All the Tears','00:00:03','Are we left all alone?\r\nMother has no time, but she cares for me\r\nAnd she cries all the tears','https://youtu.be/7CGV5MRK6_k?si=igc6OtlKABddZWR4'),
+(8,'Adoration for None','00:00:06','Everyone is doing their best to destroy it\r\nSimplicity\'s forgotten\r\nAnd we all drill the ground','https://youtu.be/xPhmDcmy_YY?si=x2HSjtP1uQbSADUC'),
+(9,'Esoteric Surgery','00:00:05','You have the power to heal yourself\r\nAll illness can be healed, the cell regenerates\r\nDisambiguated situation','https://youtu.be/M6se_mW06ow?si=jVjq6O8Qe_frIJ8-'),
+(10,'Wolf Down the Earth','00:00:06','First of all, you will eat all the bodies\r\nNo matter they pray for freedom, they\'ll kill you\r\nForward you crush those going backwards','https://youtu.be/Q0bPD6XkyWg?si=xL78bOan2Nu3O9cJ'),
+(11,'The Way of All Flesh','00:00:17','Anything that has a shape will crumble away, disappear\r\nWe belong to the circle life of all creation\r\nWe crawl, deny ourselves, refuse this evidence','https://youtu.be/A0UCunCKD2E?si=pE4XM3jXeMJDsf5J');
 /*!40000 ALTER TABLE `song` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -359,7 +382,7 @@ CREATE TABLE `user` (
   `image_path` text DEFAULT NULL,
   `isadmin` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -384,4 +407,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-30 16:17:07
+-- Dump completed on 2026-07-31 17:37:15

@@ -35,7 +35,8 @@ create table album (
     publication_date date,
     image_path text,
     descr text,
-    linky text
+    linky text,
+    price float
 );
 
 create table song (
@@ -80,7 +81,7 @@ create table sale (
     id int auto_increment primary key,
     user_id int,
     album_id int,
-    price float,
+    quantity int CHECK (quantity > 0),
     FOREIGN KEY (user_id) REFERENCES user(id),
     FOREIGN KEY (album_id) REFERENCES album(id)
 );
