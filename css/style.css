@@ -107,6 +107,8 @@ body {
     color: #000000 !important;
     font-family: "Barlow Condensed", sans-serif;
     font-weight: 600;
+    margin-left: 22px;
+    align-self: center;
 }
 
 /* colore icona sito*/
@@ -260,21 +262,18 @@ body {
 }*/
 
 
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-
+/* gestione menù sandwitch */
 .navbar-toggler {
 
     /*color: #000000 !important;*/
     background-color: #FFFFFF !important;
-    
 
 }
 
+/* gestione icona sandwitch */
 .navbar-toggler-icon {
 
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
     background-color: #FFFFFF !important;
     border-color: #000000 !important;
 
@@ -302,7 +301,7 @@ body {
     }
 }
 
-@media (max-width: 480px) {
+/*@media (max-width: 480px) {
 
     .btn-neon {
  
