@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root {
     /* --- Colori Primari (L'armatura di Ferro/Acciaio Brunito) --- */
     --iw-iron:            #383838; /* Grigio canna di fucile scuro (Colore base armatura) */
@@ -312,3 +313,330 @@ body {
 
     }
 }
+=======
+:root {
+    /* --- Colori Primari (L'armatura di Ferro/Acciaio Brunito) --- */
+    --iw-iron:            #383838; /* Grigio canna di fucile scuro (Colore base armatura) */
+    --iw-iron-darker:     #212121; /* Quasi nero, per ombre profonde e dettagli industriali */
+    --iw-iron-light:      #5E5E5E; /* Grigio medio, per i bordi leggermente meno consumati */
+
+    /* --- Colori Secondari (Dettagli in Ottone/Oro logoro) --- */
+    --iw-brass:           #A17F2C; /* Ottone antico, sporco e privo di lucentezza (Finiture, insegne) */
+    --iw-brass-patina:    #4D442E; /* Un marrone verdastro, per i recessi dell'ottone (ossidazione) */
+
+    /* --- Colori di Accento (Le mitiche Hazard Stripes) --- */
+    --iw-hazard-yellow:   #F3D300; /* Un giallo industriale, saturo ma logoro */
+    --iw-hazard-black:    #0A0A0A; /* Nero puro, per il massimo contrasto delle strisce */
+
+    /* --- Colori Atmosferici (Ruggine, Olio, Usura Grimdark) --- */
+    --iw-rust:            #7B3F00; /* Un marrone rossastro profondo, per i dettagli arrugginiti */
+    --iw-oil:             #141414; /* Un nero lucido e oleoso, per i giunti e i motori */
+    --iw-void-black:      #121212;
+
+
+    /* --- Assegnazione Semantica --- */
+    --bg-primary:         var(--iw-iron); /* Sfondo principale */
+    --bg-secondary:       var(--iw-iron-darker); /* Sfondo secondario, footer */
+    --bg-dark:            var(--iw-iron-darker);
+
+    --text-primary:       #E0E0E0; /* Testo chiaro su fondo scuro */
+    --text-secondary:     #BDBDBD; /* Testo di supporto */
+    --text-inverted:      var(--iw-hazard-black); /* Testo nero su fondo giallo */
+    --text-gold:          var(--iw-brass);
+
+    --border-color:       var(--iw-iron-light); /* Bordi sottili tra elementi di ferro */
+
+    /* Colori di Accento principali per Call to Action */
+    --brand-color:        var(--iw-hazard-yellow);
+    --brand-color-dark:   var(--iw-hazard-black);
+    --accent-color:       var(--iw-brass);
+}
+
+/* sfondo titolo della pagina */
+body {
+
+    background-color: #0b0b0b;
+    color: #000000;
+    font-family: sans-serif;
+
+}
+
+
+.ll {
+    padding-top: 20px;
+}
+
+/* nome album */
+.text-neon {
+
+    color: #efefef;
+    text-shadow: var(--text-inverted);
+    font-family: "Saira Condensed", sans-serif;
+    font-weight: 200;
+    font-size: 20px;
+    font-style: normal;
+    letter-spacing: 0px;
+    line-height: 0.5;
+    
+    width: 260px;
+    margin: 10px auto 0;
+
+    text-align: center;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+
+}
+
+/* nomi band/ titoli*/
+.text-neon-w {
+
+    color: #efefef;
+    text-shadow: var(--text-inverted);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0px;
+    line-height: 1.5;
+    text-align: center;
+
+}
+
+/* prezzo album */
+.pricetag {
+
+    color: #efefef;
+    text-shadow: var(--text-inverted);
+    font-family: "Saira Condensed", sans-serif;
+    font-weight: 200;
+    font-size: 20px;
+    font-style: normal;
+    letter-spacing: 0px;
+    line-height: 2.7;
+    text-align: center;
+}
+
+/* colori parole nella navbar (link)*/
+.nav-link{
+
+    color: #000000 !important;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 600;
+    margin-left: 22px;
+    align-self: center;
+}
+
+/* colore icona sito*/
+.navbar-brand{
+
+    color: #000000 !important;
+}
+
+.navbar {
+
+    color: var(--text-gold) !important;
+    background-color: #FFFFFF !important;
+
+    /* messo a 0 perchè non c'è nel sito finale */
+    border-bottom: 0px solid /*var(--iw-hazard-yellow)*/ !important;
+}
+
+/* gestione allineamento card nella pagina album */
+.album-container {
+    
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 40px;
+    row-gap: 0px;
+    border-radius: 0px;
+
+    padding-top: 40px;
+}
+
+.m-r {
+    
+    margin-right: 20px;
+
+}
+
+.btn-neon {
+
+    background-color: transparent;
+    color: var(--text-gold);
+    border: 2px solid var(--text-inverted);
+    padding: 10px 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: var(--text-inverted);
+    transition: all 0.3s ease-in-out;
+
+}
+
+/* bottone login passata cursore */
+.btn-neon:hover {
+
+    background-color: var(--text-inverted);
+    color: var(--text-gold);
+    box-shadow: 0 0 15px var(--text-gold), 0 0 30px var(--text-gold);
+    text-shadow: none;
+
+}
+
+/* caratteristiche div centrale sfondo*/
+.card-dark {
+
+    background-color: #313131;
+    border: 1px solid #313131;
+    border-radius: 0px;
+
+}
+
+.card {
+
+    display: inline-block !important;
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: transparent;
+    margin: 0px;
+
+    /*width: clamp(300px, 18vw, 400px);*/
+
+}
+
+/* gestione immagini singole album ovunque*/
+.card-img-top {
+
+    border-radius: 0px !important;
+
+    width: clamp(220px, 25vw, 280px);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+
+}
+
+.border-neon {
+
+    border-color: var(--text-gold);
+
+}
+
+.album {
+
+    padding: 20px;
+    display: inline-block;
+    text-align: center;
+
+}
+
+.figure-img {
+    
+    width: clamp(220px, 21vw, 260px);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin: 0;
+}
+
+/* titolo della pagina*/
+.title {
+
+    text-align: center;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fdfdfd;
+    letter-spacing: 3px;
+    font-weight: 800;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;  /* centro orizzontale */
+    align-items: center;      /* centro verticale */
+
+    height: 60px;            /* altezza della fascia */
+
+}
+
+/* gestione margine del titolo della pagina */
+.title h1 {
+    margin: 0;
+}
+
+
+/*
+.foto img {
+ 
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+
+}*/
+
+
+/* gestione menù sandwitch */
+.navbar-toggler {
+
+    /*color: #000000 !important;*/
+    background-color: #FFFFFF !important;
+
+}
+
+/* gestione icona sandwitch */
+.navbar-toggler-icon {
+
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    background-color: #FFFFFF !important;
+    border-color: #000000 !important;
+
+}
+
+
+
+.prodimg img {
+
+    width: 720px;
+    height: 720px;
+    object-fit: cover;
+
+}
+
+
+@media (max-width: 768px) {
+
+    /* dimensione font titoli album in album*/
+    .text-neon {
+        
+        margin: 5px auto 0;
+    }
+
+    .btn-neon {
+
+        padding: 8px 16px;
+        font-size: 0.9rem;
+
+    }
+
+    .card {
+
+        margin: 15px !important;
+
+    }
+}
+
+/*@media (max-width: 480px) {
+
+    .btn-neon {
+ 
+        width: 100%;
+        display: block;
+        text-align: center;
+        box-sizing: border-box;
+
+    }
+}
+>>>>>>> origin/main
