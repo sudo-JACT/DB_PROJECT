@@ -17,9 +17,9 @@
         $rows = $conn->query($sql2);
 
     } else {
-    
+
         header('Location: '.'/'); 
-    
+
     }
 
 ?>
