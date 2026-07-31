@@ -38,9 +38,27 @@
             $name = basename($_FILES['imga']['name']);
 
             $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
-            
-            $filename = "../imgs/albums/" . $name;
-        
+
+            switch ($_POST['flag']) {
+
+                case 'album':
+
+                    $filename = "../imgs/albums/" . $name;
+                    break;
+
+                case 'band':
+                    
+                    $filename = "../imgs/bands/" . $name;
+                    break;
+
+                case 'artist':
+                    
+                    $filename = "../imgs/artists/" . $name;
+                    break;
+
+
+            }
+
         }
 
 
@@ -86,6 +104,55 @@
                     break;
 
 
+                case 'band':
+
+                    if (!file_exists($filename) && getimagesize($_FILES['imga']['tmp_name']) && $_FILES['imga']['size'] <= 2000000 && !($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg' && $ext != 'webp')) {
+
+                        if(!move_uploaded_file($_FILES['imga']['tmp_name'], $filename)) {
+
+                            $err = "Impossibile caricare l'imagine";
+
+                        }else {
+
+                            $conn = connect_db();
+
+                            $sql = "INSERT INTO band (name, creation_date, image_path, descr) VALUES ('".$_POST['name']."','".$_POST['credate']."' ,'".$filename."' ,'".$_POST['desc']."')";
+                            $conn->query($sql);
+
+                        }
+
+                    }
+
+                    break;
+
+
+                case "artist":
+
+                    if (!file_exists($filename) && getimagesize($_FILES['imga']['tmp_name']) && $_FILES['imga']['size'] <= 2000000 && !($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg' && $ext != 'webp')) {
+
+                        if(!move_uploaded_file($_FILES['imga']['tmp_name'], $filename)) {
+
+                            $err = "Impossibile caricare l'imagine";
+
+                        }else {
+
+                            $conn = connect_db();
+
+                            $sql = "INSERT INTO artist (name, bday, image_path, bio) VALUES ('".$_POST['name']."','".$_POST['bday']."' ,'".$filename."' ,'".$_POST['bio']."')";
+                            $conn->query($sql);
+
+
+                            $sql = "INSERT INTO members (band_id, artist_id) VALUES ((SELECT id FROM band WHERE name='".$_POST['bname']."'), (SELECT id FROM artist WHERE name='".$_POST['name']."'))";
+                            $conn->query($sql);
+
+                        }
+
+                    }
+
+                    break;
+
+
+                
                 default:
                     # code...
                     break;
@@ -269,8 +336,8 @@
                     <label for='Name' class='form-label text-neon ll'>Name</label>
                     <input type='text' class='form-control' name='name' value='name'>
                 
-                    <label for='pubdate' class='form-label text-neon ll'>Creation Date</label>
-                    <input type='date' class='form-control' name='pubdate'>
+                    <label for='credate' class='form-label text-neon ll'>Creation Date</label>
+                    <input type='date' class='form-control' name='credate'>
            
                     <label for='imga' class='form-label text-neon ll'>Image</label>
                     <input type='file' class='form-control' name='imga' accept='image/*'>
@@ -278,11 +345,79 @@
                     <label for='desc' class='form-label text-neon ll'>Bio</label>
                     <input type='text' class='form-control' name='desc'>
 
-                    <label for='link' class='form-label text-neon ll'>Link</label>
-                    <input type='url' class='form-control' name='link'>
-
 
                     <input type='hidden' name='flag' value='band'>
+
+                </div>
+                
+
+
+                <button type='submit' class='btn btn-neon mb-3'>Esegui</button>
+            </form>
+
+        <?php endif; ?>
+
+
+
+        <?php if ($selected === 4) :?>
+
+            <form method="POST" class="mb-3" enctype="multipart/form-data">
+
+                <div class='mb-3 card-dark'>
+                    <label for='Name' class='form-label text-neon ll'>Name</label>
+                    <input type='text' class='form-control' name='name' value='name'>
+                
+                    <label for='bday' class='form-label text-neon ll'>BDay</label>
+                    <input type='date' class='form-control' name='bday'>
+           
+                    <label for='imga' class='form-label text-neon ll'>Image</label>
+                    <input type='file' class='form-control' name='imga' accept='image/*'>
+
+                    <label for='bio' class='form-label text-neon ll'>Bio</label>
+                    <input type='text' class='form-control' name='bio'>
+
+                    <label for='bname' class='form-label text-neon ll'>Band</label>
+                    <input type='text' class='form-control' name='bname'>
+
+
+                    <input type='hidden' name='flag' value='artist'>
+
+                </div>
+                
+
+
+                <button type='submit' class='btn btn-neon mb-3'>Esegui</button>
+            </form>
+
+        <?php endif; ?>
+
+
+        <?php if ($selected === 5) :?>
+
+            <form method="POST" class="mb-3" enctype="multipart/form-data">
+
+                <div class='mb-3 card-dark'>
+                    <label for='Name' class='form-label text-neon ll'>Username</label>
+                    <input type='text' class='form-control' name='name' value='name'>
+
+                    <label for='passwd' class='form-label text-neon ll'>Password</label>
+                    <input type='Password' class='form-control' name='passwd'>
+
+                    <label for='em' class='form-label text-neon ll'>Email</label>
+                    <input type='email' class='form-control' name='em'>
+
+                    <label for='bday' class='form-label text-neon ll'>BDay</label>
+                    <input type='date' class='form-control' name='bday'>
+           
+                    <label for='imga' class='form-label text-neon ll'>Image</label>
+                    <input type='file' class='form-control' name='imga' accept='image/*'>
+
+
+                    <label for='isadmin' class='form-label text-neon ll'>Admin</label>
+                    <input type='checkbox' class='form-control' name='isadmin' value="1">
+
+
+                    <input type='hidden' name='flag' value='artist'>
 
                 </div>
                 
