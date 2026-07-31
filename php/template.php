@@ -9,7 +9,7 @@ function head($index) {
     session_checker();
 
     if ($index) {
-    
+
 
         echo "<head>";
 
