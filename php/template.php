@@ -44,6 +44,20 @@ function head($index) {
 
     }
 
+    // aggiunta del font Barlow Condensed
+    echo "<link rel='preconnect' href='https://fonts.googleapis.com'>";
+    echo "<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>";
+    echo "<link href='https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&display=swap' rel='stylesheet'>";
+
+    // aggiunta del font Inter
+    echo "<link rel='preconnect' href='https://fonts.googleapis.com'>";
+    echo "<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>";
+    echo "<link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap' rel='stylesheet'>";
+
+    // aggiunta del font Saira Condensed
+    echo "<link rel='preconnect' href='https://fonts.googleapis.com'>";
+    echo "<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>";
+    echo "<link href='https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700;800&display=swap' rel='stylesheet'>";
 }
 
 function navbar() {
@@ -55,7 +69,9 @@ function navbar() {
     echo "<nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
   <div class='container-fluid'>
     
-    <a class='navbar-brand ' href='/'>LOGO</a>
+    <a class='navbar-brand ' href='/'>
+        <img src='/imgs/logo/Smugglers Logo.png' alt='Logo' width='100'>
+    </a>
     
 
     <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
@@ -136,12 +152,11 @@ function session_checker(): bool {
 
         session_start();
 
-
         $_SESSION['servername'] = "mariadb";
         $_SESSION['username'] = "root";
         $_SESSION['password'] = "root";
         $_SESSION['dbname'] = "proddb";
-        $_SESSION['title'] = "bibi"; 
+        $_SESSION['title'] = "WELCOME TO SMUGGLERS!!!"; 
 
     }
 

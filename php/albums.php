@@ -48,11 +48,13 @@
                 
                     while($row = $result->fetch()) {
                     
-                        echo "<div class='card card-dark' style='width: 18rem;'>
+                        /*echo "<div class='card card-dark' style='width: 18rem;'>*/
+                        echo "<div class='card card-dark'>
                                 <img src='".$row['image_path']."' class='card-img-top' alt='".$row['name']."-".$row['id']."'>
                                 <div class='card-body'>
                                     <p class='card-text text-neon-w'>".$row['bname']."</p>
                                     <p class='card-text text-neon'>".$row['name']."</p>
+                                    <p class='card-text pricetag'> 23.99 € </p>
                                 </div>
                             </div>";
 

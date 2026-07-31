@@ -36,10 +36,10 @@
     --accent-color:       var(--iw-brass);
 }
 
-/* sfondo profondo */
+/* sfondo titolo della pagina */
 body {
 
-    background-color: var(--bg-primary);
+    background-color: #0b0b0b;
     color: #000000;
     font-family: sans-serif;
 
@@ -55,12 +55,12 @@ body {
 
     color: #efefef;
     text-shadow: var(--text-inverted);
-    font-family: Courier, monospace;
-    font-weight: 100;
-    font-size: 24px;
+    font-family: "Saira Condensed", sans-serif;
+    font-weight: 200;
+    font-size: 20px;
     font-style: normal;
     letter-spacing: 0px;
-    line-height: 1.2;
+    line-height: 0.5;
     
     width: 260px;
     margin: 10px auto 0;
@@ -77,19 +77,36 @@ body {
 
     color: #efefef;
     text-shadow: var(--text-inverted);
-    font-family: "Lucida Console", "Courier New", monospace;
+    font-family: "Barlow Condensed", sans-serif;
     font-size: 16px;
-    font-weight: 900;
+    font-weight: 600;
     font-style: normal;
     letter-spacing: 0px;
     line-height: 1.5;
+    text-align: center;
 
+}
+
+/* prezzo album */
+.pricetag {
+
+    color: #efefef;
+    text-shadow: var(--text-inverted);
+    font-family: "Saira Condensed", sans-serif;
+    font-weight: 200;
+    font-size: 20px;
+    font-style: normal;
+    letter-spacing: 0px;
+    line-height: 2.7;
+    text-align: center;
 }
 
 /* colori parole nella navbar (link)*/
 .nav-link{
 
     color: #000000 !important;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 600;
 }
 
 /* colore icona sito*/
@@ -103,17 +120,21 @@ body {
     color: var(--text-gold) !important;
     background-color: #FFFFFF !important;
 
-    border-bottom: 3px solid var(--iw-hazard-yellow) !important;
+    /* messo a 0 perchè non c'è nel sito finale */
+    border-bottom: 0px solid /*var(--iw-hazard-yellow)*/ !important;
 }
 
 /* gestione allineamento card nella pagina album */
 .album-container {
+    
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    column-gap: 40px;
+    row-gap: 0px;
     border-radius: 0px;
 
+    padding-top: 40px;
 }
 
 .m-r {
@@ -146,11 +167,11 @@ body {
 
 }
 
-/* caratteristiche div centrale*/
+/* caratteristiche div centrale sfondo*/
 .card-dark {
 
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--bg-secondary-alt);
+    background-color: #313131;
+    border: 1px solid #313131;
     border-radius: 0px;
 
 }
@@ -162,8 +183,9 @@ body {
     justify-content: center !important;
     align-items: center !important;
     background-color: transparent;
-    margin: 20px;
-    height: 380px;
+    margin: 0px;
+
+    /*width: clamp(300px, 18vw, 400px);*/
 
 }
 
@@ -171,6 +193,10 @@ body {
 .card-img-top {
 
     border-radius: 0px !important;
+
+    width: clamp(220px, 25vw, 280px);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
 
 }
 
@@ -188,22 +214,50 @@ body {
 
 }
 
+.figure-img {
+    
+    width: clamp(220px, 21vw, 260px);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin: 0;
+}
+
+/* titolo della pagina*/
 .title {
 
     text-align: center;
-    color: var(--text-primary);
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fdfdfd;
+    letter-spacing: 3px;
+    font-weight: 800;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;  /* centro orizzontale */
+    align-items: center;      /* centro verticale */
+
+    height: 60px;            /* altezza della fascia */
 
 }
 
+/* gestione margine del titolo della pagina */
+.title h1 {
+    margin: 0;
+}
 
 
+/*
 .foto img {
  
     width: 250px;
     height: 250px;
     object-fit: cover;
 
-}
+}*/
 
 
 .navbar-toggler-icon {
@@ -215,7 +269,7 @@ body {
 
     /*color: #000000 !important;*/
     background-color: #FFFFFF !important;
-    border-color: #000000 !important;
+    
 
 }
 
