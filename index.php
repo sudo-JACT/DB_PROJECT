@@ -62,6 +62,18 @@
                                     <p class='card-text pricetag'> 23.99 € </p>
                                 </div>
                             </div>";
+                        /*
+                            echo "<div class='album foto'>"; 
+                            echo "<figure class='figure border-neon'>";
+                            echo "<img src='".$row['image_path']."' class='figure-img img-fluid rounded' alt=".$row['name'].">";
+                            // nome album
+                            echo "<figcaption class='figure-caption text-center text-neon-w'>".$row['bname']."</figcaption>";
+                            echo "</figure>";
+                            echo "<br/>";
+                            // nome della band
+                            echo "<text class='text-neon'>".$row['name']."</text>";
+                            echo "</div>";
+                        */
                         }
                     
                         unset($result);
