@@ -44,6 +44,20 @@ function head($index) {
 
     }
 
+    // aggiunta del font Barlow Condensed
+    echo "<link rel='preconnect' href='https://fonts.googleapis.com'>";
+    echo "<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>";
+    echo "<link href='https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&display=swap' rel='stylesheet'>";
+
+    // aggiunta del font Inter
+    echo "<link rel='preconnect' href='https://fonts.googleapis.com'>";
+    echo "<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>";
+    echo "<link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap' rel='stylesheet'>";
+
+    // aggiunta del font Saira Condensed
+    echo "<link rel='preconnect' href='https://fonts.googleapis.com'>";
+    echo "<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>";
+    echo "<link href='https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700;800&display=swap' rel='stylesheet'>";
 }
 
 function navbar() {
@@ -142,7 +156,7 @@ function session_checker(): bool {
         $_SESSION['username'] = "root";
         $_SESSION['password'] = "root";
         $_SESSION['dbname'] = "proddb";
-        $_SESSION['title'] = "LANDING PAGE"; 
+        $_SESSION['title'] = "WELCOME TO SMUGGLERS!!!"; 
 
     }
 
