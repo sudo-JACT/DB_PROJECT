@@ -74,21 +74,6 @@ CREATE TABLE `artist` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `artist`
---
-
-LOCK TABLES `artist` WRITE;
-/*!40000 ALTER TABLE `artist` DISABLE KEYS */;
-INSERT INTO `artist` VALUES
-(1,'Dario Moccia','1990-08-29','../imgs/artists/dario-moccia.jpg_large',NULL),
-(2,'Mario Duplantier','1981-06-19','../imgs/artists/image_2026-07-30_122444506.png','Mario'),
-(3,'Joe Duplantier','1976-10-19','../imgs/artists/image_2026-07-30_122958570.png','Joe'),
-(4,'idk2','2026-07-30','../imgs/artists/IMG_2441.PNG','');
-/*!40000 ALTER TABLE `artist` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Dumping data for table `artist`
@@ -222,6 +207,7 @@ DROP TABLE IF EXISTS `members`;
 CREATE TABLE `members` (
   `band_id` int(11) DEFAULT NULL,
   `artist_id` int(11) DEFAULT NULL,
+  `role` text DEFAULT NULL,
   KEY `band_id` (`band_id`),
   KEY `artist_id` (`artist_id`),
   CONSTRAINT `1` FOREIGN KEY (`band_id`) REFERENCES `band` (`id`),
@@ -236,10 +222,10 @@ CREATE TABLE `members` (
 LOCK TABLES `members` WRITE;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
 INSERT INTO `members` VALUES
-(4,1),
-(1,2),
-(1,3),
-(NULL,4);
+(4,1,NULL),
+(1,2,NULL),
+(1,3,NULL),
+(NULL,4,NULL);
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -422,28 +408,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-31 17:33:22
-
---
--- Dumping data for table `user`
---
-
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES
-(1,'imdonkey','*91D9861DFC07DD967611B8C96953474EF270AD5E','lol@lmao.com','2005-05-14','./imgs/users/imdonkey.jpeg',1),
-(2,'Bonz','*A4B6157319038724E3560894F7F932C8886EBFCF','idk@gmail.com','2000-01-01','./imgs/users/bonza.jpeg',1),
-(3,'idk','*78206C4A13995561F9E4D7E835F1A668F3866F4E','idk@idk.com','2025-07-28','',0);
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2026-07-31 17:33:22
+-- Dump completed on 2026-08-01 11:50:18

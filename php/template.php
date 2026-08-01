@@ -76,7 +76,7 @@ function navbar() {
     <form class='d-flex search-form' role='search'>
             <input class='form-control search-box' type='search' placeholder='Cerca album...' aria-label='Search'>
             <button class='search-btn' type='submit'>
-                <img src='/imgs/img_toolsg/lens.png' alt='Cerca'>
+                <img src='/imgs/img_tools/Lens.png' alt='Cerca'>
             </button>
     </form>
 

@@ -324,33 +324,24 @@ body {
 
 }
 
+/* lente della searchbar (seguenti 3 funzioni) */
 .search-btn {
-
     background: transparent;
     border: none;
-    padding: 0;
+    padding: 0 5px;
     cursor: pointer;
-    border-bottom: #000000;
-
 }
-
 
 .search-btn img {
-
     width: 20px;
     height: 20px;
-
     object-fit: contain;
-
-    transition: 0.2s ease;
-
+    display: block;
+    transition: transform 0.2s ease;
 }
 
-
 .search-btn:hover img {
-
     transform: scale(1.15);
-
 }
 
 @media (max-width: 991.98px) {
