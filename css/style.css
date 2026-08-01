@@ -136,7 +136,9 @@ body {
     row-gap: 0px;
     border-radius: 0px;
 
-    padding-top: 40px;
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 .m-r {
@@ -196,7 +198,7 @@ body {
 
     border-radius: 3px !important;
 
-    width: clamp(220px, 25vw, 280px);
+    width: clamp(260px, 25vw, 320px);
     aspect-ratio: 1 / 1;
     object-fit: cover;
 
@@ -253,13 +255,13 @@ body {
 
 
 /* grandezza default immagini*/
-.foto img {
+/*.foto img {
     
     width: 250px;
     height: 250px;
     object-fit: cover;
 
-}
+}*/
 
 /* immagini tonde band*/
 .foto_band {
@@ -286,7 +288,63 @@ body {
 
 }
 
-@media (max-width: 768px) {
+.search-form {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(250px, 35vw, 500px);
+    margin: 0 20px;
+
+    color: #000000;
+    background-color: transparent;
+
+}
+
+.search-box {
+
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #000000;
+    border-radius: 0px;
+
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* regola per evitare l'evidenziatura della barra */
+.search-box:focus {
+
+    border: none !important;
+    border-bottom: 2px solid #000000 !important;
+
+    outline: none !important;
+    box-shadow: none !important;
+
+    background-color: transparent !important;
+
+}
+
+/* lente della searchbar (seguenti 3 funzioni) */
+.search-btn {
+    background: transparent;
+    border: none;
+    padding: 0 5px;
+    cursor: pointer;
+}
+
+.search-btn img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.search-btn:hover img {
+    transform: scale(1.15);
+}
+
+@media (max-width: 991.98px) {
 
     /* dimensione font titoli album in album*/
     .text-neon {
@@ -298,6 +356,16 @@ body {
 
         padding: 8px 16px;
         font-size: 0.9rem;
+
+    }
+
+    /* per larghezza mobile la barra sta al centro e prende tutto lo spazio*/
+    .search-form {
+
+        position: static;
+        transform: none;
+        width: 40%;
+        margin: 15px 0;
 
     }
 
