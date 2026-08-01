@@ -44,7 +44,7 @@
 
                 try {
 
-                    $sql = "SELECT a.name as name, a.image_path as image_path, b.name as bname FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id";
+                    $sql = "SELECT a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id";
                 
                     $result = $conn->query($sql);
                 
@@ -59,7 +59,7 @@
                                 <div class='card-body'>
                                     <p class='card-text text-neon-w'>".$row['bname']."</p>
                                     <p class='card-text text-neon'>".$row['name']."</p>
-                                    <p class='card-text pricetag'> 23.99 € </p>
+                                    <p class='card-text pricetag'> ".$row['price']." € </p>
                                 </div>
                             </div>";
                         /*

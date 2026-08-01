@@ -50,6 +50,7 @@ create table song (
 create table members (
     band_id int,
     artist_id int,
+    role text,
     FOREIGN KEY (band_id) REFERENCES band(id),
     FOREIGN KEY (artist_id) REFERENCES artist(id),
     bio text
