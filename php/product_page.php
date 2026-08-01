@@ -58,7 +58,7 @@
                     <h1 class='h3 fw-bold mb-3'>".$row['name']."</h1>
 
                     <div class='mb-4 border-bottom pb-3'>
-                        <span class='h2 fw-bold text-dark'>€ ".$row['price']."</span>
+                        <span class='h2 fw-bold text-dark'>€ ".roundPrice($row['price'])."</span>
                         <p class='text-muted small mb-0 mt-1'><i class='bi bi-check-circle text-success'></i> Tasse incluse. Spese di spedizione calcolate al checkout.</p>
                     </div>
                     

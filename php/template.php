@@ -141,6 +141,19 @@ function navbar() {
 
 
 
+function roundPrice($price): string {
+
+    if ($price === null || $price == 0) {
+
+        return "0.00";
+
+    }
+
+    return (string)$price;
+    // ToDo finire funzione
+}
+
+
 
 function isadmin(): bool {
 

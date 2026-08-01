@@ -59,7 +59,7 @@
                                 <div class='card-body'>
                                     <p class='card-text text-neon-w'>".$row['bname']."</p>
                                     <p class='card-text text-neon'>".$row['name']."</p>
-                                    <p class='card-text pricetag'> ".$row['price']." € </p>
+                                    <p class='card-text pricetag'> ".roundPrice($row['price'])." € </p>
                                 </div>
                             </div>";
                         /*
