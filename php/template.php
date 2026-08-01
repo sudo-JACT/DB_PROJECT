@@ -9,7 +9,7 @@ function head($index) {
     session_checker();
 
     if ($index) {
-
+    
 
         echo "<head>";
 
@@ -70,13 +70,20 @@ function navbar() {
   <div class='container-fluid'>
     
     <a class='navbar-brand ' href='/'>
-        <img src='/imgs/logo/Smugglers Logo.png' alt='Logo' width='100'>
+        <img src='/imgs/logo/Smugglers Logo.png' alt='Logo' width='90'>
     </a>
     
+    <form class='d-flex search-form' role='search'>
+            <input class='form-control search-box' type='search' placeholder='Cerca album...' aria-label='Search'>
+            <button class='search-btn' type='submit'>
+                <img src='/imgs/img_tools/Lens.png' alt='Cerca'>
+            </button>
+    </form>
 
     <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
       <span class='navbar-toggler-icon'></span>
     </button>
+
     
     <div class='collapse navbar-collapse' id='navbarNav'>
       
@@ -92,6 +99,10 @@ function navbar() {
           <a class='nav-link' href='/php/cart.php'>CART</a>
         </li>
       </ul>
+    ";
+
+    echo "
+        
     ";
 
     if ($ad) {
