@@ -76,7 +76,7 @@ function navbar() {
     <form class='d-flex search-form' role='search'>
             <input class='form-control search-box' type='search' placeholder='Cerca album...' aria-label='cerca'>
             <button class='search-btn' type='submit'>
-                <img src='./imgs/img_tools/Lens90.png' alt='Diocane'>
+                <img src='/imgs/img_tools/Lens.png' alt='Cerca'>
             </button>
     </form>
 
@@ -139,6 +139,19 @@ function navbar() {
 
 }
 
+
+
+function roundPrice($price): string {
+
+    if ($price === null || $price == 0) {
+
+        return "0.00";
+
+    }
+
+    return (string)$price;
+    // ToDo finire funzione
+}
 
 
 

@@ -223,8 +223,8 @@ LOCK TABLES `members` WRITE;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
 INSERT INTO `members` VALUES
 (4,1,NULL),
-(1,2,'Drummer'),
-(1,3,'Vocalist, Guitarist'),
+(1,2,NULL),
+(1,3,NULL),
 (NULL,4,NULL);
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -408,4 +408,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-08-01 12:19:50
+-- Dump completed on 2026-08-01 11:50:18
