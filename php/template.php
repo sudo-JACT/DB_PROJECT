@@ -149,8 +149,16 @@ function roundPrice($price): string {
 
     }
 
-    return (string)$price;
-    // ToDo finire funzione
+    $tmp1 = (int)$price;
+    $tmp2= (100*($price-$tmp1));
+
+    if ($tmp2 == 0) {
+
+        return (string)$tmp1 . ".00";
+
+    }
+
+    return (string)$tmp1 .".". (string)$tmp2;
 }
 
 
