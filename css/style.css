@@ -109,6 +109,10 @@ body {
     font-weight: 600;
     margin-left: 19px;
     align-self: center;
+
+    /* per correggere il dropdown menu visivamente */
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 /* colore icona sito*/
@@ -130,9 +134,23 @@ body {
     z-index: 1002;
 }
 
+/* elementi del dropdown menu */
+.nav-item {
+
+    height: 100%;
+    color: #bf701c;
+}
+
 /* Elemento che contiene ALBUMS */
-.album-menu {
+/*.album-menu {
     position: static;
+}*/
+
+/* posizione relativa per i dropdown menu */
+.album-menu,
+.bands-menu {
+    position: static;
+    z-index: 1003;
 }
 
 /* Rettangolo */
@@ -140,7 +158,7 @@ body {
     display: none !important;
 
     position: absolute;
-    top: 100%;
+    top: calc(100%-1px);
     left: 0;
 
     width: 100%;
@@ -177,16 +195,16 @@ body {
 }
 
 /* Elemento che contiene BANDS */
-.bands-menu {
+/*.bands-menu {
     position: static;
-}
+}*/
 
 /* Rettangolo */
 .bands-panel {
     display: none !important;
 
     position: absolute;
-    top: 100%;
+    top: calc(100%-1px);
     left: 0;
 
     width: 100%;
@@ -456,7 +474,6 @@ body {
 
 }
 
-
 /* gestione menù sandwitch */
 .navbar-toggler {
 
@@ -604,10 +621,13 @@ body {
 
 /* colore del footer */
 .login-bottom {
+
     background-color: #5E5E5E;
     min-height: 400px;
+
 }
 
+/* gestione della card contenente il form del login */
 .card-login {
 
     margin-top: 20px !important;
