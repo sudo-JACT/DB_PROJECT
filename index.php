@@ -24,7 +24,22 @@
         ?>
     
         <div class="title">
+     
             <h1><?php echo $_SESSION['title'] ?></h1>
+
+            <form method='POST'>
+           
+                <select class="form-select form-select-lg mb-3 card-dark text-neon" name='orderby'>
+                    <option disabled selected value=''>Order By</option> 
+                    <option><button type='submit' class='btn'>None</button></option>
+                    <option><button type='submit' class='btn'>A-Z</button></option>
+                    <option><button type='submit' class='btn'>Price ascending</button></option>
+                    <option><button type='submit' class='btn'>Price descending</button></option>
+                </select>
+        
+
+            </form>
+     
         </div>
 
 
