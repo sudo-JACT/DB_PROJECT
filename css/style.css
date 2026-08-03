@@ -518,6 +518,51 @@ body {
 
 }
 
+/* form login modifiche grafiche */
+.form-label {
+
+    width: 20px;
+    padding: 8px;
+
+    background-color: none;
+    border: 0px solid var(--iw-iron-light);
+
+    color: #ffffff;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 22px;
+    margin-top: 0px;
+}
+
+.form-control-login {
+
+    display: block;
+    height: 33px;
+    width: 40vw;
+    border: 0px;
+    border-radius: 8px;
+    margin-left: 20px;
+    margin-right: 0px;
+    padding-left: 10px;
+    
+}
+
+.form-control::placeholder {
+
+    color: #5E5E5E;
+    opacity: 1;
+}
+
+.login-background {
+
+    background-color: #000000;
+    border: 0px;
+    border-radius: 0px;
+
+}
+
+
 @media (max-width: 991.98px) {
 
     /* dimensione font titoli album in album*/
