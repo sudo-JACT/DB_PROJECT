@@ -7,7 +7,7 @@
 
         $conn = connect_db();
 
-        $sql = "SELECT a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id WHERE a.name LIKE '".$_POST['name']."%'";
+        $sql = "SELECT a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id WHERE a.name LIKE '%".$_POST['name']."%' OR b.name LIKE '%".$_POST['name']."%'";
         $row = $conn->query($sql);
 
     }
