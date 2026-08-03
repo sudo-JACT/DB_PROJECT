@@ -176,6 +176,53 @@ body {
     pointer-events: none;
 }
 
+/* Elemento che contiene BANDS */
+.bands-menu {
+    position: static;
+}
+
+/* Rettangolo */
+.bands-panel {
+    display: none !important;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+    min-height: 250px;
+
+    padding: 30px 50px;
+
+    background-color: #efefef;
+
+    z-index: 1002;
+}
+
+/* Mostra il rettangolo quando passi su ALBUMS */
+.bands-menu:hover .bands-panel {
+    display: block !important;
+}
+
+/* Oscura la pagina sottostante */
+.bands-menu:hover::after {
+    content: "";
+
+    position: fixed;
+    top: 80px;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.55);
+
+    z-index: 999;
+
+    pointer-events: none;
+}
+
+
 /* gestione allineamento card nella pagina album */
 .album-container {
     
@@ -450,6 +497,15 @@ body {
     }
 
     .album-menu:hover::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    .bands-menu:hover > .bands-panel {
+        display: none !important;
+    }
+
+    .bands-menu:hover::after {
         display: none !important;
         content: none !important;
     }
