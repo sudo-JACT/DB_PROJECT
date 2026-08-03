@@ -330,8 +330,12 @@ function connect_db(): PDO {
 
 function footer() {
 
-    //asdasddsaadsad
+    echo "<footer>
+        
+        <div class='login-background'>
+        </div>
 
+    </footer>";
 }
 
 
