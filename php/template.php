@@ -74,31 +74,44 @@ function navbar() {
     </a>
     
     <form class='d-flex search-form' role='search'>
-            <input class='form-control search-box' type='search' placeholder='Cerca album...' aria-label='Search'>
+            <input class='form-control search-box' type='search' placeholder='Cerca album...' aria-label='cerca'>
             <button class='search-btn' type='submit'>
                 <img src='/imgs/img_tools/Lens.png' alt='Cerca'>
             </button>
     </form>
 
     <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
-      <span class='navbar-toggler-icon'></span>
+        <span class='navbar-toggler-icon'></span>
     </button>
 
     
     <div class='collapse navbar-collapse' id='navbarNav'>
       
      
-      <ul class='navbar-nav ms-auto'>
-        <li class='nav-item'>
-          <a class='nav-link' href='/php/albums.php'>ALBUMS</a>
-        </li>
-        <li class='nav-item'>
-          <a class='nav-link' href='/php/artists.php'>BANDS</a>
-        </li>
-        <li class='nav-item'>
-          <a class='nav-link' href='/php/cart.php'>CART</a>
-        </li>
-      </ul>
+        <ul class='navbar-nav ms-auto'>
+      
+            <li class='nav-item album-menu'>
+                
+                <a class='nav-link' href='/php/albums.php'>ALBUMS</a>
+
+                <div class='album-panel'>
+                    <h3>ALBUMS</h3>
+                    <a href='/php/albums.php'>Tutti gli album</a>
+                    <a href='#'>Nuove uscite</a>
+                    <a href='#'>Categorie</a>
+                </div>
+
+            </li>    
+        
+            <li class='nav-item'>
+                <a class='nav-link' href='/php/artists.php'>BANDS</a>
+            </li>
+
+            <li class='nav-item'>
+                <a class='nav-link' href='/php/cart.php'>CART</a>
+            </li>
+      
+        </ul>
     ";
 
     echo "
@@ -109,7 +122,7 @@ function navbar() {
 
         echo "<ul class='navbar-nav'>
         <li class='nav-item'>
-          <a class='nav-link' href='/php/admin_panel.php'>PANEL</a>
+            <a class='nav-link' href='/php/admin_panel.php'>PANEL</a>
         </li>";
     }
 
@@ -135,7 +148,6 @@ function navbar() {
     </div>
     </div>
     </nav>";
-
 
 }
 

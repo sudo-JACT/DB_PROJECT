@@ -124,6 +124,56 @@ body {
 
     /* messo a 0 perchè non c'è nel sito finale */
     border-bottom: 0px solid /*var(--iw-hazard-yellow)*/ !important;
+
+    /* per menù a tendina */
+    position: relative;
+    z-index: 1002;
+}
+
+/* Elemento che contiene ALBUMS */
+.album-menu {
+    position: static;
+}
+
+/* Rettangolo */
+.album-panel {
+    display: none !important;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+    min-height: 250px;
+
+    padding: 30px 50px;
+
+    background-color: #efefef;
+
+    z-index: 1002;
+}
+
+/* Mostra il rettangolo quando passi su ALBUMS */
+.album-menu:hover .album-panel {
+    display: block !important;
+}
+
+/* Oscura la pagina sottostante */
+.album-menu:hover::after {
+    content: "";
+
+    position: fixed;
+    top: 80px;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.55);
+
+    z-index: 999;
+
+    pointer-events: none;
 }
 
 /* gestione allineamento card nella pagina album */
@@ -357,7 +407,7 @@ body {
 
 .search-box {
 
-    width: 100%;
+    width: 65%;
     border: none;
     border-bottom: 2px solid #000000;
     border-radius: 0px;
@@ -385,6 +435,7 @@ body {
     border: none;
     padding: 0 5px;
     cursor: pointer;
+    border-bottom: 2px solid #000000;
 }
 
 .search-btn img {
@@ -397,6 +448,27 @@ body {
 
 .search-btn:hover img {
     transform: scale(1.15);
+}
+
+.mega-menu {
+
+    position: fixed;
+
+    top: 76px;
+    left: 0;
+
+    width: 100%;
+
+    background-color: #ffffff;
+
+    z-index: 1040;
+
+    padding: 30px 50px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+
+    display: none;
+
 }
 
 @media (max-width: 991.98px) {
@@ -422,6 +494,19 @@ body {
         width: 40%;
         margin: 15px 0;
 
+    }
+
+        .album-panel {
+        display: none !important;
+    }
+
+    .album-menu:hover > .album-panel {
+        display: none !important;
+    }
+
+    .album-menu:hover::after {
+        display: none !important;
+        content: none !important;
     }
 
 }
