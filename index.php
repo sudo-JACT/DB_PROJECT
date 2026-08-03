@@ -28,6 +28,8 @@
         </div>
 
 
+        <form method="POST" action='/php/product_page.php'>
+
         <?php
 
             echo "<div class='card-dark album-container'>";
@@ -44,7 +46,7 @@
 
                 try {
 
-                    $sql = "SELECT a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id";
+                    $sql = "SELECT a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id";
                 
                     $result = $conn->query($sql);
                 
@@ -55,7 +57,8 @@
                             
                         /*echo "<div class='card card-dark' style='width: 18rem;'>*/
                         echo "<div class='card card-dark'>
-                                <img src='".$row['image_path']."' class='card-img-top' alt='".$row['name']."'>
+                                <button class='btn' type='submit' value='".$row['id']."' name='productid'><img src='".$row['image_path']."' class='card-img-top' alt='".$row['name']."'>
+                                </button>
                                 <div class='card-body'>
                                     <p class='card-text text-neon-w'>".$row['bname']."</p>
                                     <p class='card-text text-neon'>".$row['name']."</p>
@@ -97,6 +100,7 @@
 
         ?>
 
+        </form>
     </body>
 
     <?php

@@ -11,6 +11,30 @@
     $conn = connect_db();
 
 
+    if (isset($_POST['quantity']) && isset($_POST['id'])) {
+
+        $sql = "SELECT c.quantity as q FROM cart as c WHERE c.user_id=".$_SESSION['id']." AND c.album_id=".$_POST['id']."";
+        $r = $conn->query($sql);
+
+        if ($r->rowCount() > 0) {
+
+            $r = $r->fetch();
+
+            $sql = "UPDATE cart SET quantity=".($r['q'] + $_POST['quantity'])." WHERE user_id=".$_SESSION['id']." AND album_id=".$_POST['id']."";
+
+        } else {
+
+            $sql = "INSERT INTO cart (user_id, album_id, quantity) VALUES (".$_SESSION['id'].", ".$_POST['id'].", ".$_POST['quantity'].")";
+    
+        }
+
+        $conn->query($sql);
+
+        header('Location: ' . $_SERVER['PHP_SELF'] . '');
+        exit;
+    }
+
+
     if (isset($_POST['b']) && !isset($_POST['btn'])) {
 
         $nowtime = $conn->query("select CURRENT_TIMESTAMP AS tm;")->fetch();

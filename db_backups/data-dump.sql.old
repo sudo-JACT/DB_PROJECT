@@ -154,10 +154,6 @@ CREATE TABLE `cart` (
 
 LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
-INSERT INTO `cart` VALUES
-(1,1,6),
-(1,2,4),
-(1,10,6);
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -320,7 +316,7 @@ CREATE TABLE `sale` (
   KEY `album_id` (`album_id`),
   CONSTRAINT `1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   CONSTRAINT `2` FOREIGN KEY (`album_id`) REFERENCES `album` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -329,6 +325,12 @@ CREATE TABLE `sale` (
 
 LOCK TABLES `sale` WRITE;
 /*!40000 ALTER TABLE `sale` DISABLE KEYS */;
+INSERT INTO `sale` VALUES
+(2,1,10,10,'2026-08-03 10:07:54'),
+(3,1,1,1,'2026-08-03 10:13:59'),
+(4,1,2,1,'2026-08-03 10:13:59'),
+(5,1,4,4,'2026-08-03 10:16:22'),
+(6,1,3,3,'2026-08-03 10:16:22');
 /*!40000 ALTER TABLE `sale` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -441,4 +443,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-08-03  9:59:38
+-- Dump completed on 2026-08-03 15:25:32
