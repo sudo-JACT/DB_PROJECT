@@ -39,7 +39,7 @@
 /* sfondo titolo della pagina */
 body {
 
-    background-color: #0b0b0b;
+    background-color: #000000;
     color: #000000;
     font-family: sans-serif;
 
@@ -109,6 +109,10 @@ body {
     font-weight: 600;
     margin-left: 19px;
     align-self: center;
+
+    /* per correggere il dropdown menu visivamente */
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 /* colore icona sito*/
@@ -130,9 +134,23 @@ body {
     z-index: 1002;
 }
 
+/* elementi del dropdown menu */
+.nav-item {
+
+    height: 100%;
+    color: #bf701c;
+}
+
 /* Elemento che contiene ALBUMS */
-.album-menu {
+/*.album-menu {
     position: static;
+}*/
+
+/* posizione relativa per i dropdown menu */
+.album-menu,
+.bands-menu {
+    position: static;
+    z-index: 1003;
 }
 
 /* Rettangolo */
@@ -140,7 +158,7 @@ body {
     display: none !important;
 
     position: absolute;
-    top: 100%;
+    top: calc(100%-1px);
     left: 0;
 
     width: 100%;
@@ -176,6 +194,53 @@ body {
     pointer-events: none;
 }
 
+/* Elemento che contiene BANDS */
+/*.bands-menu {
+    position: static;
+}*/
+
+/* Rettangolo */
+.bands-panel {
+    display: none !important;
+
+    position: absolute;
+    top: calc(100%-1px);
+    left: 0;
+
+    width: 100%;
+    min-height: 250px;
+
+    padding: 30px 50px;
+
+    background-color: #efefef;
+
+    z-index: 1002;
+}
+
+/* Mostra il rettangolo quando passi su ALBUMS */
+.bands-menu:hover .bands-panel {
+    display: block !important;
+}
+
+/* Oscura la pagina sottostante */
+.bands-menu:hover::after {
+    content: "";
+
+    position: fixed;
+    top: 80px;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.55);
+
+    z-index: 999;
+
+    pointer-events: none;
+}
+
+
 /* gestione allineamento card nella pagina album */
 .album-container {
     
@@ -199,14 +264,16 @@ body {
 
 .btn-neon {
 
-    background-color: transparent;
-    color: var(--text-gold);
-    border: 2px solid var(--text-inverted);
+    background-color: #3b4d3e;
+    color: #ffffff;
+    border: 2px solid #3b4d3e;
     padding: 10px 24px;
+    margin-left: 20px;
+    margin-top: 30px;
     text-transform: uppercase;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: var(--text-inverted);
+    box-shadow: #ffffff;
     transition: all 0.3s ease-in-out;
 
 }
@@ -214,9 +281,9 @@ body {
 /* bottone login passata cursore */
 .btn-neon:hover {
 
-    background-color: var(--text-inverted);
-    color: var(--text-gold);
-    box-shadow: 0 0 15px var(--text-gold), 0 0 30px var(--text-gold);
+    background-color: #ffffff;
+    color: #000000;
+    /*box-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff;*/
     text-shadow: none;
 
 }
@@ -407,7 +474,6 @@ body {
 
 }
 
-
 /* gestione menù sandwitch */
 .navbar-toggler {
 
@@ -503,6 +569,74 @@ body {
 
 }
 
+/* form login modifiche grafiche */
+.form-label {
+
+    width: 20px;
+    padding: 8px;
+
+    background-color: none;
+    border: 0px solid var(--iw-iron-light);
+
+    color: #ffffff;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 22px;
+    margin-top: 0px;
+}
+
+.form-control-login {
+
+    display: block;
+    height: 33px;
+    width: 40vw;
+    border: 0px;
+    border-radius: 8px;
+    margin-left: 20px;
+    margin-right: 0px;
+    padding-left: 10px;
+    
+}
+
+.form-control::placeholder {
+
+    color: #5E5E5E;
+    opacity: 1;
+}
+
+/* colore background form di login */
+.login-background {
+
+    background-color: #000;
+    border: 0px;
+    border-radius: 0px;
+    margin-top: 0px;
+    /*display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;*/
+
+}
+
+/* colore del footer */
+.login-bottom {
+
+    background-color: #5E5E5E;
+    min-height: 400px;
+
+}
+
+/* gestione della card contenente il form del login */
+.card-login {
+
+    margin-top: 20px !important;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    display: grid;
+}
+
 @media (max-width: 991.98px) {
 
     /* dimensione font titoli album in album*/
@@ -537,6 +671,15 @@ body {
     }
 
     .album-menu:hover::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    .bands-menu:hover > .bands-panel {
+        display: none !important;
+    }
+
+    .bands-menu:hover::after {
         display: none !important;
         content: none !important;
     }

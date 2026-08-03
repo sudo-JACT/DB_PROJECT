@@ -102,10 +102,19 @@ function navbar() {
                 </div>
 
             </li>    
-        
-            <li class='nav-item'>
+
+            <li class='nav-item bands-menu'>
+                
                 <a class='nav-link' href='/php/artists.php'>BANDS</a>
-            </li>
+
+                <div class='bands-panel'>
+                    <h3>BANDS</h3>
+                    <a href='/php/artists.php'>Tutti le bands</a>
+                    <a href='#'>Nuove band</a>
+                    <a href='#'>Categorie</a>
+                </div>
+
+            </li> 
 
             <li class='nav-item'>
                 <a class='nav-link' href='/php/cart.php'>CART</a>
@@ -321,8 +330,12 @@ function connect_db(): PDO {
 
 function footer() {
 
-    //asdasddsaadsad
+    echo "<footer>
+        
+        <div class='login-background'>
+        </div>
 
+    </footer>";
 }
 
 
