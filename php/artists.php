@@ -31,6 +31,7 @@
             <h1>BAND</h1>
         </div>
 
+        <form method='POST' action="/php/band_page.php">
 
         <?php
 
@@ -41,7 +42,7 @@
 
             try {
 
-                $sql = "SELECT name, image_path FROM band";
+                $sql = "SELECT id, name, image_path FROM band";
              
                 $result = $conn->query($sql);
                
@@ -50,13 +51,13 @@
                 
                     while($row = $result->fetch()) {
                         
-                        echo "<div class='album foto'>"; 
-                        echo "<figure class='figure border-neon'>";
-                        echo "<img src='".$row['image_path']."' class='figure-img foto_band' alt=".$row['name'].">";
-                        echo "</br></br>";
-                        echo "<figcaption class='figure-caption text-center text-neon-w'>".$row['name']."</figcaption>";
-                        echo "</figure>";
-                        echo "</div>";
+                        echo "<div class='album foto'>
+                              <figure class='figure border-neon'>
+                              <button tipe='submit' class='btn' value='".$row['id']."' name='bandid'><img src='".$row['image_path']."' class='figure-img foto_band' alt=".$row['name']."></button>
+                              </br></br>
+                              <figcaption class='figure-caption text-center text-neon-w'>".$row['name']."</figcaption>
+                              </figure>
+                              </div>";
                 
                     }
                 
@@ -78,7 +79,8 @@
 
 
         ?>
-
+        
+        </form>
     </body>
 
 </html>

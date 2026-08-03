@@ -12,7 +12,7 @@
 
         $row = $conn->query($sql)->fetch();
 
-        $sql2 = "SELECT i.num as num, s.name as name FROM song as s JOIN ispartof as i ON s.id=i.song_id WHERE i.album_id=".$row['id']." ORDER BY i.num";
+        $sql2 = "SELECT i.num as num, s.name as name FROM song as s JOIN ispartof as i ON s.id=i.song_id WHERE i.album_id=".$_POST['productid']." ORDER BY i.num";
 
         $rows = $conn->query($sql2);
 
@@ -43,7 +43,7 @@
             navbar();
 
 
-            echo "
+            echo "<form method='POST' action='/php/cart.php'>
 
             <div class='row bg-white p-4 rounded shadow-sm'>
 
@@ -70,13 +70,14 @@
                             <div class='col-3'>
 
                                 <label for='quantity' class='form-label small fw-bold'>Quantity</label>
-                                <input type='number' step='1', name='quantity', id='quantity'>
+                                <input type='number' step='1', name='quantity', id='quantity' value='1'>
+                                <input type='hidden' name='id' value='".$row['id']."'>
 
                             </div>
 
                             <div class='col-9'>
 
-                                <button class='btn btn-dark w-100 py-2 fw-bold text-uppercase d-flex justify-content-center align-items-center gap-2'><i class='bi bi-cart-plus fs-5'></i>Add to the cart</button>
+                                <button class='btn btn-dark w-100 py-2 fw-bold text-uppercase d-flex justify-content-center align-items-center gap-2' type='submit'><i class='bi bi-cart-plus fs-5'></i>Add to the cart</button>
 
                             </div>
 
@@ -122,7 +123,7 @@
                 </div>
 
 
-            </div>";
+            </div></form>";
         
         ?>
 
