@@ -157,7 +157,7 @@ function roundPrice($price): string {
 
     if ($price === null || $price == 0) {
 
-        return "0.00";
+        return "0,00";
 
     }
 
@@ -166,11 +166,11 @@ function roundPrice($price): string {
 
     if ($tmp2 == 0) {
 
-        return (string)$tmp1 . ".00";
+        return (string)$tmp1 . ",00";
 
     }
 
-    return (string)$tmp1 .".". (string)$tmp2;
+    return (string)$tmp1 . "," . (string)$tmp2;
 }
 
 

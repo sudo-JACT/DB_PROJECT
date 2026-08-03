@@ -177,7 +177,7 @@
 
                     <?php
 
-                        echo "<button type='submit' class='btn border buy' value='buy' name='b'>Buy • ".$tot." €</button>";
+                        echo "<button type='submit' class='btn border buy' value='buy' name='b'>Buy • ".roundPrice($tot)." €</button>";
 
                     ?>
      
