@@ -330,6 +330,30 @@ body {
     justify-content: center;
     width: 1024px;
     height: max-content;
+    margin-bottom: 50px;
+    /*height: 100vh;*/
+
+}
+
+
+.thankyou {
+
+    justify-content: center !important;
+    display: grid;
+    background-color: #313131;
+    border: 1px solid #313131;
+    border-radius: 0px;
+
+}
+
+.thankyou-body {
+
+    margin-top: 50px;
+    justify-content: center;
+    width: 1024px;
+    text-align: center;
+    height: max-content;
+    margin-bottom: 50px;
     /*height: 100vh;*/
 
 }
@@ -358,6 +382,14 @@ body {
 
 }
 
+
+.buy {
+
+    /*BUY BUTTON*/
+    width: 100vh;
+    display: block;
+
+}
 
 /* grandezza default immagini*/
 /*.foto img {
