@@ -11,6 +11,55 @@
     $conn = connect_db();
 
 
+    if (isset($_POST['quantity']) && isset($_POST['id'])) {
+
+        $sql = "SELECT c.quantity as q FROM cart as c WHERE c.user_id=".$_SESSION['id']." AND c.album_id=".$_POST['id']."";
+        $r = $conn->query($sql);
+
+        if ($r->rowCount() > 0) {
+
+            $r = $r->fetch();
+
+            $sql = "UPDATE cart SET quantity=".($r['q'] + $_POST['quantity'])." WHERE user_id=".$_SESSION['id']." AND album_id=".$_POST['id']."";
+
+        } else {
+
+            $sql = "INSERT INTO cart (user_id, album_id, quantity) VALUES (".$_SESSION['id'].", ".$_POST['id'].", ".$_POST['quantity'].")";
+    
+        }
+
+        $conn->query($sql);
+
+        header('Location: ' . $_SERVER['PHP_SELF'] . '');
+        exit;
+    }
+
+
+    if (isset($_POST['b']) && !isset($_POST['btn'])) {
+
+        $nowtime = $conn->query("select CURRENT_TIMESTAMP AS tm;")->fetch();
+
+        $sql = "SELECT a.id as id, a.name as name, a.price as price, b.name as bname, a.image_path as im, c.quantity as q FROM album as a JOIN cart as c ON c.album_id=a.id JOIN published as p ON p.album_id=a.id JOIN band as b ON b.id=p.band_id WHERE c.user_id=".$_SESSION['id']."";
+        $row = $conn->query($sql);
+
+        if ($row->rowCount() > 0) {
+
+            while ($r = $row->fetch()) {
+
+                $sql = "INSERT INTO sale (user_id, album_id, quantity, dat) VALUES (".$_SESSION['id'].", ".$r['id'].", ".$r['q'].", '".$nowtime['tm']."')";
+                $conn->query($sql);
+
+            }
+            
+            $sql = "DELETE FROM cart WHERE user_id=".$_SESSION['id']."";
+            $conn->query($sql);
+        }
+
+        header('Location: ' . '/php/thank_you_page.php' . '');
+        exit;
+    
+    }
+
     if (isset($_POST['flag'])) {
 
 
@@ -48,7 +97,7 @@
 
     }
 
-
+    $tot = 0;
 
     $sql = "SELECT a.id as id, a.name as name, a.price as price, b.name as bname, a.image_path as im, c.quantity as q FROM album as a JOIN cart as c ON c.album_id=a.id JOIN published as p ON p.album_id=a.id JOIN band as b ON b.id=p.band_id WHERE c.user_id=".$_SESSION['id']."";
     $row = $conn->query($sql);
@@ -72,6 +121,7 @@
 
         ?>
 
+        <form method='POST'>
         <div class="cart">
 
             <div class='row bg-white p-4 rounded shadow-sm cart-body' id="cart-body">
@@ -85,7 +135,7 @@
 
                     while ($r = $row->fetch()) {
 
-                        echo "<form method='POST'><div class='row g-0 cart-card-body'>
+                        echo "<form  method='POST'><div class='row g-0 cart-card-body'>
 
 
                                         <div class='col-md-4'>
@@ -113,7 +163,8 @@
                                         </div>
                 
                                     </div></form>"; 
-                
+
+                       $tot += (int)$r['q'] * $r['price']; 
 
                     }
 
@@ -121,10 +172,21 @@
 
             ?>
                 </div>
-            </div>
+
+                <div>
+
+                    <?php
+
+                        echo "<button type='submit' class='btn border buy' value='buy' name='b'>Buy • ".$tot." €</button>";
+
+                    ?>
+     
+               </div>
 
         </div>
 
+
+        </form>
     </body>
 
 </html>

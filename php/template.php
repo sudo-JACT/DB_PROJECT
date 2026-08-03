@@ -73,7 +73,7 @@ function navbar() {
         <img src='/imgs/logo/Smugglers Logo.png' alt='Logo' width='90'>
     </a>
     
-    <form class='d-flex search-form' role='search'>
+    <form class='d-flex search-form' role='search' method='POST' action='/php/search_page.php'>
             <input class='form-control search-box' type='search' placeholder='Cerca album...' aria-label='cerca'>
             <button class='search-btn' type='submit'>
                 <img src='/imgs/img_tools/Lens.png' alt='Cerca'>
