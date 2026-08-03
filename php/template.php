@@ -150,7 +150,7 @@ function roundPrice($price): string {
     }
 
     $tmp1 = (int)$price;
-    $tmp2= (100*($price-$tmp1));
+    $tmp2 = (int)(100*($price-$tmp1));
 
     if ($tmp2 == 0) {
 

@@ -254,6 +254,61 @@ body {
 }
 
 
+.cart-card-body {
+
+    text-align: left !important;
+    border: 0px;
+    border-top: 1px solid #000000;
+    /*border-bottom: 1px solid #000000;*/
+    margin-bottom: 0px;
+
+}
+
+.cart {
+
+    justify-content: center !important;
+    display: grid;
+    background-color: #313131;
+    border: 1px solid #313131;
+    border-radius: 0px;
+
+}
+
+.cart-body {
+
+    margin-top: 50px;
+    justify-content: center;
+    width: 1024px;
+    height: max-content;
+    /*height: 100vh;*/
+
+}
+
+
+.cart-card-img {
+
+    /*margin: 20px;*/
+    padding: 20px;
+}
+
+
+.cart-p {
+
+    display: inline-block;
+    border: 0px solid;
+    margin: 0px;
+    padding: 2px;
+
+}
+
+
+.cart-button {
+
+    display: inline-block;
+
+}
+
+
 /* grandezza default immagini*/
 /*.foto img {
     

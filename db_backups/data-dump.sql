@@ -130,6 +130,38 @@ INSERT INTO `band` VALUES
 UNLOCK TABLES;
 
 --
+-- Table structure for table `cart`
+--
+
+DROP TABLE IF EXISTS `cart`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cart` (
+  `user_id` int(11) DEFAULT NULL,
+  `album_id` int(11) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  KEY `user_id` (`user_id`),
+  KEY `album_id` (`album_id`),
+  CONSTRAINT `1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  CONSTRAINT `2` FOREIGN KEY (`album_id`) REFERENCES `album` (`id`),
+  CONSTRAINT `quantity` CHECK (`quantity` > 0)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cart`
+--
+
+LOCK TABLES `cart` WRITE;
+/*!40000 ALTER TABLE `cart` DISABLE KEYS */;
+INSERT INTO `cart` VALUES
+(1,1,6),
+(1,2,4),
+(1,10,6);
+/*!40000 ALTER TABLE `cart` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `genre`
 --
 
@@ -282,6 +314,7 @@ CREATE TABLE `sale` (
   `user_id` int(11) DEFAULT NULL,
   `album_id` int(11) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL CHECK (`quantity` > 0),
+  `dat` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `album_id` (`album_id`),
@@ -408,4 +441,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-08-02 11:13:57
+-- Dump completed on 2026-08-03  9:59:38
