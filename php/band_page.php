@@ -14,7 +14,7 @@
         $sql2 = "SELECT a.name as name, m.role as role FROM artist as a JOIN members as m ON a.id=m.artist_id WHERE m.band_id=".$row['id']." ORDER BY a.name";
         $rows = $conn->query($sql2);
 
-        $sql3 = "SELECT a.name as name, YEAR(a.publication_date) as pd FROM album as a JOIN published p ON a.id=p.album_id WHERE p.band_id=".$row['id']." ORDER BY a.publication_date";
+        $sql3 = "SELECT a.id as id, a.name as name, YEAR(a.publication_date) as pd FROM album as a JOIN published p ON a.id=p.album_id WHERE p.band_id=".$row['id']." ORDER BY a.publication_date";
         $rows2 = $conn->query($sql3);
 
     } else {
@@ -91,7 +91,7 @@
 
             }
 
-            echo "</ul></div>
+            echo "<form method='POST' action='/php/product_page.php'> </ul></div>
                 <div class='border-top fw-bold bg-transparent px-0 text-dark'>
                     <h2>Discography</h2>
                     <ul>";
@@ -100,14 +100,14 @@
 
                 while ($r = $rows2->fetch()) {
 
-                    echo "<li class='px-0, text-muted'>".$r['name']." (".$r['pd'].")</li>";
+                    echo "<li class='px-0, text-muted'><button class='btn' value='".$r['id']."' name='productid' type='submit'>".$r['name']." (".$r['pd'].")</li>";
 
                 }
 
             }
 
 
-            echo "</ul>  </div>
+            echo "</ul>  </div> </form>
 
 
                 </div>

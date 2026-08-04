@@ -62,9 +62,15 @@ function head($index) {
 
 function navbar() {
 
+    $conn = connect_db();
     $s = session_checker();
     $ad = isadmin();
 
+    $sql = "SELECT a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id";
+    $albums = $conn->query($sql);
+
+    $sql = "SELECT id, name, image_path FROM band";
+    $bands = $conn->query($sql);
 
     echo "<nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
   <div class='container-fluid'>
@@ -94,11 +100,35 @@ function navbar() {
                 
                 <a class='nav-link' href='/php/albums.php'>ALBUMS</a>
 
-                <div class='album-panel'>
-                    <h3>ALBUMS</h3>
-                    <a href='/php/albums.php'>Tutti gli album</a>
-                    <a href='#'>Nuove uscite</a>
-                    <a href='#'>Categorie</a>
+                <div class='album-panel'>";
+
+        if ($albums->rowCount() > 0) {
+            
+            $i=4;
+
+            echo "<form method='POST' action='/php/product_page.php'>";
+
+
+            while (($i > 0) && ($row = $albums->fetch())) {
+
+                echo "<div class='card card-dark' style='color: #000000; background-color: #efefef; margin-right: 89px; border: 0px'>
+                        <button class='btn'  style='' type='submit' value='".$row['id']."' name='productid'><img src='".$row['image_path']."' class='card-img-top' alt='".$row['name']."'>
+                        </button>
+                        <div class='card-body' style='color: #000000;'>
+                            <p class='card-text text-neon-w' style='color: #000000;'>".$row['bname']."</p>
+                            <p class='card-text text-neon' style='color: #000000;'>".$row['name']."</p>
+                            <p class='card-text pricetag' style='color: #000000;'> ".roundPrice($row['price'])." € </p>
+                        </div>
+                    </div>";
+
+                $i -= 1;    
+            }
+            
+            echo "</form>";
+
+        }
+
+        echo "
                 </div>
 
             </li>    
@@ -106,12 +136,36 @@ function navbar() {
             <li class='nav-item bands-menu'>
                 
                 <a class='nav-link' href='/php/artists.php'>BANDS</a>
+    
+                <div class='bands-panel'>";
 
-                <div class='bands-panel'>
-                    <h3>BANDS</h3>
-                    <a href='/php/artists.php'>Tutti le bands</a>
-                    <a href='#'>Nuove band</a>
-                    <a href='#'>Categorie</a>
+    if ($bands->rowCount() > 0) {
+        
+        $i=5;
+
+        echo "<form method='POST' action='/php/band_page.php'>";
+
+        while (($i > 0) && ($row = $bands->fetch())) {
+
+            echo "<div class='album foto' style='color: #000000; margin-right: 20px;'>
+                    <figure class='figure border-neon' style='color: #000000;'>
+                    <button tipe='submit' class='btn' style='color: #000000;' value='".$row['id']."' name='bandid'><img src='".$row['image_path']."' class='figure-img foto_band' alt=".$row['name']."></button>
+                    </br></br>
+                    <figcaption class='figure-caption text-center text-neon-w' style='color: #000000;'>".$row['name']."</figcaption>
+                    </figure>
+                    </div>";
+
+
+            $i -= 1;
+
+        }
+
+        echo "</form>";
+    }
+
+
+
+    echo "
                 </div>
 
             </li> 
