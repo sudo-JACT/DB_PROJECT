@@ -365,11 +365,73 @@ body {
     font-weight: 800;
     margin: 0;
 
-    display: flex;
+    display: inline-block;
     justify-content: center;  /* centro orizzontale */
     align-items: center;      /* centro verticale */
 
     height: 60px;            /* altezza della fascia */
+
+}
+
+
+.filters_div {
+
+    display: grid;
+    /*justify-content: center;
+    align-items: center;
+    text-align: center;*/
+    grid-template-columns: auto 50px 60px 8px;
+
+}
+
+.filters {
+
+    text-align: center;
+    display: inline-block;
+    font-family: "Barlow Condensed", sans-serif;
+
+}
+
+.filter {
+
+    text-align: center !important;
+    border: 1px solid #ffffff !important;
+    font-family: "Barlow Condensed", sans-serif;
+    background-color: #000000;
+}
+
+
+.filter-btn {
+
+    color: #000000;
+    background-color: #ffffff;
+    font-size: 1rem;
+
+}
+
+.filter-btn:hover {
+
+    background-color: #ffffff;
+    color: #000000;
+
+}
+
+.filter-btn:active {
+
+    background-color: #000000;
+
+}
+
+.filt {
+
+    font-family: "Barlow Condensed", sans-serif;
+    color: #ffffff;
+
+}
+
+.filt:hover {
+
+    color: #ffffff;
 
 }
 
