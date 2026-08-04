@@ -74,7 +74,7 @@ function navbar() {
     </a>
     
     <form class='d-flex search-form' role='search' method='POST' action='/php/search_page.php'>
-            <input class='form-control search-box' type='search' placeholder='Cerca album...' aria-label='cerca' name='name'>
+            <input class='form-control search-box' type='search' placeholder='Search album...' aria-label='cerca' name='name'>
             <button class='search-btn' type='submit'>
                 <img src='/imgs/img_tools/Lens.png' alt='Cerca'>
             </button>
@@ -209,7 +209,7 @@ function session_checker(): bool {
         $_SESSION['username'] = "root";
         $_SESSION['password'] = "root";
         $_SESSION['dbname'] = "proddb";
-        $_SESSION['title'] = "WELCOME TO SMUGGLERS!!!"; 
+        $_SESSION['title'] = "SMUGGLERS"; 
 
     }
 
