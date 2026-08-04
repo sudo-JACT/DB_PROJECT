@@ -3,6 +3,30 @@
     include_once("./template.php");
     session_checker();
 
+
+    if (isset($_POST['orderby'])) {
+
+        switch ($_POST['orderby']) {
+
+            case 'A-Z':
+
+                $sql = "SELECT id, name, image_path FROM band ORDER BY name";
+                break;
+
+            case 'Z-A':
+
+                $sql = "SELECT id, name, image_path FROM band ORDER BY name DESC";
+                break;
+
+        }
+
+    } else {
+
+        $sql = "SELECT id, name, image_path FROM band";
+
+    }
+
+
 ?>
 
 
@@ -26,10 +50,32 @@
 
         ?>
 
+        <div class='filters_div'>
  
-        <div class="title">
-            <h1>BAND</h1>
+            <div class="title">
+                <h1>BAND</h1>
+            </div>
+
+            <form method='POST' class='filters'>
+
+                <div class="btn btn-group">
+                    
+                    <button class="filter-btn btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Order By
+                    </button>
+                    
+                    <ul class="dropdown-menu filter">
+                        <button type='submit' class='btn' name='orderby' value='A-Z'><li class='filt'>A-Z</li></button>
+                        <div class='border-top'></div>
+                        <button type='submit' class='btn' name='orderby' value='Z-A'><li class='filt'>Z-A</li></button>
+                    </ul>
+                
+                </div> 
+
+            </form>
+     
         </div>
+ 
 
         <form method='POST' action="/php/band_page.php">
 
@@ -42,7 +88,6 @@
 
             try {
 
-                $sql = "SELECT id, name, image_path FROM band";
              
                 $result = $conn->query($sql);
                

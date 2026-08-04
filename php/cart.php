@@ -4,7 +4,7 @@
 
     if (!session_checker()) {
 
-        header('Location: '.'/php/login.php');
+        header('Location: '.'/php/please_login.php');
 
     }
 

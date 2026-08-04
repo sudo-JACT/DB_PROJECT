@@ -3,6 +3,38 @@
     include_once("./template.php");
     session_checker();
 
+    if (isset($_POST['orderby'])) {
+
+        switch ($_POST['orderby']) {
+
+            case 'A-Z':
+
+                $sql = "SELECT a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id ORDER BY a.name";
+                break;
+
+            case 'Z-A':
+
+                $sql = "SELECT a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id ORDER BY a.name DESC";
+                break;
+
+            case 'Ascending':
+
+                $sql = "SELECT a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id ORDER BY a.price";
+                break;
+            
+            case 'Discending':
+
+                $sql = "SELECT a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id ORDER BY a.price DESC";                break;
+        }
+
+    } else {
+
+
+        $sql = "SELECT a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id";
+
+    }
+
+
 ?>
 
 
@@ -26,9 +58,36 @@
         ?>
 
 
-        <div class="title">
-            <h1>ALBUMS</h1>
+        <div class='filters_div'>
+
+            <div class="title">
+                <h1>ALBUMS</h1>
+            </div>
+
+            <form method='POST' class='filters'>
+
+                <div class="btn btn-group">
+                    
+                    <button class="filter-btn btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Order By
+                    </button>
+                    
+                    <ul class="dropdown-menu filter">
+                        <button type='submit' class='btn' name='orderby' value='A-Z'><li class='filt'>A-Z</li></button>
+                        <div class='border-top'></div>
+                        <button type='submit' class='btn' name='orderby' value='Z-A'><li class='filt'>Z-A</li></button>
+                        <div class='border-top'></div>
+                        <button type='submit' class='btn' name='orderby' value='Ascending'><li class='filt'>Ascending Price</li></button>
+                        <div class='border-top'></div>
+                        <button type='submit' class='btn' name='orderby' value='Discending'><li class='filt'>Discending Price</li></button>
+                    </ul>
+                
+                </div> 
+
+            </form>
+     
         </div>
+
 
         <form method='POST' action='/php/product_page.php'>
 
@@ -41,8 +100,6 @@
 
             try {
 
-                $sql = "SELECT a.id as id, a.name as name, a.image_path as image_path, a.id as id, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id";
-             
                 $result = $conn->query($sql);
                
                 if ($result->rowCount() > 0) {
