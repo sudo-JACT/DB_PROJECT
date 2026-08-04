@@ -767,12 +767,37 @@ body {
 
 .description-album-product{
 
-    text-align: right;
+    text-align: left;
+    color: #000000;
+    text-shadow: var(--text-inverted);
+    font-family: "Saira Condensed", sans-serif;
+    font-weight: 100;
+    font-size: 18px;
+    padding-right: 50px;
 }
 
 .bg-album-product{
 
-    color: #efefef !important;
+    background-color: #f4f4f4;
+}
+
+.number-item{
+
+    width: 80px;
+    height: 40px;
+
+    text-align: center;
+    padding: 5px;
+
+    border: 2px solid #000000;
+    border-radius: 5px;
+}
+
+.add-to-cart-button-product{
+
+    width: 300px;
+    height: 40px;
+    align-items: center;
 }
 
 @media (max-width: 991.98px) {
