@@ -105,7 +105,6 @@
 
                 try {
 
-                
                     $result = $conn->query($sql);
                 
                     if ($result->rowCount() > 0) {
