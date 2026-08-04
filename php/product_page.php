@@ -47,19 +47,19 @@
 
             <div class='row bg-white p-4 rounded shadow-sm'>
 
-                <div class='col-12 col-md-6 mb-4 mb-md-0'>
-                    <div class0'border rounded text-center bg-light mb-3'>
+                <div class='col-12 col-md-6 mb-4 mb-md-0 '>
+                    <div class='text-center album-image'>
                         <img class='img-fluid rounded' src='".$row['image_path']."'></img>
                     </div>
                 </div>
 
                 <div class='col-12 col-md-6 d-flex flex-column'>
-                    <h2 class='h5 text-uppercase text-muted fw-bold mb-1'>".$row['bname']."</h2>
-                    <h1 class='h3 fw-bold mb-3'>".$row['name']."</h1>
+                    <h2 class='band-name-product'>".$row['bname']."</h2>
+                    <h1 class='album-name-product'>".$row['name']."</h1>
 
                     <div class='mb-4 border-bottom pb-3'>
-                        <span class='h2 fw-bold text-dark'>€ ".roundPrice($row['price'])."</span>
-                        <p class='text-muted small mb-0 mt-1'><i class='bi bi-check-circle text-success'></i> Tasse incluse. Spese di spedizione calcolate al checkout.</p>
+                        <span class='pricetag-product'>€ ".roundPrice($row['price'])."</span>
+                        <p class='pricetag-tax'><i class='bi bi-check-circle text-success'></i> Tax included.</p>
                     </div>
                     
 
