@@ -707,6 +707,74 @@ body {
     display: grid;
 }
 
+/* product page colonna immagine */
+.album-image {
+
+    display: flex;
+    justify-content: center;
+    align-items: right;
+    border: none;
+    min-height: 400px;
+}
+
+/* immagine product page */
+.img-fluid {
+
+    width: 350px;
+    height: 350px;
+}
+
+.band-name-product {
+
+    color: #000000 !important;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 600;
+    margin-left: 0px;
+    align-self: left;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.album-name-product {
+
+    color: #000000;
+    text-shadow: var(--text-inverted);
+    font-family: "Saira Condensed", sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    
+}
+
+.pricetag-product{
+
+    color: #000000;
+    text-shadow: var(--text-inverted);
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 50;
+    font-size: 28px;
+    padding-top: 700px;
+    align-items: right;
+}
+
+.pricetag-tax{
+
+    color: #000000;
+    text-shadow: var(--text-inverted);
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 100;
+    font-size: 17px;
+}
+
+.description-album-product{
+
+    text-align: right;
+}
+
+.bg-album-product{
+
+    color: #efefef !important;
+}
+
 @media (max-width: 991.98px) {
 
     /* dimensione font titoli album in album*/
