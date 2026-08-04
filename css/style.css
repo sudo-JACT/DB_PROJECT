@@ -710,18 +710,20 @@ body {
 /* product page colonna immagine */
 .album-image {
 
-    display: flex;
+    display: static;
     justify-content: center;
     align-items: right;
     border: none;
-    min-height: 400px;
+    padding-bottom: 25px;
 }
 
 /* immagine product page */
 .img-fluid {
 
-    width: 350px;
-    height: 350px;
+    width: 500px;
+    height: 500px;
+    align-items: right;
+    
 }
 
 .band-name-product {
@@ -740,7 +742,7 @@ body {
     color: #000000;
     text-shadow: var(--text-inverted);
     font-family: "Saira Condensed", sans-serif;
-    font-weight: 400;
+    font-weight: 200;
     font-size: 30px;
     
 }
@@ -783,11 +785,11 @@ body {
 
 .number-item{
 
-    width: 80px;
+    width: 115px;
     height: 40px;
 
     text-align: center;
-    padding: 5px;
+    padding: 0px;
 
     border: 2px solid #000000;
     border-radius: 5px;
@@ -795,7 +797,7 @@ body {
 
 .add-to-cart-button-product{
 
-    width: 400px;
+    width: 600px;
     height: 40px;
     align-items: center;
 }
@@ -849,13 +851,37 @@ body {
 
 }
 
-@media (max-width: 740px) {
+@media (max-width: 1480px) {
 
     .add-to-cart-button-product{
 
-        width: 300px;
-        height: 40px;
-        align-items: center;
+        width: 300px !important;
+        height: 40px !important;
+        margin-left: 10px;
     
+    }
+
+    .number-item{
+
+        width: 65px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 1480px) {
+
+    .img-fluid {
+
+        width: 400px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    .img-fluid {
+
+        width: 300px;
+        height: 300px;
     }
 }
