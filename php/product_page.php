@@ -67,14 +67,14 @@
 
                         <div class='row d-flex'>
 
-                            <div class='col'>
+                            <div class='col-2'>
 
                                 <input type='number' step='1', name='quantity', id='quantity' value='1' class='number-item'>
                                 <input type='hidden' name='id' value='".$row['id']."'>
 
                             </div>
 
-                            <div class='col-9'>
+                            <div class='col-6'>
 
                                 <button class='add-to-cart-button-product btn btn-dark fw-bold text-uppercase justify-content-center' type='submit'>Add to cart</button>
 
