@@ -42,7 +42,7 @@ create table album (
 create table song (
     id int auto_increment primary key,
     name text not null,
-    duration time not null,
+    duration float check (duration > 0),
     descr text,
     linky text
 );
