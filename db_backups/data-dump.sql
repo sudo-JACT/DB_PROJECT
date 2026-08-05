@@ -104,7 +104,7 @@ CREATE TABLE `band` (
   `image_path` text DEFAULT NULL,
   `descr` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,7 +126,8 @@ INSERT INTO `band` VALUES
 (10,'Kublai Khan TX','2009-01-01','../imgs/bands/Kublai_Khan TX.webp','Kublai Khan is an American metalcore band from Sherman, Texas. The group formed in the summer of 2009, and they have released five albums and two EPs.'),
 (11,'Landmvrks','2014-01-01','../imgs/bands/Landmvrks.jpg','Landmvrks (pronounced and originally spelt \'Landmarks\', now stylised in all caps, LANDMVRKS) is a French metalcore band from Marseille, formed in 2014. The band has since released four studio albums and is signed to Arising Empire.'),
 (12,'Polaris','2012-01-01','../imgs/bands/Polaris.jpg','Polaris are an Australian metalcore band from Sydney. The band consists of vocalist Jamie Hails, guitarist Rick Schneider, bassist/vocalist Jake Steinhauser and drummer Daniel Furnari.'),
-(13,'Queens of the Stone Age','1996-01-01','../imgs/bands/queens.jpeg','Dopo lo scioglimento dei Kyuss');
+(13,'Queens of the Stone Age','1996-01-01','../imgs/bands/queens.jpeg','Dopo lo scioglimento dei Kyuss'),
+(14,'Lo!','2025-01-01','/imgs/bands/','Lo!');
 /*!40000 ALTER TABLE `band` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -232,7 +233,65 @@ INSERT INTO `ispartof` VALUES
 (2,8,7),
 (2,9,10),
 (2,10,11),
-(2,11,12);
+(2,11,12),
+(1,12,1),
+(1,13,2),
+(1,14,3),
+(1,15,4),
+(1,16,5),
+(1,17,6),
+(1,18,7),
+(1,19,8),
+(1,20,9),
+(1,21,10),
+(1,22,11),
+(1,23,12),
+(3,24,1),
+(3,25,2),
+(3,26,3),
+(3,27,4),
+(3,28,5),
+(3,29,6),
+(3,30,7),
+(3,31,8),
+(3,32,9),
+(3,33,10),
+(3,34,11),
+(3,35,12),
+(3,36,13),
+(4,37,1),
+(4,38,2),
+(4,39,3),
+(4,40,4),
+(4,41,5),
+(4,42,6),
+(4,43,7),
+(4,44,8),
+(4,45,9),
+(4,46,10),
+(4,47,11),
+(5,48,1),
+(6,49,1),
+(6,50,2),
+(6,51,3),
+(6,53,4),
+(6,54,5),
+(6,55,6),
+(6,56,7),
+(6,57,8),
+(6,58,9),
+(6,59,10),
+(7,60,1),
+(7,61,2),
+(7,62,3),
+(7,63,4),
+(7,64,5),
+(7,65,6),
+(7,66,7),
+(7,67,8),
+(7,68,9),
+(7,69,10),
+(7,70,11);
 /*!40000 ALTER TABLE `ispartof` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -359,7 +418,7 @@ CREATE TABLE `song` (
   `linky` text DEFAULT NULL,
   `duration` float DEFAULT NULL CHECK (`duration` > 0),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -379,7 +438,65 @@ INSERT INTO `song` VALUES
 (8,'Adoration for None','Everyone is doing their best to destroy it\r\nSimplicity\'s forgotten\r\nAnd we all drill the ground','https://youtu.be/xPhmDcmy_YY?si=x2HSjtP1uQbSADUC',NULL),
 (9,'Esoteric Surgery','You have the power to heal yourself\r\nAll illness can be healed, the cell regenerates\r\nDisambiguated situation','https://youtu.be/M6se_mW06ow?si=jVjq6O8Qe_frIJ8-',NULL),
 (10,'Wolf Down the Earth','First of all, you will eat all the bodies\r\nNo matter they pray for freedom, they\'ll kill you\r\nForward you crush those going backwards','https://youtu.be/Q0bPD6XkyWg?si=xL78bOan2Nu3O9cJ',NULL),
-(11,'The Way of All Flesh','Anything that has a shape will crumble away, disappear\r\nWe belong to the circle life of all creation\r\nWe crawl, deny ourselves, refuse this evidence','https://youtu.be/A0UCunCKD2E?si=pE4XM3jXeMJDsf5J',NULL);
+(11,'The Way of All Flesh','Anything that has a shape will crumble away, disappear\r\nWe belong to the circle life of all creation\r\nWe crawl, deny ourselves, refuse this evidence','https://youtu.be/A0UCunCKD2E?si=pE4XM3jXeMJDsf5J',NULL),
+(12,'Ocean Planet','','',5.5),
+(13,'Backbone','','',5.5),
+(14,'From The Sky','','',5.5),
+(15,'Unicorn','','',5.5),
+(16,'Where Dragons Dwell','','',5.5),
+(17,'The Haviest Matter of the Universe','','',5.5),
+(18,'Flying Whales','','',5.5),
+(19,'In The Wilderness','','',5.5),
+(20,'World to Come','','',5.5),
+(21,'From Mars','','',5.5),
+(22,'To Sirius','','',5.5),
+(23,'Global Warming','','',5.5),
+(24,'The Grudge','','',4.6),
+(25,'Eon Blue Apocalypse','','',4.6),
+(26,'The Patient','','',4.6),
+(27,'Mantra','','',4.6),
+(28,'Schism','','',4.6),
+(29,'Parabol','','',4.6),
+(30,'Parabola','','',4.6),
+(31,'Ticks & Leeches','','',4.6),
+(32,'Lateralus','','',4.6),
+(33,'Disposition','','',4.6),
+(34,'Reflection','','',4.6),
+(35,'Triad','','',4.6),
+(36,'Faaip De Oiad','','',4.6),
+(37,'From the Dust of This Planet','','',4.6),
+(38,'Secrets Within','','',4.6),
+(39,'Nonago','','',4.6),
+(40,'Gratitude','','',4.6),
+(41,'Costant Sleep','','',4.6),
+(42,'The Oppressor','','',4.6),
+(43,'Black Blood','','',4.6),
+(44,'Sets','','',4.6),
+(45,'Cenotaph','','',4.6),
+(46,'Ligths Out','','',4.6),
+(47,'Infinite Sun','','',4.6),
+(48,'Turbe Sarde','','',4.6),
+(49,'Prelude','','',4.6),
+(50,'A Salesman\'s Guide to Non-Existence','','',4.6),
+(51,'Feed the Horses','','',4.6),
+(53,'Blood on the Radio','','',4.6),
+(54,'Absentee','','',4.6),
+(55,'Suspicius Waveforms','','',4.6),
+(56,'Carnival','','',4.6),
+(57,'Concrete Swan Dive','','',4.6),
+(58,'In The Company of Worms','Peak','',4.6),
+(59,'My Famed Disappearing Act','','',4.6),
+(60,'Citizen','','',4.6),
+(61,'Colorwave','','',4.6),
+(62,'Savage','','',4.6),
+(63,'Solar','','',4.6),
+(64,'Heartmachine','','',4.6),
+(65,'Intuition','','',4.6),
+(66,'Zero-One','','',4.6),
+(67,'Fade','','',4.6),
+(68,'Render','','',4.6),
+(69,'Veridian','','',4.6),
+(70,'Paragone','','',4.6);
 /*!40000 ALTER TABLE `song` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -454,4 +571,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-08-05 13:55:26
+-- Dump completed on 2026-08-05 18:48:02
