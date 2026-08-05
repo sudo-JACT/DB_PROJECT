@@ -36,7 +36,8 @@ create table album (
     image_path text,
     descr text,
     linky text,
-    price float
+    price float,
+    sale int not null check (sale >=0)
 );
 
 create table song (
