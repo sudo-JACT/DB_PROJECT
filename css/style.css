@@ -297,19 +297,6 @@ body {
 
 }
 
-.card {
-
-    display: inline-block !important;
-    text-align: center !important;
-    justify-content: center !important;
-    align-items: center !important;
-    background-color: transparent;
-    margin: 0px;
-
-    /*width: clamp(300px, 18vw, 400px);*/
-
-}
-
 /* gestione immagini singole album ovunque*/
 .card-img-top {
 
@@ -860,6 +847,11 @@ body {
     align-items: center;
 }
 
+.bg-band-product{
+
+    background-color: #f4f4f4;
+}
+
 .image-size-artist{
 
     display: static;
@@ -888,6 +880,24 @@ body {
     align-self: left;
     font-size: 30px;
     text-transform: uppercase;
+}
+
+/* dropdowm menù album*/
+.album-dropdown{
+
+    display: inline-block !important;
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: transparent;
+    margin: 0px;
+
+    /*width: clamp(300px, 18vw, 400px);*/
+    border: 5px;
+    border-top: 1px solid #000000;
+    /*border-bottom: 1px solid #000000;*/
+    margin-bottom: 0px;
+
 }
 
 @media (max-width: 991.98px) {

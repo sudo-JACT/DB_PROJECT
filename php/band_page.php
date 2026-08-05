@@ -46,7 +46,7 @@
 
             echo "
 
-            <div class='row bg-white p-4 rounded shadow-sm band-card'>
+            <div class='row bg-band-product p-4 rounded shadow-sm band-card'>
 
                 <div class='col-md-6'>
                     <div class='text-center image-size-artist'>
