@@ -45,19 +45,19 @@ function head($index) {
     }
 
     // aggiunta del font Barlow Condensed
-    echo "<link rel='preconnect' href='https://fonts.googleapis.com'>";
-    echo "<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>";
-    echo "<link href='https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&display=swap' rel='stylesheet'>";
+    echo "<link rel='preconnect' href='https://fonts.googleapis.com'>
+          <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+          <link href='https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&display=swap' rel='stylesheet'>";
 
     // aggiunta del font Inter
-    echo "<link rel='preconnect' href='https://fonts.googleapis.com'>";
-    echo "<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>";
-    echo "<link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap' rel='stylesheet'>";
+    echo "<link rel='preconnect' href='https://fonts.googleapis.com'>
+          <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+          <link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap' rel='stylesheet'>";
 
     // aggiunta del font Saira Condensed
-    echo "<link rel='preconnect' href='https://fonts.googleapis.com'>";
-    echo "<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>";
-    echo "<link href='https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700;800&display=swap' rel='stylesheet'>";
+    echo "<link rel='preconnect' href='https://fonts.googleapis.com'>
+          <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+          <link href='https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700;800&display=swap' rel='stylesheet'>";
 }
 
 function navbar() {
@@ -79,7 +79,7 @@ function navbar() {
         <img src='/imgs/logo/Smugglers Logo.png' alt='Logo' width='90'>
     </a>
     
-    <form class='d-flex search-form' role='search' method='POST' action='/php/search_page.php'>
+    <form class='d-flex search-form navv' role='search' method='POST' action='/php/search_page.php'>
             <input class='form-control search-box' type='search' placeholder='Search album...' aria-label='cerca' name='name'>
             <button class='search-btn' type='submit'>
                 <img src='/imgs/img_tools/Lens.png' alt='Cerca'>
@@ -174,7 +174,6 @@ function navbar() {
                 <a class='nav-link' href='/php/cart.php'>CART</a>
             </li>
       
-        </ul>
     ";
 
     echo "
@@ -183,7 +182,7 @@ function navbar() {
 
     if ($ad) {
 
-        echo "<ul class='navbar-nav'>
+        echo "
         <li class='nav-item'>
             <a class='nav-link' href='/php/admin_panel.php'>PANEL</a>
         </li>";
@@ -192,14 +191,14 @@ function navbar() {
 
     if (!$s) {
 
-        echo "<ul class='navbar-nav'>
+        echo "
         <li class='nav-item'>
           <a class='nav-link' href='/php/login.php'>LOGIN</a>
         </li>";
 
     }else {
 
-        echo "<ul class='navbar-nav'>
+        echo "
         <li class='nav-item'>
           <a class='nav-link' href='/php/logout.php'>LOGOUT</a>
         </li>";

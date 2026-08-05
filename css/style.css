@@ -717,6 +717,46 @@ body {
     padding-bottom: 25px;
 }
 
+
+.navbar > .container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.navbar-brand {
+    order: 1;
+    margin-right: 0;
+}
+
+.search-form {
+    order: 2;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar-collapse {
+    order: 3;
+    flex-grow: 0;
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.navbar-toggler {
+    order: 4;
+}
+
+.navv {
+
+    margin-right: 200px !important;
+
+}
+
+
 /* immagine product page */
 .img-fluid {
 
