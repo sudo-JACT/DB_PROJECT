@@ -1,7 +1,9 @@
 <?php
 
     include_once("./template.php");
+
     session_checker();
+
 
     if (isset($_POST['orderby'])) {
 
@@ -9,60 +11,58 @@
 
             case 'A-Z':
 
-                $sql = "SELECT a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id ORDER BY a.name";
+                $sql = "SELECT a.sale as sale, a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id ORDER BY a.name";
                 break;
 
             case 'Z-A':
 
-                $sql = "SELECT a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id ORDER BY a.name DESC";
+                $sql = "SELECT a.sale as sale, a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id ORDER BY a.name DESC";
                 break;
 
             case 'Ascending':
 
-                $sql = "SELECT a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id ORDER BY a.price";
+                $sql = "SELECT a.sale as sale, a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id ORDER BY a.price-(a.price * (a.sale/100))";
                 break;
             
             case 'Discending':
 
-                $sql = "SELECT a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id ORDER BY a.price DESC";                break;
+                $sql = "SELECT a.sale as sale, a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id ORDER BY a.price-(a.price * (a.sale/100)) DESC";
+                break;
         }
 
     } else {
 
 
-        $sql = "SELECT a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id";
+        $sql = "SELECT a.sale as sale, a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id";
 
     }
 
-
 ?>
 
-
-<!DOCTYPE html>
 <html lang="en">
-
 
     <?php
 
-
-        head(false);
+       
+       head(false);
 
     ?>
 
     <body>
-
+        
         <?php
 
             navbar();
 
         ?>
 
-
         <div class='filters_div'>
 
             <div class="title">
                 <h1>ALBUMS</h1>
             </div>
+
+
 
             <form method='POST' class='filters'>
 
@@ -88,50 +88,71 @@
      
         </div>
 
-
-        <form method='POST' action='/php/product_page.php'>
+        <form method="POST" action='/php/product_page.php'>
 
         <?php
 
-            $conn = connect_db();
-
-
             echo "<div class='card-dark album-container'>";
 
-            try {
+            $conn = connect_db();
 
-                $result = $conn->query($sql);
-               
-                if ($result->rowCount() > 0) {
-
-                
-                    while($row = $result->fetch()) {
-                    
-                        /*echo "<div class='card card-dark' style='width: 18rem;'>*/
-                        echo "<div class='card card-dark'>
-                                <button class='btn' type='submit' value='".$row['id']."' name='productid'><img src='".$row['image_path']."' class='card-img-top' alt='".$row['name']."'>
-                                </button>
-                                <div class='card-body'>
-                                    <p class='card-text text-neon-w'>".$row['bname']."</p>
-                                    <p class='card-text text-neon'>".$row['name']."</p>
-                                    <p class='card-text pricetag'> ".roundPrice($row['price'])." € </p>
-                                </div>
-                            </div>";
-
-                    }
-                
-                    unset($result);
-                    
-                }else {
             
-                    echo "No records found.";
+            if ($conn === null) {
+
+                echo "<h1>Connection Error</h1>";
+
+            } else {
+
+
+                try {
+
+                    $result = $conn->query($sql);
+                
+                    if ($result->rowCount() > 0) {
+
+                    
+                        while($row = $result->fetch()) {
+                            
+                            echo "<div class='card card-dark'>
+                                    <button class='btn' type='submit' value='".$row['id']."' name='productid'><img src='".$row['image_path']."' class='card-img-top' alt='".$row['name']."'>
+                                    </button>
+                                    <div class='card-body'>
+                                        <p class='card-text text-neon-w'>".$row['bname']."</p>
+                                        <p class='card-text text-neon'>".$row['name']."</p>";
+
+                            if ($row['sale'] != 0) {
+                
+                                    echo "
+                                        <p class='card-text pricetag'><del class='salee' style='color: red !important;'>".roundPrice($row['price'])." €</del> ".roundPrice(calcSale($row['price'], $row['sale']))." € </p>
+                                    </div>
+                                </div>";
+
+                            } else {
+
+                                    echo "
+                                        <p class='card-text pricetag'> ".roundPrice(calcSale($row['price'], $row['sale']))." € </p>
+                                    </div>
+                                </div>";
+
+                            }
+                        
+                        }
+            
+                    
+                        unset($result);
+                        
+                    }else {
+                
+                        echo "<h1>No records found.</h1>";
+                
+                    }
+                    
+                } catch(PDOException $e) {
+                
+                    echo "<h1>Error: " . $e->getMessage() . "</h1>";
             
                 }
-                
-            } catch(PDOException $e) {
-             
-                echo "Error: " . $e->getMessage();
-            
+
             }
 
             echo "</div>";
@@ -141,5 +162,9 @@
 
         </form>
     </body>
+
+    <?php
+        footer();
+    ?>
 
 </html>
