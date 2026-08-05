@@ -263,26 +263,33 @@
         <?php
 
             echo "<form method='POST' class='mb-3 card-dark'>
+        
+                <div class='card-admin-panel'>
 
-                <select class='form-select form-select-lg mb-3 card-dark text-neon' aria-label='Query' name='sel'>
-                   
-                    <option disabled selected value=''>Choose yuor option</option> 
-                    <option value='0'>Free Query</option>
-                    <option value='1'>Add Album</option>
-                    <option value='2'>Add Song</option>
-                    <option value='3'>Add Band</option>
-                    <option value='4'>Add Artist</option>
-                    <option value='5'>Add User</option>
-                    <option value='6'>Add Genre</option>
+                    <select class='form-select form-select-lg mb-3 card-dark text-neon' aria-label='Query' name='sel'>
+                        
+                        <option disabled selected value=''>Choose yuor option</option> 
+                        <option value='0'>Free Query</option>
+                        <option value='1'>Add Album</option>
+                        <option value='2'>Add Song</option>
+                        <option value='3'>Add Band</option>
+                        <option value='4'>Add Artist</option>
+                        <option value='5'>Add User</option>
+                        <option value='6'>Add Genre</option>
 
-                </select>
+                    </select>
 
-                <button type='submit' class='btn btn-neon mb-3'>Esegui</button>
 
+
+                    <button type='submit' class='btn btn-neon mb-3' style='margin-right: 20px;'>Esegui</button>
+                
+                </div>
 
             </form>";
 
         ?>
+
+        <div class='card-admin-panel'>
 
 
         <?php if ($selected === 0) :?>
@@ -481,7 +488,7 @@
             <form method="POST" class="mb-3" enctype="multipart/form-data">
 
                 <div class='mb-3 card-dark'>
-                    <label for='name' class='form-label text-neon ll'>Username</label>
+                    <label for='name' class='form-label text-neon ll'>Genre</label>
                     <input type='text' class='form-control' name='name' value='name'>
 
                     <input type='hidden' name='flag' value='genre'>
@@ -551,6 +558,7 @@
             }
         ?>
 
+        </div>
 
     </body>
 

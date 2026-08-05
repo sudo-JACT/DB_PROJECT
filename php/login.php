@@ -27,17 +27,17 @@
             echo "<form class='mb-3 row card-login' action='./access.php' method='post'>
 
                         <div class='mb-3'>
-                        <label for='Name' class='form-label'>Name</label>
+                        <label for='Name' class='form-label-login'>Name</label>
                         <input type='text' class='form-control-login' name='name' placeholder='name'>
                     </div>
                     
                     <div class='mb-3'>
-                        <label for='Email' class='form-label'>Email</label>
+                        <label for='Email' class='form-label-login'>Email</label>
                         <input type='email' class='form-control-login' name='email' placeholder='email@example.com'>
                     </div>
                     
                     <div class='mb-3'>
-                        <label for='Password' class='form-label'>Password</label>
+                        <label for='Password' class='form-label-login'>Password</label>
                         <input type='password' class='form-control-login' name='passwd' placeholder='password'>
                     </div>
                     
