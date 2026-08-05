@@ -48,66 +48,70 @@
 
             <div class='row bg-white p-4 rounded shadow-sm band-card'>
 
-                <div class='col-12 col-md-6 mb-4 mb-md-0'>
-                    <div class0'border rounded text-center bg-light mb-3'>
-                        <img class='img-fluid rounded' src='".$row['immg']."'></img>
+                <div class='col-md-6'>
+                    <div class='text-center image-size-artist'>
+                        <img class='img-fluid-artist rounded' src='".$row['immg']."'></img>
                     </div>
                 </div>
 
                 <div class='col-12 col-md-6 d-flex flex-column'>
-                    <h1 class='h3 fw-bold mb-3'>".$row['name']."</h1>
+                    
+                    <h1 class='font-size-band'>".$row['name']."</h1>
 
 
-                    <div class='mb-4'>
-
-                        <div class='row g-2 align-items-end'>
-
-
-                        </div>
-
-                    </div>
+                    
 
                     <div class='border-top fw-bold bg-transparent px-0 text-dark'>
 
-                        <h2>Description</h2>
+                        </br>
+                        <div class='band-name-product'>Description</div>
+                        </br>
 
-                        <p class='px-0 text-muted'>".$row['descr']."</p>
+                        
+                        <div class='description-album-product'>".$row['descr']."</div>
+                        </br>
 
                     </div>
 
 
                     <div class='border-top fw-bold bg-transparent px-0 text-dark'>
-
-                        <h2>Members</h2>
+                        
+                        </br>
+                        <div class='band-name-product'>Members</div>
+                        </br>
                         <ul>";
 
-            if ($rows->rowCount() > 0) {
+                        if ($rows->rowCount() > 0) {
 
-                while ($r = $rows->fetch()) {
+                            while ($r = $rows->fetch()) {
 
-                    echo "<li class='px-0, text-muted'>".$r['name']." (".$r['role'].")</li>";
+                                echo "<li class='description-album-product'>".$r['name']." (".$r['role'].")</li>";
 
-                }
+                            }
 
-            }
+                        }
 
-            echo "<form method='POST' action='/php/product_page.php'> </ul></div>
-                <div class='border-top fw-bold bg-transparent px-0 text-dark'>
-                    <h2>Discography</h2>
-                    <ul>";
+                        echo "<form method='POST' action='/php/product_page.php'> </ul></div>
+                            <div class='border-top fw-bold bg-transparent px-0 text-dark'>
+                            
+                            </br>
+                            <div class='band-name-product'>Discography</div>
+                            </br>    
+                            
+                            <ul>";
 
-            if ($rows2->rowCount() > 0) {
+                        if ($rows2->rowCount() > 0) {
 
-                while ($r = $rows2->fetch()) {
+                            while ($r = $rows2->fetch()) {
 
-                    echo "<li class='px-0, text-muted'><button class='btn' value='".$r['id']."' name='productid' type='submit'>".$r['name']." (".$r['pd'].")</li>";
+                                echo "<li class='description-album-product'><button class='btn' value='".$r['id']."' name='productid' type='submit'>".$r['name']." (".$r['pd'].")</li>";
 
-                }
+                            }
 
-            }
+                        }
 
 
-            echo "</ul>  </div> </form>
+                        echo "</ul>  </div> </form>
 
 
                 </div>
