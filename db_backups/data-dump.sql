@@ -48,7 +48,7 @@ INSERT INTO `album` VALUES
 (4,'Meta','2016-10-28','../imgs/albums/meta.jpg','Meta is the third album by the American band Car Bomb. The album was produced by Gojira\'s Joseph Duplantier and guitarist Greg Kubacki and released independently on digital and CD formats on 28 October 2016','https://youtu.be/bUVcnsiRQ4M?si=R2i3CJeie4-CNYRi',36.8,0),
 (5,'Turbe Sarde','2023-12-15','../imgs/albums/turbe-sarde.webp','\'Turbe Sarde\' is a song released in 2023, written primarily by Venz (Vincenzo Vespertilli) and Dario Moccia, produced in collaboration with Mr. Distruzione Musica and featuring Mike Lennon','https://youtu.be/omnjIOuBEoY?si=DXwoqR3LDZsQTJKS',5.5,0),
 (6,'Maps of Non-Existent Places','2012-06-08','../imgs/albums/non-existent.jpeg','Maps of Non-Existent Places is the debut full-length album by progressive rock band Thank You Scientist. This is the only album to feature Greg Colacino on bass and Russ Lynch on violin, viola and mandolin.','https://youtu.be/IEYP_ExqR48?si=KjoKS_bgguLyujpH',34.85,0),
-(7,'Mesmer','2017-03-24','../imgs/albums/Mesmer.jpg','Mesmer is the fourth studio album by Australian heavy metal band Northlane. It was released on 24 March 2017 through UNFD, with no announcement prior to the release. It was produced by David Bendeth and recorded at The Barber Shop Studio in Hopatcong. It follows the group\'s slight departure from their metalcore roots and towards a more alternative and experimental sound, as established on their previous release, Node. It peaked at No. 3 on the ARIA Albums Chart. It is the last Northlane album to feature their founding bassist Alex Milovic as a member of the band.','https://youtu.be/anQ836BXbYw?si=1xKLYc0I2PsP7SGO',44.63,0),
+(7,'Mesmer','2017-03-24','../imgs/albums/Mesmer.jpg','Mesmer is the fourth studio album by Australian heavy metal band Northlane. It was released on 24 March 2017 through UNFD, with no announcement prior to the release. It was produced by David Bendeth and recorded at The Barber Shop Studio in Hopatcong. It follows the group\'s slight departure from their metalcore roots and towards a more alternative and experimental sound, as established on their previous release, Node. It peaked at No. 3 on the ARIA Albums Chart. It is the last Northlane album to feature their founding bassist Alex Milovic as a member of the band.','https://youtu.be/anQ836BXbYw?si=1xKLYc0I2PsP7SGO',44.63,30),
 (8,'Count Your Blessings Repented','2026-07-10','../imgs/albums/Count_Your_Blessings_Repented.jpg','Count Your Blessings | Repented is a fully re-recorded, 20th-anniversary studio edition of the British rock band Bring Me The Horizon\'s debut album, Count Your Blessings. Originally released in 2006 during the band\'s early deathcore phase, the album was re-envisioned, modernized, and released on July 10, 2026, through Sony/RCA','https://youtu.be/yPFZu_-PbyM?si=4KjwMASJ9eiHNZXT',26.99,0),
 (9,'Exhibition Of Prowess','2024-09-20','../imgs/albums/Exhibition_Of_Prowess.jpg','Exhibition of Prowess is the fifth studio album by the American metalcore band Kublai Khan TX, released on September 20, 2024, through Rise Records','https://youtu.be/91sH04HAlDE?si=5t99Tu_YpxbFk51N',25.9,0),
 (10,'Fatalism','2023-09-01','../imgs/albums/Fatalism.jpg','Fatalism is the third studio album by Australian metalcore band Polaris. The band produced and recorded the album in Melbourne in 2022 with Lance Prenc engineering and Alpha Wolf guitarist Scottie Simpson on vocal recording duties. The album was released on 1 September 2023 under Resist Records and SharpTone Records. It is the band\'s final album with lead guitarist Ryan Siew, after his death on 19 June 2023, with his recordings completed beforehand and released posthumously','https://youtu.be/ZGQAMsGncGQ?si=KYWVME0j7TAENILq',45.87,20),
@@ -156,15 +156,15 @@ CREATE TABLE `cart` (
 LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
 INSERT INTO `cart` VALUES
-(1,6,1),
-(1,5,1),
 (1,3,3),
-(1,13,3),
+(1,13,1),
 (1,1,1),
-(1,2,1),
+(1,2,3),
 (1,12,1),
 (3,7,10),
-(3,5,7);
+(3,5,7),
+(1,10,2),
+(1,7,3);
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -454,4 +454,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-08-05 11:12:17
+-- Dump completed on 2026-08-05 13:55:26

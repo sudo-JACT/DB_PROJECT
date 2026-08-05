@@ -99,7 +99,7 @@
 
     $tot = 0;
 
-    $sql = "SELECT a.id as id, a.name as name, a.price as price, b.name as bname, a.image_path as im, c.quantity as q FROM album as a JOIN cart as c ON c.album_id=a.id JOIN published as p ON p.album_id=a.id JOIN band as b ON b.id=p.band_id WHERE c.user_id=".$_SESSION['id']."";
+    $sql = "SELECT a.sale as sale, a.id as id, a.name as name, a.price as price, b.name as bname, a.image_path as im, c.quantity as q FROM album as a JOIN cart as c ON c.album_id=a.id JOIN published as p ON p.album_id=a.id JOIN band as b ON b.id=p.band_id WHERE c.user_id=".$_SESSION['id']."";
     $row = $conn->query($sql);
 
 ?>
@@ -147,10 +147,21 @@
                                             <div class='card-body'>
                                 
                                                 <p class='card-text'><strong><small>".$r['bname']."</small></strong></p>
-                                                <p class='card-text'>".$r['name']."</p>
-                                                <p class='card-text'><small class='text-body-secondary'>".roundPrice((int)$r['q'] * $r['price'])." €</small></p>
+                                                <p class='card-text'>".$r['name']."</p>";
 
-                                                <button type='submit' class='cart-button btn' value='m' name='btn'>-</button>
+                            if ($r['sale'] != 0) {
+                
+                                    echo "<p class='card-text'><del class='salee' style='color: red !important;'>".roundPrice(($r['price'] * $r['q']))." €</del> ".roundPrice((calcSale($r['price'], $r['sale']) * $r['q']))." € </p>";
+
+                            } else {
+
+                                    echo "<p class='card-text'> ".roundPrice((calcSale($r['price'], $r['sale'])) * $r['q'])." € </p>";
+
+                            }
+
+                                                
+
+                            echo "                    <button type='submit' class='cart-button btn' value='m' name='btn'>-</button>
     
                                                     <p class='cart-p'>".$r['q']."</p>
 
@@ -164,7 +175,7 @@
                 
                                     </div></form>"; 
 
-                       $tot += (int)$r['q'] * $r['price']; 
+                       $tot += (int)$r['q'] * calcSale($r['price'], $r['sale']); 
 
                     }
 

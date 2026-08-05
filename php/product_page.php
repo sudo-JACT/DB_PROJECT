@@ -8,7 +8,7 @@
 
         $conn = connect_db();
 
-        $sql = "SELECT a.name as name, a.image_path as image_path, a.id as id, b.name as bname, a.price as price, a.descr as descr FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id WHERE a.id='".$_POST['productid']."'";
+        $sql = "SELECT a.sale as sale, a.name as name, a.image_path as image_path, a.id as id, b.name as bname, a.price as price, a.descr as descr FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id WHERE a.id='".$_POST['productid']."'";
 
         $row = $conn->query($sql)->fetch();
 
@@ -57,13 +57,25 @@
                     <h2 class='band-name-product'>".$row['bname']."</h2>
                     <h1 class='album-name-product'>".$row['name']."</h1>
 
-                    <div class='mb-4 border-bottom'>
-                        <span class='pricetag-product'>€ ".roundPrice($row['price'])."</span>
-                        <p class='pricetag-tax'>incl. VAT, excl. Shipping</p>
-                    </div>
-                    
+                    <div class='mb-4 border-bottom'>";
 
-                    <div class='mb-4'>
+            if($row['sale'] != 0) {
+
+                echo "<span class='pricetag-product'><del class='salee' style='color: red !important;'>".roundPrice($row['price'])." €</del> ".roundPrice(calcSale($row['price'], $row['sale']))." €</span>
+                        <p class='pricetag-tax'>incl. VAT, excl. Shipping</p>
+                    </div>";
+
+
+            } else {
+
+                echo "
+                        <span class='pricetag-product'>".roundPrice($row['price'])." €</span>
+                        <p class='pricetag-tax'>incl. VAT, excl. Shipping</p>
+                    </div>";
+                    
+            }
+            
+            echo "<div class='mb-4'>
 
                         <div class='row d-flex'>
 
