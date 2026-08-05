@@ -640,7 +640,7 @@ body {
 }
 
 /* form login modifiche grafiche */
-.form-label {
+.form-label-login {
 
     width: 20px;
     padding: 8px;
@@ -705,6 +705,18 @@ body {
     align-items: center;
     text-align: left;
     display: grid;
+}
+
+
+.card-admin-panel {
+
+    /*margin-top: 20px !important;*/
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /*display: grid;*/
+    width: 100vw;
+
 }
 
 /* product page colonna immagine */
