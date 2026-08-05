@@ -111,7 +111,7 @@ function navbar() {
 
             while (($i > 0) && ($row = $albums->fetch())) {
 
-                echo "<div class='card card-dark' style='color: #000000; background-color: #efefef; margin-right: 89px; border: 0px'>
+                echo "<div class='card' style='color: #000000; background-color: #efefef; margin-right: 0px; border: 0px'>
                         <button class='btn'  style='' type='submit' value='".$row['id']."' name='productid'><img src='".$row['image_path']."' class='card-img-top' alt='".$row['name']."'>
                         </button>
                         <div class='card-body' style='color: #000000;'>
@@ -147,13 +147,15 @@ function navbar() {
 
         while (($i > 0) && ($row = $bands->fetch())) {
 
-            echo "<div class='album foto' style='color: #000000; margin-right: 20px;'>
-                    <figure class='figure border-neon' style='color: #000000;'>
-                    <button tipe='submit' class='btn' style='color: #000000;' value='".$row['id']."' name='bandid'><img src='".$row['image_path']."' class='figure-img foto_band' alt=".$row['name']."></button>
-                    </br></br>
-                    <figcaption class='figure-caption text-center text-neon-w' style='color: #000000;'>".$row['name']."</figcaption>
-                    </figure>
-                    </div>";
+            echo "  
+                    <div class='card' style='color: #000000; margin-right: 20px;'>
+                        <figure class='figure border-neon' style='color: #000000;'>
+                        <button tipe='submit' class='btn' style='color: #000000;' value='".$row['id']."' name='bandid'><img src='".$row['image_path']."' class='figure-img foto_band' alt=".$row['name']."></button>
+                        </br></br>
+                        <figcaption class='figure-caption text-center text-neon-w' style='color: #000000;'>".$row['name']."</figcaption>
+                        </figure>
+                    </div>
+                 ";
 
 
             $i -= 1;
