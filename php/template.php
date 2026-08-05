@@ -79,7 +79,7 @@ function navbar() {
         <img src='/imgs/logo/Smugglers Logo.png' alt='Logo' width='90'>
     </a>
     
-    <form class='d-flex search-form navv' role='search' method='POST' action='/php/search_page.php'>
+    <form class='d-flex search-form' role='search' method='POST' action='/php/search_page.php'>
             <input class='form-control search-box' type='search' placeholder='Search album...' aria-label='cerca' name='name'>
             <button class='search-btn' type='submit'>
                 <img src='/imgs/img_tools/Lens.png' alt='Cerca'>
@@ -213,6 +213,12 @@ function navbar() {
 
 }
 
+
+function calcSale($price, $sale): float {
+
+    return $price - ($price * ($sale / 100));
+
+}
 
 
 function roundPrice($price): string {

@@ -11,28 +11,28 @@
 
             case 'A-Z':
 
-                $sql = "SELECT a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id ORDER BY a.name";
+                $sql = "SELECT a.sale as sale, a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id ORDER BY a.name";
                 break;
 
             case 'Z-A':
 
-                $sql = "SELECT a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id ORDER BY a.name DESC";
+                $sql = "SELECT a.sale as sale, a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id ORDER BY a.name DESC";
                 break;
 
             case 'Ascending':
 
-                $sql = "SELECT a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id ORDER BY a.price";
+                $sql = "SELECT a.sale as sale, a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id ORDER BY a.price";
                 break;
             
             case 'Discending':
 
-                $sql = "SELECT a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id ORDER BY a.price DESC";                break;
+                $sql = "SELECT a.sale as sale, a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id ORDER BY a.price DESC";                break;
         }
 
     } else {
 
 
-        $sql = "SELECT a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id";
+        $sql = "SELECT a.sale as sale, a.id as id, a.name as name, a.image_path as image_path, b.name as bname, a.price as price FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id";
 
     }
 
@@ -118,7 +118,8 @@
                                 <div class='card-body'>
                                     <p class='card-text text-neon-w'>".$row['bname']."</p>
                                     <p class='card-text text-neon'>".$row['name']."</p>
-                                    <p class='card-text pricetag'> ".roundPrice($row['price'])." € </p>
+                                    <p><small>".roundPrice($row['price'])."</small></p>
+                                    <p class='card-text pricetag'> ".roundPrice(calcSale($row['price'], $row['sale']))." € </p>
                                 </div>
                             </div>";
                         }
