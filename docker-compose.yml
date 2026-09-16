@@ -40,6 +40,10 @@ services:
     environment:
       - APACHE_RUN_USER=www-data
       - APACHE_RUN_GROUP=www-data
+      - DB_HOST=mariadb
+      - DB_NAME=${MYSQL_DATABASE}
+      - DB_USER=${MYSQL_USER}
+      - DB_PASSWD=${MYSQL_PASSWORD}
 
     depends_on:
       - dbms

@@ -5,6 +5,7 @@
     if (!session_checker()) { // controllo la sessione
 
         header('Location: '.'/php/please_login.php');
+        exit;
 
     }
 

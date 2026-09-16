@@ -269,10 +269,10 @@ function session_checker(): bool {
 
         session_start();
 
-        $_SESSION['servername'] = "mariadb";
-        $_SESSION['username'] = "root";
-        $_SESSION['password'] = "root";
-        $_SESSION['dbname'] = "proddb";
+        $_SESSION['servername'] = getenv('DB_HOST');
+        $_SESSION['username'] = getenv('DB_USER');
+        $_SESSION['password'] = getenv('DB_PASSWD');
+        $_SESSION['dbname'] = getenv("DB_NAME");
         $_SESSION['title'] = "SMUGGLERS"; 
 
     }
