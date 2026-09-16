@@ -925,7 +925,7 @@ body {
 
     }
 
-        .album-panel {
+    .album-panel {
         display: none !important;
     }
 
@@ -949,8 +949,16 @@ body {
 
 }
 
+/* 
+   Prima media query a 1480px.
+   Ridimensiona pulsante "aggiungi al carrello"
+   e input quantità.
+*/
 @media (max-width: 1480px) {
 
+    /*
+        La larghezza passa da 600px a 300px.
+    */
     .add-to-cart-button-product{
 
         width: 300px !important;
@@ -959,6 +967,9 @@ body {
     
     }
 
+    /*
+        Riduce la larghezza dell'input.
+    */
     .number-item{
 
         width: 65px;
@@ -966,6 +977,8 @@ body {
     }
 }
 
+/* Seconda media query con lo stesso breakpoint.
+   Riduce l'immagine principale del prodotto.*/
 @media (max-width: 1480px) {
 
     .img-fluid {
@@ -976,17 +989,24 @@ body {
 
 }
 
+/* Sotto i 1300px l'immagine dell'artista viene ridotta. */
 @media (max-width: 1300px) {
 
     .img-fluid-artist {
 
         width: 400px;
+
+        /*
+           Mantiene il rapporto 600/400 = 1.5.
+           400 / 1.5 = circa 267px.
+        */
         height: 267px;
         align-items: right;
     
     }
 }
 
+/* Sotto i 1050px l'immagine viene ulteriormente ridotta.*/
 @media (max-width: 1050px) {
 
     .img-fluid-artist {
@@ -999,6 +1019,7 @@ body {
     }
 }
 
+/* sotti i 1000px l'immagine diventa 300x300px*/
 @media (max-width: 1000px) {
 
     .img-fluid {
@@ -1008,11 +1029,18 @@ body {
     }
 }
 
+/*Sotto i 768px, tipicamente dispositivi mobili,
+   l'immagine dell'artista viene riportata a una dimensione
+   maggiore rispetto al breakpoint precedente. */
 @media (max-width: 768px) {
 
     .img-fluid-artist {
 
         width: 400px;
+
+        /*
+           Mantiene il rapporto 1.5.
+        */
         height: 267px;
         align-items: right;
     
