@@ -6,7 +6,8 @@
 
     if (!isadmin()) { // controllo se l'utente è un'admin
 
-        header('Location: /php/403.php'); 
+        header('Location: /php/403.php');
+        exit;
 
     }
 
