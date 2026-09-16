@@ -1,6 +1,6 @@
-# SMUGGLERS — Record Store Web App
+# SMUGGLERS
 
-E-commerce di album musicali sviluppato in **PHP + MariaDB**, containerizzato con **Docker Compose**. Progetto per il corso di Basi di Dati.
+E-commerce di album musicali sviluppato in **PHP + MariaDB**, containerizzato con **Docker Compose**. Progetto per il corso di Basi di Dati presso Università degli Studi di Parma.
 
 ## Funzionalità
 
@@ -49,7 +49,3 @@ Altri comandi: `make restart`, `make restore`, `make db_dump`.
 ## Database
 
 Tabelle principali: `user`, `band`, `artist`, `genre`, `album`, `song`, più le relazioni `members`, `published`, `ispartof`, `soundlike`, `sale`, `cart`. Schema completo in `db_backups/schema.sql`.
-
-## Nota
-
-Progetto didattico: alcune query non usano prepared statement e le credenziali del DB sono hardcoded nel codice — da non usare così in produzione.
