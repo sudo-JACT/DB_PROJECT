@@ -6,6 +6,8 @@
 
     if (isset($_POST['productid'])) {
 
+        // faccio le query sul prodotto 
+
         $conn = connect_db();
 
         $sql = "SELECT a.sale as sale, a.name as name, a.image_path as image_path, a.id as id, b.name as bname, a.price as price, a.descr as descr FROM album as a join published as p on p.album_id=a.id join band as b on b.id=p.band_id WHERE a.id='".$_POST['productid']."'";
@@ -18,6 +20,7 @@
 
     } else {
 
+        // se per qualche motivo dovvessero accedere senza una post li rimado alla home
         header('Location: '.'/'); 
 
     }
@@ -42,7 +45,7 @@
 
             navbar();
 
-
+            // printo tutte le informazioni sul prodotto (nome album, nome, band, prezzo, ecc...)
             echo "<form method='POST' action='/php/cart.php'>
 
             <div class='row p-4 bg-album-product rounded shadow-sm'>
