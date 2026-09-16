@@ -73,7 +73,7 @@ CREATE TABLE `artist` (
   `image_path` text DEFAULT NULL,
   `bio` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -86,7 +86,57 @@ INSERT INTO `artist` VALUES
 (1,'Dario Moccia','1990-08-29','../imgs/artists/dario-moccia.jpg_large',NULL),
 (2,'Mario Duplantier','1981-06-19','../imgs/artists/image_2026-07-30_122444506.png','Mario'),
 (3,'Joe Duplantier','1976-10-19','../imgs/artists/image_2026-07-30_122958570.png','Joe'),
-(4,'idk2','2026-07-30','../imgs/artists/IMG_2441.PNG','');
+(5,'Christian Andreu',NULL,NULL,NULL),
+(6,'Jean-Michel Labadie',NULL,NULL,NULL),
+(7,'Maynard James Keenan',NULL,NULL,NULL),
+(8,'Adam Jones',NULL,NULL,NULL),
+(9,'Danny Carey',NULL,NULL,NULL),
+(10,'Justin Chancellor',NULL,NULL,NULL),
+(11,'Michael Dafferner',NULL,NULL,NULL),
+(12,'Greg Kubacki',NULL,NULL,NULL),
+(13,'Elliot Hoffman',NULL,NULL,NULL),
+(14,'Jon Modell',NULL,NULL,NULL),
+(15,'Tom Monda',NULL,NULL,NULL),
+(16,'Ben Karas',NULL,NULL,NULL),
+(17,'Joe Gullace',NULL,NULL,NULL),
+(18,'Alex Blade Silver',NULL,NULL,NULL),
+(19,'Kevin Grossman',NULL,NULL,NULL),
+(20,'Daimon Alexandrius',NULL,NULL,NULL),
+(21,'Sam Smith',NULL,NULL,NULL),
+(22,'Jon Deiley',NULL,NULL,NULL),
+(23,'Josh Smith',NULL,NULL,NULL),
+(24,'Nic Pettersen',NULL,NULL,NULL),
+(25,'Marcus Bridge',NULL,NULL,NULL),
+(26,'Arnór Dan Arnarson',NULL,NULL,NULL),
+(27,'Vignir Rafn Hilmarsson',NULL,NULL,NULL),
+(28,'Hrafnkell Örn Guðjónsson',NULL,NULL,NULL),
+(29,'Þórarinn Guðnason',NULL,NULL,NULL),
+(30,'Beau Bokan',NULL,NULL,NULL),
+(31,'Eric Lambert',NULL,NULL,NULL),
+(32,'Jared Warth',NULL,NULL,NULL),
+(33,'Elliott Gruenberg',NULL,NULL,NULL),
+(34,'Oli Sykes',NULL,NULL,NULL),
+(35,'Matt Nicholls',NULL,NULL,NULL),
+(36,'Lee Malia',NULL,NULL,NULL),
+(37,'Matt Kean',NULL,NULL,NULL),
+(38,'Matt Honeycutt',NULL,NULL,NULL),
+(39,'Eric English',NULL,NULL,NULL),
+(40,'Isaac Lamb',NULL,NULL,NULL),
+(41,'Nicholas Adams',NULL,NULL,NULL),
+(42,'Florent Salfati',NULL,NULL,NULL),
+(43,'Nicolas Exposito',NULL,NULL,NULL),
+(44,'Paul \"C. Wilson\" Cordebard',NULL,NULL,NULL),
+(45,'Rudy Purkart',NULL,NULL,NULL),
+(46,'Kévin D\'Agostino',NULL,NULL,NULL),
+(47,'Jamie Hails',NULL,NULL,NULL),
+(48,'Rick Schneider',NULL,NULL,NULL),
+(49,'Jake Steinhauser',NULL,NULL,NULL),
+(50,'Daniel Furnari',NULL,NULL,NULL),
+(51,'Josh Homme',NULL,NULL,NULL),
+(52,'Troy Van Leeuwen',NULL,NULL,NULL),
+(53,'Michael Shuman',NULL,NULL,NULL),
+(54,'Dean Fertita',NULL,NULL,NULL),
+(55,'Jon Theodore',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `artist` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,7 +177,7 @@ INSERT INTO `band` VALUES
 (11,'Landmvrks','2014-01-01','../imgs/bands/Landmvrks.jpg','Landmvrks (pronounced and originally spelt \'Landmarks\', now stylised in all caps, LANDMVRKS) is a French metalcore band from Marseille, formed in 2014. The band has since released four studio albums and is signed to Arising Empire.'),
 (12,'Polaris','2012-01-01','../imgs/bands/Polaris.jpg','Polaris are an Australian metalcore band from Sydney. The band consists of vocalist Jamie Hails, guitarist Rick Schneider, bassist/vocalist Jake Steinhauser and drummer Daniel Furnari.'),
 (13,'Queens of the Stone Age','1996-01-01','../imgs/bands/queens.jpeg','Dopo lo scioglimento dei Kyuss'),
-(14,'Lo!','2025-01-01','/imgs/bands/','Lo!');
+(14,'Lo!','2025-01-01','/imgs/bands/lo.jpeg','Lo!');
 /*!40000 ALTER TABLE `band` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -402,10 +452,60 @@ CREATE TABLE `members` (
 LOCK TABLES `members` WRITE;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
 INSERT INTO `members` VALUES
-(4,1,NULL),
+(4,1,'ALL'),
 (1,2,'Drummer'),
 (1,3,'Vocalist, Guitarist'),
-(NULL,4,NULL);
+(1,5,'Guitarist'),
+(1,6,'Bassist'),
+(2,7,'Vocalist'),
+(2,8,'Guitarist'),
+(2,9,'Drummer'),
+(2,10,'Bassist'),
+(3,11,'Vocalist'),
+(3,12,'Guitarist'),
+(3,13,'Drummer'),
+(3,14,'Bassist'),
+(5,15,'Guitarist'),
+(5,16,'Violinist'),
+(5,17,'Trumpet'),
+(5,18,'Saxophone'),
+(5,19,'Drummer'),
+(5,20,'Vocalist'),
+(5,21,'Bassist'),
+(6,22,'Guitarist'),
+(6,23,'Guitarist'),
+(6,24,'Drummer'),
+(6,25,'Vocalist'),
+(7,26,'Vocalist'),
+(7,27,'Bassist'),
+(7,28,'Drummer'),
+(7,29,'Guitarist, Keyboardist'),
+(8,30,'Vocalist'),
+(8,31,'Guitarist, Vocalist'),
+(8,32,'Bassist, Vocalist'),
+(8,33,'Guitarist'),
+(9,34,'Vocalist'),
+(9,35,'Drummer'),
+(9,36,'Guitarist'),
+(9,37,'Bassist'),
+(10,38,'Vocalist'),
+(10,39,'Bassist'),
+(10,40,'Drummer'),
+(10,41,'Guitarist'),
+(11,42,'Vocalist'),
+(11,43,'Guitarist'),
+(11,44,'Guitarist'),
+(11,45,'Bassist'),
+(11,46,'Drummer'),
+(12,47,'Vocalist'),
+(12,48,'Guitarist'),
+(12,49,'Bassist, Vocalist'),
+(12,50,'Drummer'),
+(13,51,'Vocalist, Guitarist, Piano'),
+(13,52,'Guitarist'),
+(13,53,'Bassist'),
+(13,54,'Keyboardist, Guitarist'),
+(13,55,'Drummer');
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -719,9 +819,9 @@ CREATE TABLE `user` (
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` VALUES
-(1,'imdonkey','*91D9861DFC07DD967611B8C96953474EF270AD5E','lol@lmao.com','2005-05-14','./imgs/users/imdonkey.jpeg',1),
-(2,'Bonz','*A4B6157319038724E3560894F7F932C8886EBFCF','idk@gmail.com','2000-01-01','./imgs/users/bonza.jpeg',1),
-(3,'user1','*78206C4A13995561F9E4D7E835F1A668F3866F4E','user1@gmail.com','2025-07-28','',0);
+(1,'imdonkey','*A4B6157319038724E3560894F7F932C8886EBFCF','jac@gmail.com','2005-05-14','./imgs/users/imdonkey.jpeg',1),
+(2,'Bonz','*A4B6157319038724E3560894F7F932C8886EBFCF','bonz@gmail.com','2000-01-01','./imgs/users/bonza.jpeg',1),
+(3,'user1','*A4B6157319038724E3560894F7F932C8886EBFCF','user1@gmail.com','2025-07-28','',0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -734,4 +834,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-08-05 21:17:09
+-- Dump completed on 2026-09-16 10:37:43

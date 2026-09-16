@@ -8,9 +8,15 @@
 
         try {
 
-            $sql = "select id, username, email, passwd, isadmin from user where username='".$_POST['name']."' and email='".$_POST['email']."' and passwd=password('".$_POST['passwd']."')";
+            $sql = "SELECT id, username, email, passwd, isadmin FROM user WHERE username = :name AND email = :email AND passwd = PASSWORD(:passwd)";
 
-            $result = $conn->query($sql);
+            $result = $conn->prepare($sql);
+
+            $result->execute([
+                'name'   => $_POST['name'],
+                'email'  => $_POST['email'],
+                'passwd' => $_POST['passwd']
+            ]);
 
             if ($result->rowCount() > 0) {
 
