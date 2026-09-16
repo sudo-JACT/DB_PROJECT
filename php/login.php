@@ -24,6 +24,8 @@
 
             echo "<div class='login-background'>";
 
+            // form per mandare post ad access.php
+
             echo "<form class='mb-3 row card-login' action='./access.php' method='post'>
 
                         <div class='mb-3'>
@@ -49,10 +51,6 @@
                     
                     </div>";
             
-                //chiede tutto
-
-    
-
         ?>
 
     </body>

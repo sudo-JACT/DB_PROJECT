@@ -1,10 +1,10 @@
 <?php
 
-    include_once("./template.php");
-    session_checker();
+    include_once("./template.php"); // includo la "libreria"
+    session_checker(); // controllo la sessione 
 
 
-    if (!isadmin()) {
+    if (!isadmin()) { // controllo se l'utente è un'admin
 
         header('Location: /php/403.php'); 
 
@@ -15,7 +15,7 @@
 
     $selected = null;
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sel'])) {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['sel'])) {  // controllo se ha effettivamente selezionato qualcosa
         
         if ($_POST['sel'] != '') {
         
@@ -29,7 +29,7 @@
 
 
 
-    if (isset($_POST['flag'])) {
+    if (isset($_POST['flag'])) { // imposto l'inizio della path per le diverse immagini
 
         $filename = '';
 
@@ -68,11 +68,11 @@
 
 
 
-            switch ($_POST['flag']) {
+            switch ($_POST['flag']) { 
 
                 case 'album':
 
-
+                    // converto il bytestream nell'immagine e la salvo sul server 
                     if (!file_exists($filename) && getimagesize($_FILES['imga']['tmp_name']) && $_FILES['imga']['size'] <= 2000000 && !($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg' && $ext != 'webp')) {
 
                         if(!move_uploaded_file($_FILES['imga']['tmp_name'], $filename)) {
@@ -83,6 +83,7 @@
 
                             $conn = connect_db();
 
+                            // inserisco tutto nel DB
                             $sql = "INSERT INTO album (name, publication_date, image_path, descr, linky) VALUES ('".$_POST['name']."', '".$_POST['pubdate']."', '".$filename."', '".$_POST['desc']."', '".$_POST['link']."')";
                             $conn->query($sql);
 
@@ -204,7 +205,7 @@
                     break;
         }
 
-
+        // riporto l'utente admin al pannello
         header('Location: ' . $_SERVER['PHP_SELF'] . '');
         exit;
 
@@ -212,7 +213,7 @@
 
     
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['query'])) {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['query'])) {  // se l'utente decide di fare una free query semplicemente passo la stringa al DB e ne faccio il fetch
 
         $query = $_POST['query'];
 
@@ -262,6 +263,8 @@
 
         <?php
 
+            // printo le diverse scelte
+
             echo "<form method='POST' class='mb-3 card-dark'>
         
                 <div class='card-admin-panel'>
@@ -292,7 +295,9 @@
         <div class='card-admin-panel'>
 
 
-        <?php if ($selected === 0) :?>
+        <!---printo le diverse opzioni con i diversi campi-->
+
+        <?php if ($selected === 0) :?>  
 
             <form method="POST" class="mb-3">
 
@@ -507,7 +512,7 @@
 
 
 
-        <?php
+        <?php // printo l'errore se si verifca
             if ($err) {
                 echo "<div class='card-dark'>
                     <p style='color:red'>".htmlspecialchars($err)."</p>
@@ -516,7 +521,7 @@
         ?>
 
 
-        <?php 
+        <?php // printo i risultati 
             if ($result !== null) {
 
                 if (count($result) > 0) {
