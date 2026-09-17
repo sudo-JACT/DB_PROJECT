@@ -128,7 +128,7 @@
 
             <div class='row bg-white p-4 rounded shadow-sm cart-body' id="cart-body">
 
-                <div class='card mb-3' style='max-width: 720px; max-height: fit-content; border: 0px'>
+                <div class='card' style='max-width: 1024px; max-height: fit-content; border: 0px'>
 
 
             <?php
@@ -137,18 +137,18 @@
 
                     while ($r = $row->fetch()) {
 
-                        echo "<form  method='POST'><div class='row g-0 cart-card-body'>
+                        echo "<form method='POST'><div class='row g-0 cart-card-body'>
 
 
-                                        <div class='col-md-4'>
+                                        <div class='cart-img-box' style='max-width: 400px'>
                                             <img src='".$r['im']."' class='img-fluid rounded-start cart-card-img' alt='".$r['name']."'>
                                         </div>
                                     
-                                        <div class='col-md-8'>
+                                        <div class='card-text-container' style='max-width: 420px'>
                             
-                                            <div class='card-body'>
+                                            <div class='card-body cart-text-nome'>
                                 
-                                                <p class='card-text'><strong><small>".$r['bname']."</small></strong></p>
+                                                <p class='card-text '><strong><small>".$r['bname']."</small></strong></p>
                                                 <p class='card-text'>".$r['name']."</p>";
 
                             if ($r['sale'] != 0) {
@@ -163,11 +163,17 @@
 
                                                 
 
-                            echo "                    <button type='submit' class='cart-button btn' value='m' name='btn'>-</button>
-    
-                                                    <p class='cart-p'>".$r['q']."</p>
+                            echo "              
 
-                                                <button type='submit' class='cart-button btn' value='p' name='btn'>+</button>
+                                                <div class='cart-quantity-box'>
+
+                                                    <button type='submit' class='cart-button btn' value='m' name='btn'>-</button>
+        
+                                                        <p class='cart-p'>".$r['q']."</p>
+
+                                                    <button type='submit' class='cart-button btn' value='p' name='btn'>+</button>
+                                                
+                                                </div>
                     
                                                 <input type='hidden' name='flag' value='".$r['id']."'>
 
