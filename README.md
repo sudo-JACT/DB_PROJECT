@@ -1,4 +1,4 @@
-# SMUGGLERS
+<img src="./imgs/logo/Smugglers Logo.png" alt="SMUGGLERS"/>
 
 E-commerce di album musicali sviluppato in **PHP + MariaDB**, containerizzato con **Docker Compose**. Progetto per il corso di Basi di Dati presso Università degli Studi di Parma.
 
