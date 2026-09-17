@@ -1,7 +1,7 @@
 // inclusione del file template.php
 <?php
 
-    include_once("./template.php");
+    include_once("../php/template.php");
     session_checker(); // controllo della sessione se valida e se presenti permessi
 ?>
 

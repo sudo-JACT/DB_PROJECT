@@ -1,6 +1,6 @@
 <?php
 
-    include_once("./template.php"); 
+    include_once("../php/template.php"); 
     session_checker(); // controllo sessione
 ?>
 
