@@ -361,6 +361,16 @@ body {
 }
 
 
+
+.album-panel form,
+.bands-panel form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* opzionale, spazio tra le card */
+}
+
+
 .filters_div {
 
     display: grid;
@@ -368,6 +378,12 @@ body {
     align-items: center;
     text-align: center;*/
     grid-template-columns: auto 50px 60px 8px;
+
+}
+
+.filters form {
+
+    margin-block-end: 0rem !important;
 
 }
 
@@ -450,10 +466,10 @@ body {
 
 .card {
 
-    display: inline-block !important;
+    /*display: inline-block !important;
     margin-right: 26px !important;
     margin-left: 26px !important;
-    justify-self: center !important;
+    justify-self: center !important;*/
 }
 
 .cart-body {
