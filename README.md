@@ -22,6 +22,7 @@ js/           script client
 php/          pagine e logica applicativa
 imgs/         immagini (album, band, artisti, utenti, logo)
 db_backups/   schema, dump e migrazioni del database
+error-pages/  pagine di errore (403, 404)
 index.php     homepage
 docker-compose.yml
 makefile
@@ -35,8 +36,8 @@ Richiede Docker, Docker Compose e un file `.env` con le variabili del database (
 make start
 ```
 
-- Sito: <http://localhost:8888>
-- Adminer: <http://localhost:8080>
+- Sito: <a target="_blank" href="http://localhost:8888">http://localhost:8888</a>
+- Adminer: <a target="_blank" href="http://localhost:8080">http://localhost:8080</a>
 
 Per fermare (con backup automatico del DB):
 
