@@ -148,7 +148,7 @@ function navbar() {
         while (($i > 0) && ($row = $bands->fetch())) {
 
             echo "  
-                    <div class='card' style='color: #000000; margin-right: 20px;'>
+                    <div class='card' style='color: #000000; background: transparent; margin: 20px; border-color: transparent;'>
                         <figure class='figure border-neon' style='color: #000000;'>
                         <button tipe='submit' class='btn' style='color: #000000;' value='".$row['id']."' name='bandid'><img src='".$row['image_path']."' class='figure-img foto_band' alt=".$row['name']."></button>
                         </br></br>
