@@ -448,6 +448,14 @@ body {
 
 }
 
+.card {
+
+    display: inline-block !important;
+    margin-right: 26px !important;
+    margin-left: 26px !important;
+    justify-self: center !important;
+}
+
 .cart-body {
 
     margin-top: 50px;
