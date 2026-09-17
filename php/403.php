@@ -1,9 +1,9 @@
+// inclusione del file template.php
 <?php
 
     include_once("./template.php");
-    session_checker();
+    session_checker(); // controllo della sessione se valida e se presenti permessi
 ?>
-
 
 <html lang="en">
 
@@ -26,7 +26,7 @@
 
         <?php
 
-            http_response_code(403);
+            http_response_code(403); // imposta codice risposta 403
 
             echo "<div class='title'>";
             echo "<h1>403 ERROR</h1>";

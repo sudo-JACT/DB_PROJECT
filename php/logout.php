@@ -1,10 +1,10 @@
 <?php
 
-    include_once("./template.php");
+    include_once("./template.php"); // inclusione del template.php
 
-    logout();
+    logout(); // terminare sessione utente
 
-    header('Location: '.'/'); 
+    header('Location: '.'/'); // utente riportato alla homepage
 
 ?>
 
