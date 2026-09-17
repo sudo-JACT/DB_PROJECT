@@ -60,13 +60,13 @@
 
             <div class="title">
         
-                <h1><?php echo "WELCOME TO " . $_SESSION['title'] . "!!!" ?></h1>
+                <h1 style="margin-top:10px; margin-bottom: 10px;"><?php echo "WELCOME TO " . $_SESSION['title'] . "!!!" ?></h1>
 
             </div>
 
             <form method='POST' class='filters'>
 
-                <div class="btn btn-group">
+                <div class="btn btn-group" style="margin-top: 10px;">
                     
                     <button class="filter-btn btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Order By

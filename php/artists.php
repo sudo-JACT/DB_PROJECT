@@ -67,7 +67,7 @@
  
             <!-- Titolo della pagina -->
             <div class="title">
-                <h1>BAND</h1>
+                <h1 style="margin-top: 10px; margin-bottom: 10px;">BAND</h1>
             </div>
 
             <!--
@@ -76,7 +76,7 @@
             -->
             <form method='POST' class='filters'>
 
-                <div class="btn btn-group">
+                <div class="btn btn-group" style="margin-top: 10px; margin-bottom: 10px;">
                     
                     <!--
                         Pulsante che apre il menu a tendina.
