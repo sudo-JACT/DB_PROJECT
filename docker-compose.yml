@@ -34,6 +34,8 @@ services:
     
     volumes:
       - ${VOLUME}:/var/www/html
+      - ${VOLUME}/error-pages:/var/www/html/errors
+      - ${VOLUME}/000-default.conf:/etc/apache2/sites-available/000-default.conf
     
     command: sh -c "docker-php-ext-install mysqli pdo pdo_mysql && apache2-foreground"
   
