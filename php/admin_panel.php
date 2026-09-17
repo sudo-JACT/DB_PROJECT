@@ -6,7 +6,7 @@
 
     if (!isadmin()) { // controllo se l'utente è un'admin
 
-        header('Location: /php/403.php');
+        header('Location: ../error-pages/403.php');
         exit;
 
     }
@@ -272,7 +272,7 @@
 
                     <select class='form-select form-select-lg mb-3 card-dark text-neon' aria-label='Query' name='sel'>
                         
-                        <option disabled selected value=''>Choose yuor option</option> 
+                        <option disabled selected value=''>Choose your option</option> 
                         <option value='0'>Free Query</option>
                         <option value='1'>Add Album</option>
                         <option value='2'>Add Song</option>

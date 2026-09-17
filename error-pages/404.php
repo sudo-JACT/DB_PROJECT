@@ -1,42 +1,46 @@
 <?php
-
-    include_once("../php/template.php"); 
-    session_checker(); // controllo sessione
+    include_once("../php/template.php");
+    session_checker();
 ?>
 
-// inclusione di head, navbar e codice errore
 <html lang="en">
 
-    <?php
+    <?php head(false); ?>
 
-       head(false);
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .error-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
 
-    ?>
-
-    
     <body>
+      
+        <?php navbar(); ?>
 
-        <?php
+        <div class="error-container">
+      
+            <div class="title">
+      
+                <?php
 
-            navbar();
-
-        ?>
-
-
-
-        <?php
-
-            http_response_code(404); // http
-
-            echo "<div class='title'>"; // messaggio di errore all'interno della pagina
-            echo "<h1>404</h1>";
-            echo "</div>";
-
-
-        ?>
-
-
+                    http_response_code(404);
+                    echo "<h1>404 ERROR</h1>";
+                ?>
+      
+            </div>
+      
+        </div>
+    
     </body>
 
 </html>
-

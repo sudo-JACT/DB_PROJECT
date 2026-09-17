@@ -1,42 +1,46 @@
-// inclusione del file template.php
 <?php
-
     include_once("../php/template.php");
-    session_checker(); // controllo della sessione se valida e se presenti permessi
+    session_checker();
 ?>
 
 <html lang="en">
 
-    <?php
+    <?php head(false); ?>
 
-       head(false);
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .error-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
 
-    ?>
-
-    
     <body>
+      
+        <?php navbar(); ?>
 
-        <?php
+        <div class="error-container">
+      
+            <div class="title">
+      
+                <?php
 
-            navbar();
-
-        ?>
-
-
-
-        <?php
-
-            http_response_code(403); // imposta codice risposta 403
-
-            echo "<div class='title'>";
-            echo "<h1>403 ERROR</h1>";
-            echo "</div>";
-
-
-        ?>
-
-
+                    http_response_code(403);
+                    echo "<h1>403 ERROR</h1>";
+                ?>
+      
+            </div>
+      
+        </div>
+    
     </body>
 
 </html>
-

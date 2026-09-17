@@ -84,7 +84,7 @@
 
                             <div class='col-2'>
 
-                                <input type='number' step='1', name='quantity', id='quantity' value='1' class='number-item'>
+                                <input type='number' step='1', name='quantity', id='quantity' value='1' class='number-item' min='1'>
                                 <input type='hidden' name='id' value='".$row['id']."'>
 
                             </div>
