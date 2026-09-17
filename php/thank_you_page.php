@@ -27,7 +27,7 @@
        
             <div class='row bg-white p-4 rounded shadow-sm thankyou-body' id="cart-body">
 
-                <h1>Thank you for purchasing from</h1>
+                <h1>Thank you for your purchase from</h1>
                 <img src="/imgs/logo/Smugglers Logo.png" >
 
             </div>
