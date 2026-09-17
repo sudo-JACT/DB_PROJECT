@@ -1,5 +1,7 @@
 <?php
 
+    // pagina di ringraziamento dopo aver acquistato
+
     include_once("./template.php");
     session_checker();
 

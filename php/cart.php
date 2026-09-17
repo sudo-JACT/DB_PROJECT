@@ -1,17 +1,18 @@
 <?php
 
-    include_once("./template.php");
+    include_once("./template.php"); // importo "la libreria"
 
-    if (!session_checker()) {
+    if (!session_checker()) { // controllo la sessione
 
         header('Location: '.'/php/please_login.php');
+        exit;
 
     }
 
-    $conn = connect_db();
+    $conn = connect_db();  // mi connetto al DB
 
 
-    if (isset($_POST['quantity']) && isset($_POST['id'])) {
+    if (isset($_POST['quantity']) && isset($_POST['id'])) { // aggiungo un'album 
 
         $sql = "SELECT c.quantity as q FROM cart as c WHERE c.user_id=".$_SESSION['id']." AND c.album_id=".$_POST['id']."";
         $r = $conn->query($sql);
@@ -35,7 +36,7 @@
     }
 
 
-    if (isset($_POST['b']) && !isset($_POST['btn'])) {
+    if (isset($_POST['b']) && !isset($_POST['btn'])) { // eseguo la transazione
 
         $nowtime = $conn->query("select CURRENT_TIMESTAMP AS tm;")->fetch();
 
@@ -60,7 +61,7 @@
     
     }
 
-    if (isset($_POST['flag'])) {
+    if (isset($_POST['flag'])) { // aggiorno le quantita 
 
 
         if ($_POST['btn'] === 'p') {
@@ -97,6 +98,7 @@
 
     }
 
+    // mostro i dischi nel carrello
     $tot = 0;
 
     $sql = "SELECT a.sale as sale, a.id as id, a.name as name, a.price as price, b.name as bname, a.image_path as im, c.quantity as q FROM album as a JOIN cart as c ON c.album_id=a.id JOIN published as p ON p.album_id=a.id JOIN band as b ON b.id=p.band_id WHERE c.user_id=".$_SESSION['id']."";

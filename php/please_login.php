@@ -1,5 +1,7 @@
 <?php
 
+    // se l'utente non si è autenticato, chiedo di autenticarsi
+
     include_once("./template.php");
     session_checker();
 

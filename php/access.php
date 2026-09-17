@@ -8,9 +8,11 @@
 
         try {
 
-            $sql = "SELECT id, username, email, passwd, isadmin FROM user WHERE username = :name AND email = :email AND passwd = PASSWORD(:passwd)";
+            $sql = "SELECT id, username, email, passwd, isadmin FROM user WHERE username = :name AND email = :email AND passwd = PASSWORD(:passwd)"; // query per fetchare il db
 
-            $result = $conn->prepare($sql);
+            $result = $conn->prepare($sql);  
+
+            // sostituisco le variabili che iniziano con :, inserendo al loro posto le i dati che mi arrivano dalla post
 
             $result->execute([
                 'name'   => $_POST['name'],
@@ -18,14 +20,17 @@
                 'passwd' => $_POST['passwd']
             ]);
 
+            // controllo se essiste l'utente
             if ($result->rowCount() > 0) {
 
                 $row = $result->fetch();
 
                 $user = ["name"=>$row['username'], "email"=>$row['email'], "role"=>$row['isadmin'], "passwd"=>$_POST['passwd'], "id"=>$row['id']];
 
+                // passo l'utente al setter 
                 session_setter($user);
 
+                //riporto l'utente alla home
                 header('Location: '.'/'); 
 
 

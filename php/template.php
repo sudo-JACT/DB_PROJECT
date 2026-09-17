@@ -216,6 +216,7 @@ function navbar() {
 }
 
 
+// cacolo il prezzo scontato
 function calcSale($price, $sale): float {
 
     return $price - ($price * ($sale / 100));
@@ -223,6 +224,7 @@ function calcSale($price, $sale): float {
 }
 
 
+// trasformo il prezzo da float a string in maniera corretta
 function roundPrice($price): string {
 
     if ($price === null || $price == 0) {
@@ -244,7 +246,7 @@ function roundPrice($price): string {
 }
 
 
-
+// controllo se è admin
 function isadmin(): bool {
 
     if (isset($_SESSION['role'])) {
@@ -260,16 +262,17 @@ function isadmin(): bool {
     return false;
 }
 
+// funzione che vede se la sessione esiste
 function session_checker(): bool {
 
     if (session_status() === PHP_SESSION_NONE) {
 
         session_start();
 
-        $_SESSION['servername'] = "mariadb";
-        $_SESSION['username'] = "root";
-        $_SESSION['password'] = "root";
-        $_SESSION['dbname'] = "proddb";
+        $_SESSION['servername'] = getenv('DB_HOST');
+        $_SESSION['username'] = getenv('DB_USER');
+        $_SESSION['password'] = getenv('DB_PASSWD');
+        $_SESSION['dbname'] = getenv("DB_NAME");
         $_SESSION['title'] = "SMUGGLERS"; 
 
     }
@@ -279,6 +282,7 @@ function session_checker(): bool {
 }
 
 
+// funzione che vede se esistono i cookie
 function cookie_checker(): bool {
 
     if (isset($_COOKIE['JWT'])) {
@@ -292,7 +296,7 @@ function cookie_checker(): bool {
 }
 
 
-
+// creo una sessione con i dati dell'utente
 function session_setter($user) {
 
     $dtime = 100;
@@ -338,6 +342,7 @@ function session_setter($user) {
 }
 
 
+// distruggo la sessione dell'utente
 function logout() {
 
     $_SESSION = [];
@@ -365,7 +370,7 @@ function logout() {
 }
 
 
-
+// creo una PDO per connetermi al DB
 function connect_db(): PDO {
 
     session_checker();
@@ -401,6 +406,7 @@ function footer() {
 
 
 
+// creo il JWT  dato l'utente
 function gen_jwt($user): string {
 
     $head = json_encode(["alg"=>"HS512", "typ"=>"JWT"]);
@@ -418,6 +424,7 @@ function gen_jwt($user): string {
 }
 
 
+// decripto il JWT per autenticare l'utente
 function decode_jwt($key, $token): ?array {
 
     $parts = explode(".", $token);
