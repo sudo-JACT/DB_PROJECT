@@ -207,16 +207,10 @@ CREATE TABLE `cart` (
 LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
 INSERT INTO `cart` VALUES
-(1,3,3),
-(1,13,1),
-(1,1,1),
-(1,2,3),
-(1,12,1),
 (3,7,10),
 (3,5,7),
-(1,10,2),
-(1,7,3),
-(1,9,1);
+(1,4,2),
+(1,3,1);
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -834,4 +828,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-09-17 18:23:59
+-- Dump completed on 2026-09-18  8:43:23
